@@ -5,7 +5,7 @@ import IFormInstance from '../../interfaces/IFormInstance';
 import IFormSchema from '../../interfaces/IFormSchema';
 import IRuleResponse from '../../interfaces/IRuleResponse';
 
-export default class RuleMaxValue extends RuleBase implements IRule {
+export default class RuleValueMax extends RuleBase implements IRule {
 	private maxValue: number;
 
 	constructor(maxValue: number, customMessage?: string) {

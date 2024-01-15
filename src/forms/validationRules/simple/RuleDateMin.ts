@@ -10,7 +10,7 @@ import DateParseResponse from '../../models/DateParseResponse';
 //
 // works with date or date time, or times
 //
-export default class RuleMinDate extends RuleBaseDateTime implements IRule {
+export default class RuleDateMin extends RuleBaseDateTime implements IRule {
 	private readonly minDate: DateParseResponse;
 	private readonly constantMinDate: string;
 
