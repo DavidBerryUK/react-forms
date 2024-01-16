@@ -1,10 +1,6 @@
 import Builder from "../forms/models/Builder";
-import Condition from "../forms/models/Condition";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/IFormSchema";
-import RuleGroup from "../forms/models/RuleGroup";
-import RuleIsTrue from "../forms/validationRules/simple/RuleIsTrue";
-import RuleMandatory from "../forms/validationRules/simple/RuleMandatory";
 
 //
 // Define fields on the form.
@@ -25,21 +21,33 @@ export default class VehicleBulkActionsFormSchema extends FormSchemaBase impleme
   constructor() {
     super();
     this.parse(this.fields);
-    this.addCustomerConditionalFields();
+
+    // this.addCustomerConditionalFields();
+
+    this.fields.customerId.when(this.fields.actionChangeCustomer.evaluatesTo().isTrue()).useValidation().mandatory();
+    this.fields.depotId.when(this.fields.actionChangeCustomer.evaluatesTo().isTrue()).useValidation().mandatory();
   }
 
-  private addCustomerConditionalFields() {
-    //
-    // condition to see if Customer Action is being used
-    //
-    const isActionCustomerChange = Condition.create(this.fields.actionChangeCustomer, new RuleIsTrue());
+  // add [When] to field
+  // add [state()] to field
 
-    //
-    // if the action is being used, then both CustomerId and DepotId are mandatory
-    //
-    const ruleGroupCustomerMandatory = RuleGroup.createRuleAndCondition(new RuleMandatory(), isActionCustomerChange);
-    const ruleGroupDepotMandatory = RuleGroup.createRuleAndCondition(new RuleMandatory(), isActionCustomerChange);
-    this.fields.customerId.appendRules(ruleGroupCustomerMandatory);
-    this.fields.depotId.appendRules(ruleGroupDepotMandatory);
-  }
+  // add evaluatesTo() to return a condition, first for single rule, then for multiple rules
+
+  // add [useValidation]
+  // extract chainable validation to base class so can be inherited
+
+  // private addCustomerConditionalFields() {
+  //   //
+  //   // condition to see if Customer Action is being used
+  //   //
+  //   const isActionCustomerChange = Condition.create(this.fields.actionChangeCustomer, new RuleIsTrue());
+
+  //   //
+  //   // if the action is being used, then both CustomerId and DepotId are mandatory
+  //   //
+  //   const ruleGroupCustomerMandatory = RuleGroup.createRuleAndCondition(new RuleMandatory(), isActionCustomerChange);
+  //   const ruleGroupDepotMandatory = RuleGroup.createRuleAndCondition(new RuleMandatory(), isActionCustomerChange);
+  //   this.fields.customerId.appendRules(ruleGroupCustomerMandatory);
+  //   this.fields.depotId.appendRules(ruleGroupDepotMandatory);
+  // }
 }
