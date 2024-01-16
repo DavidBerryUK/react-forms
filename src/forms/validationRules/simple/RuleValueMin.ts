@@ -5,12 +5,12 @@ import IFormInstance from '../../interfaces/IFormInstance';
 import IFormSchema from '../../interfaces/IFormSchema';
 import IRuleResponse from '../../interfaces/IRuleResponse';
 
-export default class RuleMaxLength extends RuleBase implements IRule {
-	private readonly maxLength: number;
+export default class RuleValueMin extends RuleBase implements IRule {
+	private readonly minValue: number;
 
-	constructor(maxLength: number, customMessage?: string) {
+	constructor(minValue: number, customMessage?: string) {
 		super(customMessage);
-		this.maxLength = maxLength;
+		this.minValue = minValue;
 	}
 
 	isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
@@ -18,10 +18,16 @@ export default class RuleMaxLength extends RuleBase implements IRule {
 			return this.pass();
 		}
 
-		if (value.length <= this.maxLength) {
-			return this.pass();
+		var number = Number(value);
+
+		if (isNaN(number)) {
+			return this.fail('must be a valid number');
 		}
 
-		return this.fail(`must be less or equal to ${this.maxLength} characters`);
+		if (number < this.minValue) {
+			return this.fail(`must be equal or greater than ${this.minValue}`);
+		}
+
+		return this.pass();
 	}
 }
