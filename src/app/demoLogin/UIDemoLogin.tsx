@@ -20,29 +20,15 @@ const UIDemoLogin = () => {
     <div>
       <div>
         <UILabel caption="username">
-          <UIInputText
-            value={username}
-            onChange={handleUsernameChanged}
-            rules={usernameRules.current}
-          />
+          <UIInputText value={username} onChange={handleUsernameChanged} rules={usernameRules.current} />
         </UILabel>
-        <UIValidationMessage
-          name="username"
-          message={usernameValidationMessage}
-        />
+        <UIValidationMessage name="username" message={usernameValidationMessage} />
       </div>
       <div>
         <UILabel caption="password">
-          <UIInputPassword
-            value={password}
-            onChange={handlePasswordChanged}
-            rules={passwordRules.current}
-          />
+          <UIInputPassword value={password} onChange={handlePasswordChanged} rules={passwordRules.current} />
         </UILabel>
-        <UIValidationMessage
-          name="Password"
-          message={passwordValidationMessage}
-        />
+        <UIValidationMessage name="Password" message={passwordValidationMessage} />
       </div>
     </div>
   );

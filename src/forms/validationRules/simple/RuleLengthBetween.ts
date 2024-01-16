@@ -5,11 +5,13 @@ import IFormInstance from "../../interfaces/IFormInstance";
 import IFormSchema from "../../interfaces/IFormSchema";
 import IRuleResponse from "../../interfaces/IRuleResponse";
 
-export default class RuleLengthMax extends RuleBase implements IRule {
+export default class RuleLengthBetween extends RuleBase implements IRule {
+  private readonly minLength: number;
   private readonly maxLength: number;
 
-  constructor(maxLength: number, customMessage?: string) {
+  constructor(minLength: number, maxLength: number, customMessage?: string) {
     super(customMessage);
+    this.minLength = minLength;
     this.maxLength = maxLength;
   }
 
@@ -22,10 +24,12 @@ export default class RuleLengthMax extends RuleBase implements IRule {
       return this.pass();
     }
 
-    if (value.length <= this.maxLength) {
+    if (value.length >= this.minLength && value.length <= this.maxLength) {
       return this.pass();
     }
 
-    return this.fail(`must be less or equal to ${this.maxLength} characters`);
+    return this.fail(
+      `must be between ${this.minLength} and ${this.maxLength} characters`
+    );
   }
 }

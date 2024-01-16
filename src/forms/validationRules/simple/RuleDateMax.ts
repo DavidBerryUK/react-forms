@@ -1,4 +1,4 @@
-import { format, isAfter } from "date-fns";
+import { format, isAfter, isBefore } from "date-fns";
 import IRule from "../../interfaces/IRule";
 import IFormField from "../../interfaces/IFormField";
 import IFormInstance from "../../interfaces/IFormInstance";
@@ -10,9 +10,9 @@ import DateParseResponse from "../../models/DateParseResponse";
 //
 // works with date or date time, or times
 //
-export default class RuleDateMin extends RuleBaseDateTime implements IRule {
+export default class RuleDateMax extends RuleBaseDateTime implements IRule {
   private readonly minDate: DateParseResponse;
-  private readonly constantMinDate: string;
+  private readonly constantMaxDate: string;
 
   constructor(minDate: string, customMessage?: string) {
     super(
@@ -25,7 +25,7 @@ export default class RuleDateMin extends RuleBaseDateTime implements IRule {
       ],
       customMessage
     );
-    this.constantMinDate = minDate;
+    this.constantMaxDate = minDate;
     this.minDate = this.parseMultipleFormats(minDate);
   }
 
@@ -43,7 +43,7 @@ export default class RuleDateMin extends RuleBaseDateTime implements IRule {
     //
     if (!this.minDate.success) {
       return this.fail(
-        `MinDate validation rule has invalid constant date of ${this.constantMinDate}`
+        `MinDate validation rule has invalid constant date of ${this.constantMaxDate}`
       );
     }
 
@@ -55,9 +55,9 @@ export default class RuleDateMin extends RuleBaseDateTime implements IRule {
       return this.fail(this.formatErrorMessage());
     }
 
-    if (isAfter(this.minDate.result!, inputDate.result!)) {
+    if (isBefore(this.minDate.result!, inputDate.result!)) {
       return this.fail(
-        `must not be a date before ${format(
+        `must not be a date after ${format(
           this.minDate.result!,
           inputDate.matchingFormat!
         )}`
