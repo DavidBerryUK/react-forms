@@ -1,26 +1,18 @@
-import Builder from "../forms/models/Builder";
+import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/IFormSchema";
 
-//
-// Define fields on the form.
-// name     = same name as the field on the API Model
-// caption  = name used on UI Captions and validation messages
-//
-
-class Fields {
-  address1 = Builder.caption("Address 1").toField();
-  address2 = Builder.caption("Address 2").toField();
-  address3 = Builder.caption("Address 3").toField();
-  address4 = Builder.caption("Address 4").toField();
-  companyName = Builder.caption("Company Name").toField();
-  note = Builder.caption("Note").toField();
-  postCode = Builder.caption("Post Code").isUkPostCode().toField();
-  telephone = Builder.caption("Telephone").toField();
-}
-
 export default class CustomerFormSchema extends FormSchemaBase implements IFormSchema {
-  fields = new Fields();
+  fields = {
+    address1: FieldBuilder.caption("Address 1").toField(),
+    address2: FieldBuilder.caption("Address 2").toField(),
+    address3: FieldBuilder.caption("Address 3").toField(),
+    address4: FieldBuilder.caption("Address 4").toField(),
+    companyName: FieldBuilder.caption("Company Name").toField(),
+    note: FieldBuilder.caption("Note").toField(),
+    postCode: FieldBuilder.caption("Post Code").shouldBeUkPostCode().toField(),
+    telephone: FieldBuilder.caption("Telephone").toField(),
+  };
 
   constructor() {
     super();

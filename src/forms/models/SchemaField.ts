@@ -1,4 +1,4 @@
-import { enumFieldType } from "../enums/EnumFieldType";
+import EnumFieldType from "../enums/EnumFieldType";
 import ICondition from "../interfaces/ICondition";
 import IRule from "../interfaces/IRule";
 import IRuleGroup from "../interfaces/IRuleGroup";
@@ -25,7 +25,7 @@ export default class SchemaField implements ISchemaField {
 
   // Validation Rules
   ruleGroups: IRuleGroups;
-  readonly fieldType: enumFieldType;
+  readonly fieldType: EnumFieldType;
   readonly relatedFields: SchemaFieldRelationships;
 
   //
@@ -33,39 +33,63 @@ export default class SchemaField implements ISchemaField {
   // of fields with single or multiple validation rules
   // in combination with none, single or multiple conditions
   //
-  public static create(name: string, caption: string, fieldType: enumFieldType): ISchemaField {
+  public static create(name: string, caption: string, fieldType: EnumFieldType): ISchemaField {
     return new SchemaField(name, caption, fieldType);
   }
 
-  public static createWithRule(name: string, caption: string, fieldType: enumFieldType, rule: IRule): ISchemaField {
+  public static createWithRule(name: string, caption: string, fieldType: EnumFieldType, rule: IRule): ISchemaField {
     return new SchemaField(name, caption, fieldType, RuleGroup.create(rule));
   }
 
-  public static createWithRuleGroup(name: string, caption: string, fieldType: enumFieldType, ruleGroup: IRuleGroup): ISchemaField {
+  public static createWithRuleGroup(name: string, caption: string, fieldType: EnumFieldType, ruleGroup: IRuleGroup): ISchemaField {
     return new SchemaField(name, caption, fieldType, ruleGroup);
   }
 
-  public static createWithRuleAndCondition(name: string, caption: string, fieldType: enumFieldType, rule: IRule, condition: ICondition): ISchemaField {
+  public static createWithRuleAndCondition(
+    name: string,
+    caption: string,
+    fieldType: EnumFieldType,
+    rule: IRule,
+    condition: ICondition
+  ): ISchemaField {
     return new SchemaField(name, caption, fieldType, RuleGroup.createRuleAndCondition(rule, condition));
   }
 
-  public static createWithRuleAndConditions(name: string, caption: string, fieldType: enumFieldType, rule: IRule, condition: Array<ICondition>): ISchemaField {
+  public static createWithRuleAndConditions(
+    name: string,
+    caption: string,
+    fieldType: EnumFieldType,
+    rule: IRule,
+    condition: Array<ICondition>
+  ): ISchemaField {
     return new SchemaField(name, caption, fieldType, RuleGroup.createRuleAndConditions(rule, condition));
   }
 
-  public static createWithRulesAndCondition(name: string, caption: string, fieldType: enumFieldType, rules: Array<IRule>, condition: ICondition): ISchemaField {
+  public static createWithRulesAndCondition(
+    name: string,
+    caption: string,
+    fieldType: EnumFieldType,
+    rules: Array<IRule>,
+    condition: ICondition
+  ): ISchemaField {
     return new SchemaField(name, caption, fieldType, RuleGroup.createRulesAndCondition(rules, condition));
   }
 
-  public static createWithRulesAndConditions(name: string, caption: string, fieldType: enumFieldType, rules: Array<IRule>, conditions: Array<ICondition>): ISchemaField {
+  public static createWithRulesAndConditions(
+    name: string,
+    caption: string,
+    fieldType: EnumFieldType,
+    rules: Array<IRule>,
+    conditions: Array<ICondition>
+  ): ISchemaField {
     return new SchemaField(name, caption, fieldType, RuleGroup.createRulesAndConditions(rules, conditions));
   }
 
-  public static createWithRules(name: string, caption: string, fieldType: enumFieldType, rules: Array<IRule>): ISchemaField {
+  public static createWithRules(name: string, caption: string, fieldType: EnumFieldType, rules: Array<IRule>): ISchemaField {
     return new SchemaField(name, caption, fieldType, RuleGroup.createRules(rules));
   }
 
-  public static createWithRuleGroups(name: string, caption: string, fieldType: enumFieldType, ruleGroups: Array<IRuleGroup>) {
+  public static createWithRuleGroups(name: string, caption: string, fieldType: EnumFieldType, ruleGroups: Array<IRuleGroup>) {
     const field = new SchemaField(name, caption, fieldType);
     ruleGroups.forEach((group) => {
       field.appendRules(group);
@@ -104,7 +128,13 @@ export default class SchemaField implements ISchemaField {
     return this.name === field.name;
   }
 
-  private constructor(name: string, caption: string, fieldType: enumFieldType, ruleGroup?: IRuleGroup | undefined | null, ruleGroups?: IRuleGroups | undefined | null) {
+  private constructor(
+    name: string,
+    caption: string,
+    fieldType: EnumFieldType,
+    ruleGroup?: IRuleGroup | undefined | null,
+    ruleGroups?: IRuleGroups | undefined | null
+  ) {
     this.name = name;
     this.caption = caption;
     this.readOnly = false;

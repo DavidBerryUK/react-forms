@@ -1,15 +1,15 @@
 import { useRef, useState } from "react";
-import RuleMandatory from "../../forms/validationRules/simple/RuleMandatory";
-import RuleLengthMin from "../../forms/validationRules/simple/RuleLengthMin";
-import RuleLengthMax from "../../forms/validationRules/simple/RuleLengthMax";
+import AssertIsMandatory from "../../forms/assertions/AssertIsMandatory";
+import AssertLengthMin from "../../forms/assertions/AssertLengthMin";
+import AssertLengthMax from "../../forms/assertions/AssertLengthMax";
 
 const useViewController = () => {
   const [forename, setForename] = useState("");
-  const forenameRules = useRef([new RuleMandatory(), new RuleLengthMin(8), new RuleLengthMax(20)]);
+  const forenameRules = useRef([new AssertIsMandatory(), new AssertLengthMin(8), new AssertLengthMax(20)]);
   const [forenameValidationMessage, setForenameValidationMessage] = useState("");
 
   const [surname, setSurname] = useState("");
-  const surnameRules = useRef([new RuleMandatory(), new RuleLengthMin(8), new RuleLengthMax(20)]);
+  const surnameRules = useRef([new AssertIsMandatory(), new AssertLengthMin(8), new AssertLengthMax(20)]);
   const [surnameValidationMessage, setSurnameValidationMessage] = useState("");
 
   const handleForenameChanged = (value: string, isValid: boolean, validationMessage: Array<string>) => {

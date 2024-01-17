@@ -1,18 +1,16 @@
-import Builder from "../forms/models/Builder";
+import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/IFormSchema";
 
-class Fields {
-  purOrderRef = Builder.number("Pur Order Ref").toField();
-  description = Builder.caption("Description").toField();
-  finDesignation = Builder.caption("Fin Designation").toField();
-  PartsCost = Builder.number("Part Costs").toField();
-  labourCosts = Builder.number("Labour Costs").toField();
-  Total = Builder.number("Total");
-}
-
 export default class PurchaseOrderLabourLineSchema extends FormSchemaBase implements IFormSchema {
-  fields = new Fields();
+  fields = {
+    purOrderRef: FieldBuilder.number("Pur Order Ref").toField(),
+    description: FieldBuilder.caption("Description").toField(),
+    finDesignation: FieldBuilder.caption("Fin Designation").toField(),
+    PartsCost: FieldBuilder.number("Part Costs").toField(),
+    labourCosts: FieldBuilder.number("Labour Costs").toField(),
+    Total: FieldBuilder.number("Total"),
+  };
 
   constructor() {
     super();

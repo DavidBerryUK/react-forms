@@ -1,21 +1,14 @@
-import Builder from "../forms/models/Builder";
+import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/IFormSchema";
 
-//
-// Define fields on the form.
-// name     = same name as the field on the API Model
-// caption  = name used on UI Captions and validation messages
-//
-class Fields {
-  vehicleId = Builder.number("Vehicle Id").mandatory().toField();
-  customerId = Builder.number("Customer Id").mandatory().toField();
-  depotId = Builder.caption("Depot").mandatory();
-  transferDate = Builder.date("Transfer Date").mandatory();
-}
-
 export default class VehicleTransferFormSchema extends FormSchemaBase implements IFormSchema {
-  fields = new Fields();
+  fields = {
+    vehicleId: FieldBuilder.number("Vehicle Id").mandatory().toField(),
+    customerId: FieldBuilder.number("Customer Id").mandatory().toField(),
+    depotId: FieldBuilder.caption("Depot").mandatory(),
+    transferDate: FieldBuilder.date("Transfer Date").mandatory(),
+  };
 
   constructor() {
     super();

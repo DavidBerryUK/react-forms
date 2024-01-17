@@ -1,22 +1,14 @@
-import Builder from "../forms/models/Builder";
+import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/IFormSchema";
 
-//
-// Define fields on the form.
-// name     = same name as the field on the API Model
-// caption  = name used on UI Captions and validation messages
-//
-
-class Fields {
-  partsMarkupPercent = Builder.number("Parts Markup Percentage").isDecimal().valueMin(0);
-  labourMarkupPercent = Builder.number("Labour Markup Percentage").isDecimal().valueMin(0);
-  labourRateAmt = Builder.number("Labour Rate Amount").isDecimal().valueMin(0);
-  maxLabourRateAmt = Builder.number("Maximum Labour Rate Amount").isDecimal().valueMin(0);
-}
-
 export default class CustomerPriceFormSchema extends FormSchemaBase implements IFormSchema {
-  fields = new Fields();
+  fields = {
+    partsMarkupPercent: FieldBuilder.number("Parts Markup Percentage").shouldeBeDecimal().shouldHaveValueMin(0),
+    labourMarkupPercent: FieldBuilder.number("Labour Markup Percentage").shouldeBeDecimal().shouldHaveValueMin(0),
+    labourRateAmt: FieldBuilder.number("Labour Rate Amount").shouldeBeDecimal().shouldHaveValueMin(0),
+    maxLabourRateAmt: FieldBuilder.number("Maximum Labour Rate Amount").shouldeBeDecimal().shouldHaveValueMin(0),
+  };
 
   constructor() {
     super();
