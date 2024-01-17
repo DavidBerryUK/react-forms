@@ -2,7 +2,7 @@ import GenericQueryMethodBuilder from "./base/GenericQueryMethodBuilder";
 import IRule from "../interfaces/IRule";
 import ISchemaField from "../interfaces/ISchemaField";
 
-export default class WhenBuilder extends GenericQueryMethodBuilder<WhenBuilder> {
+export default class QueryBuilder extends GenericQueryMethodBuilder<QueryBuilder> {
   private _schemaField: ISchemaField;
   private _rules: Array<IRule>;
 

@@ -3,7 +3,7 @@ import EnumFieldType from "../enums/EnumFieldType";
 import IRuleGroup from "./IRuleGroup";
 import IRuleGroups from "./IRuleGroups";
 import ISchemaFieldRelationships from "./ISchemaFieldRelationships";
-import WhenBuilder from "../syntaxSugar/WhenBuilder";
+import QueryBuilder from "../syntaxSugar/QueryBuilder";
 
 export default interface ISchemaField {
   readonly type: string;
@@ -22,10 +22,10 @@ export default interface ISchemaField {
   //
   // specify conditional validation / cross valdation
   //
-  when(state: WhenBuilder): ConditionalValidationBuilder;
+  when(state: QueryBuilder): ConditionalValidationBuilder;
 
   //
   // used to specify conditions related to realtime state
   //
-  state(): WhenBuilder;
+  state(): QueryBuilder;
 }
