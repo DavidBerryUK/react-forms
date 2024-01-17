@@ -1,6 +1,6 @@
-import { EnumMessageType } from "../enums/EnumMessageType";
 import { FieldType } from "../types/FormTypes";
 import { nanoid } from "nanoid";
+import EnumMessageType from "../enums/EnumMessageType";
 import FormField from "./FormField";
 import FormUtility from "../utility/FormUtility";
 import IFormField from "../interfaces/IFormField";

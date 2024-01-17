@@ -1,19 +1,18 @@
-import { enumFieldType } from "../../enums/EnumFieldType";
+import AssertIsMandatory from "../../assertions/AssertIsMandatory";
+import AssertLengthMax from "../../assertions/AssertLengthMax";
+import AssertPostCodeUK from "../../assertions/AssertPostCodeUk";
+import enumFieldType from "../../enums/EnumFieldType";
 import FormSchemaBase from "../../models/FormSchemaBase";
 import IFormSchema from "../../interfaces/IFormSchema";
-import RuleMandatory from "../../validationRules/simple/RuleMandatory";
-import RuleMaxLength from "../../validationRules/simple/RuleMaxLength";
-import RuleUkPostCode from "../../validationRules/simple/RuleUkPostCode";
 import SchemaField from "../../models/SchemaField";
 
-
 class Fields {
-  company = SchemaField.createWithRule("company", "Company", enumFieldType.string, new RuleMaxLength(100));
-  building = SchemaField.createWithRule("building", "Building", enumFieldType.string, new RuleMaxLength(100));
-  street = SchemaField.createWithRules("street", "Street", enumFieldType.string, [new RuleMandatory(), new RuleMaxLength(100)]);
-  locality = SchemaField.createWithRule("locality", "Locality", enumFieldType.string, new RuleMaxLength(100));
-  town = SchemaField.createWithRules("town", "Town", enumFieldType.string, [new RuleMandatory(), new RuleMaxLength(100)]);
-  postCode = SchemaField.createWithRules("postCode", "Postcode", enumFieldType.string, [new RuleMandatory(), new RuleUkPostCode()]);
+  company = SchemaField.createWithRule("company", "Company", enumFieldType.string, new AssertLengthMax(100));
+  building = SchemaField.createWithRule("building", "Building", enumFieldType.string, new AssertLengthMax(100));
+  street = SchemaField.createWithRules("street", "Street", enumFieldType.string, [new AssertIsMandatory(), new AssertLengthMax(100)]);
+  locality = SchemaField.createWithRule("locality", "Locality", enumFieldType.string, new AssertLengthMax(100));
+  town = SchemaField.createWithRules("town", "Town", enumFieldType.string, [new AssertIsMandatory(), new AssertLengthMax(100)]);
+  postCode = SchemaField.createWithRules("postCode", "Postcode", enumFieldType.string, [new AssertIsMandatory(), new AssertPostCodeUK()]);
 }
 
 export default class AddressSchema extends FormSchemaBase implements IFormSchema {
@@ -21,6 +20,6 @@ export default class AddressSchema extends FormSchemaBase implements IFormSchema
 
   constructor() {
     super();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
   }
 }

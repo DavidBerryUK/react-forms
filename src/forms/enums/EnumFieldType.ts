@@ -1,6 +1,8 @@
-export enum enumFieldType {
-    date,
-    number,
-    string,
-    boolean,
+enum EnumFieldType {
+  date,
+  number,
+  string,
+  boolean,
 }
+
+export default EnumFieldType;

@@ -9,38 +9,36 @@ import ISchemaField from "../interfaces/ISchemaField";
 // rowId    - optional, if the form has repeating rows then this will identify the field on the row
 //
 export default class FormField implements IFormField {
-	// unique id for the field
-	key: string;
-	name: string;
-	//- optional, if the form has repeating rows then this will identify the field on the row when generating the field key
-	rowId: string | number | undefined | null;
-	value: FieldType;	
-	schemaField: ISchemaField;
-	validation: IFormFieldValidationState;
-	serverValidationMessage: string | undefined;
+  // unique id for the field
+  key: string;
+  name: string;
+  //- optional, if the form has repeating rows then this will identify the field on the row when generating the field key
+  rowId: string | number | undefined | null;
+  value: FieldType;
+  schemaField: ISchemaField;
+  validation: IFormFieldValidationState;
+  serverValidationMessage: string | undefined;
 
-	get valueAsString(): string{		
-		return this.value as string;
-	}
-	get valueAsDate(): Date | undefined{		
-		return this.value as Date;
-	}
-	get valueAsNumber() : Number | undefined{		
-		return this.value as number;
-	}
+  get valueAsString(): string {
+    return this.value as string;
+  }
+  get valueAsDate(): Date | undefined {
+    return this.value as Date;
+  }
+  get valueAsNumber(): Number | undefined {
+    return this.value as number;
+  }
+  get valueAsBoolean(): Boolean | undefined {
+    return Boolean(this.value);
+  }
 
-	get valueAsBoolean(): Boolean | undefined {
-		return Boolean(this.value);
-	}
-
-	constructor(name: string, rowId: string | number | null | undefined, schemaField: ISchemaField) {
-		this.name = name;
-		this.rowId = rowId;
-		this.schemaField = schemaField;
-		this.value = '';		
-		this.validation = FormFieldValidationState.default;
-		this.key = FormUtility.createKey(this.name, this.rowId);
-		this.serverValidationMessage = undefined;
-	}
-	
+  constructor(name: string, rowId: string | number | null | undefined, schemaField: ISchemaField) {
+    this.name = name;
+    this.rowId = rowId;
+    this.schemaField = schemaField;
+    this.value = "";
+    this.validation = FormFieldValidationState.default;
+    this.key = FormUtility.createKey(this.name, this.rowId);
+    this.serverValidationMessage = undefined;
+  }
 }
