@@ -1,13 +1,13 @@
-import AssertIsEqualTo from "../../rules/AssertIsEqualTo";
-import AssertIsMandatory from "../../rules/AssertIsMandatory";
-import AssertLengthMax from "../../rules/AssertLengthMax";
-import AssertLengthMin from "../../rules/AssertLengthMin";
-import AssertValueIsDecimal from "../../rules/AssertValueIsDecimal";
-import AssertValueIsInteger from "../../rules/AssertValueIsInteger";
 import Condition from "../../models/Condition";
 import EnumFieldType from "../../enums/EnumFieldType";
 import RuleGroup from "../../models/RuleGroup";
 import SchemaField from "../../models/SchemaField";
+import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
+import AssertLengthMax from "../../assertions/AssertLengthMax";
+import AssertIsMandatory from "../../assertions/AssertIsMandatory";
+import AssertLengthMin from "../../assertions/AssertLengthMin";
+import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
+import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
 
 describe("Add Condition to Rule", () => {
   test("Basic Constructor", () => {

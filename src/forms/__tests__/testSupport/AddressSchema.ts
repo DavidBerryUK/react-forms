@@ -1,6 +1,6 @@
-import AssertIsMandatory from "../../rules/AssertIsMandatory";
-import AssertLengthMax from "../../rules/AssertLengthMax";
-import AssertPostCodeUk from "../../rules/AssertPostCodeUk";
+import AssertIsMandatory from "../../assertions/AssertIsMandatory";
+import AssertLengthMax from "../../assertions/AssertLengthMax";
+import AssertPostCodeUK from "../../assertions/AssertPostCodeUk";
 import enumFieldType from "../../enums/EnumFieldType";
 import FormSchemaBase from "../../models/FormSchemaBase";
 import IFormSchema from "../../interfaces/IFormSchema";
@@ -12,7 +12,7 @@ class Fields {
   street = SchemaField.createWithRules("street", "Street", enumFieldType.string, [new AssertIsMandatory(), new AssertLengthMax(100)]);
   locality = SchemaField.createWithRule("locality", "Locality", enumFieldType.string, new AssertLengthMax(100));
   town = SchemaField.createWithRules("town", "Town", enumFieldType.string, [new AssertIsMandatory(), new AssertLengthMax(100)]);
-  postCode = SchemaField.createWithRules("postCode", "Postcode", enumFieldType.string, [new AssertIsMandatory(), new AssertPostCodeUk()]);
+  postCode = SchemaField.createWithRules("postCode", "Postcode", enumFieldType.string, [new AssertIsMandatory(), new AssertPostCodeUK()]);
 }
 
 export default class AddressSchema extends FormSchemaBase implements IFormSchema {
@@ -20,6 +20,6 @@ export default class AddressSchema extends FormSchemaBase implements IFormSchema
 
   constructor() {
     super();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
   }
 }

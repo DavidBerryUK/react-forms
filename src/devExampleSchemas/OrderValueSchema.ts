@@ -4,12 +4,12 @@ import IFormSchema from "../forms/interfaces/IFormSchema";
 
 export default class OrderValueSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    totalParts: FieldBuilder.number("Total Parts").toField(),
-    totalLabour: FieldBuilder.number("Total Labour").toField(),
-    total: FieldBuilder.number("total ").toField(),
+    totalParts: FieldBuilder.number("Total Parts").build(),
+    totalLabour: FieldBuilder.number("Total Labour").build(),
+    total: FieldBuilder.number("total ").build(),
   };
   constructor() {
     super();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
   }
 }

@@ -11,6 +11,6 @@ export default class DummySchema extends FormSchemaBase implements IFormSchema {
   fields = new Fields();
   constructor() {
     super();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
   }
 }

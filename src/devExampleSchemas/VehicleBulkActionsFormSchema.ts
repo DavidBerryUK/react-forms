@@ -4,16 +4,16 @@ import IFormSchema from "../forms/interfaces/IFormSchema";
 
 export default class VehicleBulkActionsFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    actionChangeCustomer: FieldBuilder.boolean("Change Customer").toField(),
-    actionChangeRental: FieldBuilder.boolean("Change Rental").toField(),
-    customerId: FieldBuilder.number("Customer").toField(),
-    depotId: FieldBuilder.caption("Depot").toField(),
-    IsCvRental: FieldBuilder.boolean("Is CV Rental").toField(),
+    actionChangeCustomer: FieldBuilder.boolean("Change Customer").build(),
+    actionChangeRental: FieldBuilder.boolean("Change Rental").build(),
+    customerId: FieldBuilder.number("Customer").build(),
+    depotId: FieldBuilder.caption("Depot").build(),
+    IsCvRental: FieldBuilder.boolean("Is CV Rental").build(),
   };
 
   constructor() {
     super();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
 
     // this.addCustomerConditionalFields();
     this.fields.customerId.when(this.fields.actionChangeCustomer.state().shouldBeTrue()).mandatory();

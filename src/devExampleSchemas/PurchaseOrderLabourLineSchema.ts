@@ -4,16 +4,16 @@ import IFormSchema from "../forms/interfaces/IFormSchema";
 
 export default class PurchaseOrderLabourLineSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    purOrderRef: FieldBuilder.number("Pur Order Ref").toField(),
-    description: FieldBuilder.caption("Description").toField(),
-    finDesignation: FieldBuilder.caption("Fin Designation").toField(),
-    PartsCost: FieldBuilder.number("Part Costs").toField(),
-    labourCosts: FieldBuilder.number("Labour Costs").toField(),
+    purOrderRef: FieldBuilder.number("Pur Order Ref").build(),
+    description: FieldBuilder.caption("Description").build(),
+    finDesignation: FieldBuilder.caption("Fin Designation").build(),
+    PartsCost: FieldBuilder.number("Part Costs").build(),
+    labourCosts: FieldBuilder.number("Labour Costs").build(),
     Total: FieldBuilder.number("Total"),
   };
 
   constructor() {
     super();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
   }
 }

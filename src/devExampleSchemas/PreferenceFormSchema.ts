@@ -18,15 +18,15 @@ import RuleGroup from "../forms/models/RuleGroup";
 
 export default class PreferenceFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    isActive: FieldBuilder.boolean("Is Active").toField(),
-    clrType: FieldBuilder.caption("Data Type").toField(),
-    value: FieldBuilder.caption("Value").toField(),
+    isActive: FieldBuilder.boolean("Is Active").build(),
+    clrType: FieldBuilder.caption("Data Type").build(),
+    value: FieldBuilder.caption("Value").build(),
   };
 
   constructor() {
     super();
     this.addConditionalValidationToValueField();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
   }
 
   private addConditionalValidationToValueField() {

@@ -1,5 +1,5 @@
-import AssertIsEqualTo from "../../rules/AssertIsEqualTo";
-import AssertIsMandatory from "../../rules/AssertIsMandatory";
+import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
+import AssertIsMandatory from "../../assertions/AssertIsMandatory";
 import Condition from "../../models/Condition";
 import enumFieldType from "../../enums/EnumFieldType";
 import RuleGroup from "../../models/RuleGroup";

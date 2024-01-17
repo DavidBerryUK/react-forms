@@ -1,4 +1,4 @@
-import AssertIsEqualTo from "../../rules/AssertIsEqualTo";
+import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
 import Condition from "../../models/Condition";
 import EnumFieldType from "../../enums/EnumFieldType";
 import RuleGroup from "../../models/RuleGroup";

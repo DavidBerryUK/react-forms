@@ -4,14 +4,14 @@ import IFormSchema from "../forms/interfaces/IFormSchema";
 
 export default class VehicleTransferFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    vehicleId: FieldBuilder.number("Vehicle Id").mandatory().toField(),
-    customerId: FieldBuilder.number("Customer Id").mandatory().toField(),
+    vehicleId: FieldBuilder.number("Vehicle Id").mandatory().build(),
+    customerId: FieldBuilder.number("Customer Id").mandatory().build(),
     depotId: FieldBuilder.caption("Depot").mandatory(),
     transferDate: FieldBuilder.date("Transfer Date").mandatory(),
   };
 
   constructor() {
     super();
-    this.parse(this.fields);
+    this.parseFields(this.fields);
   }
 }
