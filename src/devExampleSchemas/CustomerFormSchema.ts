@@ -10,7 +10,7 @@ export default class CustomerFormSchema extends FormSchemaBase implements IFormS
     address4: FieldBuilder.caption("Address 4").build(),
     companyName: FieldBuilder.caption("Company Name").build(),
     note: FieldBuilder.caption("Note").build(),
-    postCode: FieldBuilder.caption("Post Code").shouldBeUkPostCode().build(),
+    postCode: FieldBuilder.caption("Post Code").shouldBePostCodeUK().build(),
     telephone: FieldBuilder.caption("Telephone").build(),
   };
 

@@ -100,7 +100,7 @@ export default class GenericAssertMethodBuilder<T extends GenericAssertMethodBui
     return this as any as T;
   }
 
-  shouldBeUkPostCode(customMessage?: string): T {
+  shouldBePostCodeUK(customMessage?: string): T {
     this._newAssertionCallback(new AssertPostCodeUK(customMessage));
     return this as any as T;
   }

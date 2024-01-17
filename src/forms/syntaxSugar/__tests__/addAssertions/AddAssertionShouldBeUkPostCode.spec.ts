@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldBeUkPostCode", () => {
   test("Assertion - shouldBeUkPostCode", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldBeUkPostCode().build();
+    var field = FieldBuilder.string().shouldBePostCodeUK().build();
 
     //
     // ASSERT
