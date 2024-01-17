@@ -6,7 +6,7 @@ export default class VehicleTransferFormSchema extends FormSchemaBase implements
   fields = {
     vehicleId: FieldBuilder.number("Vehicle Id").mandatory().build(),
     customerId: FieldBuilder.number("Customer Id").mandatory().build(),
-    depotId: FieldBuilder.caption("Depot").mandatory(),
+    depotId: FieldBuilder.string("Depot").mandatory(),
     transferDate: FieldBuilder.date("Transfer Date").mandatory(),
   };
 

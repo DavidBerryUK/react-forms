@@ -7,7 +7,7 @@ export default class VehicleBulkActionsFormSchema extends FormSchemaBase impleme
     actionChangeCustomer: FieldBuilder.boolean("Change Customer").build(),
     actionChangeRental: FieldBuilder.boolean("Change Rental").build(),
     customerId: FieldBuilder.number("Customer").build(),
-    depotId: FieldBuilder.caption("Depot").build(),
+    depotId: FieldBuilder.string("Depot").build(),
     IsCvRental: FieldBuilder.boolean("Is CV Rental").build(),
   };
 
@@ -16,8 +16,8 @@ export default class VehicleBulkActionsFormSchema extends FormSchemaBase impleme
     this.parseFields(this.fields);
 
     // this.addCustomerConditionalFields();
-    this.fields.customerId.when(this.fields.actionChangeCustomer.state().shouldBeTrue()).mandatory();
-    this.fields.depotId.when(this.fields.actionChangeCustomer.state().shouldBeTrue()).mandatory();
+    this.fields.customerId.when(this.fields.actionChangeCustomer.state().ifIsTrue()).mandatory();
+    this.fields.depotId.when(this.fields.actionChangeCustomer.state().ifIsTrue()).mandatory();
   }
 
   // add [When] to field

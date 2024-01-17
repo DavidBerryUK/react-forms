@@ -4,17 +4,17 @@ import IFormSchema from "../forms/interfaces/IFormSchema";
 
 export default class RuleFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    name: FieldBuilder.caption("Rule Name").mandatory().shouldHaveLengthMax(200).build(),
+    name: FieldBuilder.string("Rule Name").mandatory().shouldHaveLengthMax(200).build(),
     active: FieldBuilder.boolean("active").build(),
     labourMarkupPercent: FieldBuilder.number("Labour Markup Percentage").shouldBeDecimal().shouldHaveValueMin(0).build(),
     labourRateAmt: FieldBuilder.number("Labour Rate Amount").shouldBeDecimal().shouldHaveValueMin(0).build(),
     maxLabourRateAmt: FieldBuilder.number("Maximum Labour Rate Amount").shouldBeDecimal().shouldHaveValueMin(0).build(),
     partsMarkupPercent: FieldBuilder.number("Parts Markup Percentage").shouldBeDecimal().shouldHaveValueMin(0).build(),
     priority: FieldBuilder.number("Priority").shouldBeInteger().shouldHaveValueMin(0).build(),
-    ruleHireTypeId: FieldBuilder.number("CVRental Rule").build(),
-    ruleJobTypeId: FieldBuilder.number("Job type").build(),
-    ruleTimeId: FieldBuilder.number("Rule Time").build(),
-    ruleTypeId: FieldBuilder.number("Rule Type").build(),
+    ruleHireTypeId: FieldBuilder.number("CVRental Rule").shouldBeInteger().build(),
+    ruleJobTypeId: FieldBuilder.number("Job type").shouldBeInteger().build(),
+    ruleTimeId: FieldBuilder.number("Rule Type").shouldBeInteger().build(),
+    ruleTypeId: FieldBuilder.number("Rule Type").shouldBeInteger().build(),
   };
 
   constructor() {

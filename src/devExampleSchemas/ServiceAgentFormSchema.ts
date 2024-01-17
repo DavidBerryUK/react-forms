@@ -4,17 +4,17 @@ import IFormSchema from "../forms/interfaces/IFormSchema";
 
 export default class ServiceAgentFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    address1: FieldBuilder.caption("Address 1").build(),
-    address2: FieldBuilder.caption("Address 2").build(),
-    address3: FieldBuilder.caption("Address 3").build(),
-    address4: FieldBuilder.caption("Address 4").build(),
-    companyName: FieldBuilder.caption("Company Name").build(),
-    notes: FieldBuilder.caption("Notes").build(),
-    postCode: FieldBuilder.caption("Post Code").build(),
-    telphone: FieldBuilder.caption("Telephone").build(),
-    faxNo: FieldBuilder.caption("Fax No").build(),
-    emailAddress: FieldBuilder.caption("Email Address").build(),
-    sageRefNo: FieldBuilder.caption("Sage Ref No").mandatory().shouldHaveNoWhiteSpaces().shouldHaveLengthMax(15).build(),
+    address1: FieldBuilder.string("Address 1").build(),
+    address2: FieldBuilder.string("Address 2").build(),
+    address3: FieldBuilder.string("Address 3").build(),
+    address4: FieldBuilder.string("Address 4").build(),
+    companyName: FieldBuilder.string("Company Name").build(),
+    notes: FieldBuilder.string("Notes").build(),
+    postCode: FieldBuilder.string("Post Code").build(),
+    telphone: FieldBuilder.string("Telephone").build(),
+    faxNo: FieldBuilder.string("Fax No").build(),
+    emailAddress: FieldBuilder.string("Email Address").build(),
+    sageRefNo: FieldBuilder.string("Sage Ref No").mandatory().shouldHaveNoWhiteSpaces().shouldHaveLengthMax(15).build(),
   };
 
   constructor() {

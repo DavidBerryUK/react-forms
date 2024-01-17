@@ -5,18 +5,18 @@ import IFormSchema from "../forms/interfaces/IFormSchema";
 export default class OrderFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {
     purOrderRef: FieldBuilder.number().build(),
-    agent: FieldBuilder.caption("Service Agent").build(),
-    customerName: FieldBuilder.caption("Customer Name").build(),
-    description: FieldBuilder.caption("Description").build(),
-    jobDepot: FieldBuilder.caption("Job Depot").build(),
-    orderDepot: FieldBuilder.caption("Order Depot").build(),
+    agent: FieldBuilder.string("Service Agent").build(),
+    customerName: FieldBuilder.string("Customer Name").build(),
+    description: FieldBuilder.string("Description").build(),
+    jobDepot: FieldBuilder.string("Job Depot").build(),
+    orderDepot: FieldBuilder.string("Order Depot").build(),
     orderDepotId: FieldBuilder.number("Order Depot").mandatory(),
-    orderStatus: FieldBuilder.caption("Order Status").build(),
-    regNo: FieldBuilder.caption("Reg No").build(),
+    orderStatus: FieldBuilder.string("Order Status").build(),
+    regNo: FieldBuilder.string("Reg No").build(),
     vehicleId: FieldBuilder.number("vehicleId").build(),
-    startDate: FieldBuilder.caption("Start Date").date().build(),
-    startRef: FieldBuilder.caption("Start Ref").build(),
-    agentOriginal: FieldBuilder.caption("Original Service Agent").build(),
+    startDate: FieldBuilder.string("Start Date").date().build(),
+    startRef: FieldBuilder.string("Start Ref").build(),
+    agentOriginal: FieldBuilder.string("Original Service Agent").build(),
   };
 
   constructor() {

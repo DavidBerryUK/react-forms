@@ -19,8 +19,8 @@ import RuleGroup from "../forms/models/RuleGroup";
 export default class PreferenceFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {
     isActive: FieldBuilder.boolean("Is Active").build(),
-    clrType: FieldBuilder.caption("Data Type").build(),
-    value: FieldBuilder.caption("Value").build(),
+    clrType: FieldBuilder.string("Data Type").build(),
+    value: FieldBuilder.string("Value").build(),
   };
 
   constructor() {
