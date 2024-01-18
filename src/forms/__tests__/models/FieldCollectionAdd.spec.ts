@@ -19,7 +19,7 @@ describe("Field Collection Add", () => {
     expect(collection.fieldArray[0]).toBe(model);
     expect(collection.fieldByKeyDictionary["Name#1"]).toBe(model);
 
-    expect(model.name).toBe("Name#1");
+    expect(model.id).toBe("Name#1");
     expect(model.schemaField.caption).toBe("Name One");
     expect(model.value).toBe("");
   });
@@ -50,15 +50,15 @@ describe("Field Collection Add", () => {
     expect(collection.fieldByKeyDictionary["Name#2"]).toBe(model2);
     expect(collection.fieldByKeyDictionary["Name#3"]).toBe(model3);
 
-    expect(model1.name).toBe("Name#1");
+    expect(model1.id).toBe("Name#1");
     expect(model1.schemaField.caption).toBe("Name One");
     expect(model1.value).toBe("");
 
-    expect(model2.name).toBe("Name#2");
+    expect(model2.id).toBe("Name#2");
     expect(model2.schemaField.caption).toBe("Name Two");
     expect(model2.value).toBe("");
 
-    expect(model3.name).toBe("Name#3");
+    expect(model3.id).toBe("Name#3");
     expect(model3.schemaField.caption).toBe("Name Three");
     expect(model3.value).toBe("");
   });

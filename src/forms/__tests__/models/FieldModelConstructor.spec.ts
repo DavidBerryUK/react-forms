@@ -11,7 +11,7 @@ describe("Field Model Constructor", () => {
     // Assert
     //
 
-    expect(model.name).toBe("Name-Text");
+    expect(model.id).toBe("Name-Text");
     expect(model.schemaField.caption).toBe("Test-Text");
     expect(model.value).toBe("");
     expect(model.schemaField.ruleGroups).not.toBeNull();

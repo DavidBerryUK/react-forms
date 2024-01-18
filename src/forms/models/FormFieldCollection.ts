@@ -54,9 +54,9 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   addOrUpdate(schemaField: ISchemaField, rowId: string | number | null | undefined): IFormField {
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
-      field = new FormField(schemaField.name, rowId, schemaField);
+      field = new FormField(schemaField.id, rowId, schemaField);
       this.fieldArray.push(field);
       this.fieldByKeyDictionary[field.key] = field;
     }
@@ -64,7 +64,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   setValue(schemaField: ISchemaField, rowId: string | number | undefined | null, value: string | number | boolean | Date | undefined | null) {
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
       field = this.addOrUpdate(schemaField, rowId);
     }
@@ -88,7 +88,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   getValue(schemaField: ISchemaField, rowId: string | number | undefined | null): FieldType {
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
       return "";
     }
@@ -96,7 +96,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   getValueAsDate(schemaField: ISchemaField, rowId: string | number | undefined | null): Date | undefined {
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
       return undefined;
     }
@@ -104,7 +104,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   getValueAsNumber(schemaField: ISchemaField, rowId: string | number | undefined | null): number | undefined {
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
       return undefined;
     }
@@ -116,7 +116,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   getValueAsString(schemaField: ISchemaField, rowId: string | number | undefined | null): string {
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
       return "";
     }
@@ -124,7 +124,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   getValueAsBoolean(schemaField: ISchemaField, rowId: string | number | undefined | null): boolean | undefined {
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
       return undefined;
     }
@@ -132,7 +132,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   }
 
   remove(field: IFormField): void {
-    if (this.getByKey(field.name, field.rowId) === undefined) {
+    if (this.getByKey(field.id, field.rowId) === undefined) {
       return;
     }
     this.fieldArray = this.fieldArray.filter((item) => item.key !== field.key);
@@ -181,7 +181,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
       var row = new RowValuesModel(rowId);
       var fieldsForRow = this.fieldArray.filter((item) => item.rowId === rowId);
       fieldsForRow.forEach((field) => {
-        row.data[field.name] = field.value;
+        row.data[field.id] = field.value;
       });
       rows.push(row);
     });
@@ -203,7 +203,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
       validationMessage = undefined;
     }
 
-    var field = this.getByKey(schemaField.name, rowId);
+    var field = this.getByKey(schemaField.id, rowId);
     if (field === undefined) {
       field = this.addOrUpdate(schemaField, rowId);
     }

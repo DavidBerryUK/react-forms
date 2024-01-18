@@ -90,7 +90,7 @@ export default class FormInstance<T extends IFormSchema> implements IFormInstanc
   }
 
   getField(schemaField: ISchemaField, rowId: string | number | null | undefined): IFormField | undefined {
-    return this.fieldCollection.getByKey(schemaField.name, rowId);
+    return this.fieldCollection.getByKey(schemaField.id, rowId);
   }
 
   getFieldByName(fieldName: string, rowId: string | number | null | undefined): IFormField | undefined {

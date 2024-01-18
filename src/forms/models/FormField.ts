@@ -11,7 +11,7 @@ import ISchemaField from "../interfaces/ISchemaField";
 export default class FormField implements IFormField {
   // unique id for the field
   key: string;
-  name: string;
+  id: string;
   //- optional, if the form has repeating rows then this will identify the field on the row when generating the field key
   rowId: string | number | undefined | null;
   value: FieldType;
@@ -32,13 +32,13 @@ export default class FormField implements IFormField {
     return Boolean(this.value);
   }
 
-  constructor(name: string, rowId: string | number | null | undefined, schemaField: ISchemaField) {
-    this.name = name;
+  constructor(id: string, rowId: string | number | null | undefined, schemaField: ISchemaField) {
+    this.id = id;
     this.rowId = rowId;
     this.schemaField = schemaField;
     this.value = "";
     this.validation = FormFieldValidationState.default;
-    this.key = FormUtility.createKey(this.name, this.rowId);
+    this.key = FormUtility.createKey(this.id, this.rowId);
     this.serverValidationMessage = undefined;
   }
 }

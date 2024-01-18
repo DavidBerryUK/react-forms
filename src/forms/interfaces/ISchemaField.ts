@@ -7,7 +7,7 @@ import QueryBuilder from "../syntaxSugar/QueryBuilder";
 
 export default interface ISchemaField {
   readonly type: string;
-  readonly name: string;
+  readonly id: string;
   readonly caption: string;
   readonly readOnly: boolean;
   readonly fieldType: EnumFieldType;
@@ -19,6 +19,7 @@ export default interface ISchemaField {
   keyEquals(field: ISchemaField): boolean;
   setRules(rules: IRuleGroup): void;
   setDisabled(isDisabled: boolean): void;
+  hasId(): boolean;
   //
   // specify conditional validation / cross valdation
   //
