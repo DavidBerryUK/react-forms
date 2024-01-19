@@ -9,20 +9,20 @@ describe("Multi Row form with conditions", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, "r1", "string");
-    form.setValue(schema.fields.value, "r1", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r1");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r1");
 
-    form.setValue(schema.fields.dataType, "r2", "string");
-    form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r2");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r2");
 
-    form.setValue(schema.fields.dataType, "r3", "string");
-    form.setValue(schema.fields.value, "r3", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r3");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r3");
 
-    form.setValue(schema.fields.dataType, "r4", "string");
-    form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r4");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r4");
 
-    form.setValue(schema.fields.dataType, "r5", "string");
-    form.setValue(schema.fields.value, "r5", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r5");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r5");
 
     form = form.validateAll();
 
@@ -53,20 +53,20 @@ describe("Multi Row form with conditions", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, "r1", "string");
-    form.setValue(schema.fields.value, "r1", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r1");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r1");
 
-    form.setValue(schema.fields.dataType, "r2", "string");
-    form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r2");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r2");
 
-    form.setValue(schema.fields.dataType, "r3", "string");
-    form.setValue(schema.fields.value, "r3", "");
+    form.setValue(schema.fields.dataType, "string", "r3");
+    form.setValue(schema.fields.value, "", "r3");
 
-    form.setValue(schema.fields.dataType, "r4", "string");
-    form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r4");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r4");
 
-    form.setValue(schema.fields.dataType, "r5", "string");
-    form.setValue(schema.fields.value, "r5", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r5");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r5");
 
     form = form.validateAll();
 
@@ -98,23 +98,23 @@ describe("Multi Row form with conditions", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, "r1", "string");
-    form.setValue(schema.fields.value, "r1", "12345");
+    form.setValue(schema.fields.dataType, "string", "r1");
+    form.setValue(schema.fields.value, "12345", "r1");
 
-    form.setValue(schema.fields.dataType, "r2", "string");
-    form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r2");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r2");
 
-    form.setValue(schema.fields.dataType, "r3", "string");
-    form.setValue(schema.fields.value, "r3", "");
+    form.setValue(schema.fields.dataType, "string", "r3");
+    form.setValue(schema.fields.value, "", "r3");
 
-    form.setValue(schema.fields.dataType, "r4", "string");
-    form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string", "r4");
+    form.setValue(schema.fields.value, "123456789012345678901234567890", "r4");
 
-    form.setValue(schema.fields.dataType, "r5", "string");
+    form.setValue(schema.fields.dataType, "string", "r5");
     form.setValue(
       schema.fields.value,
-      "r5",
-      "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+      "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890",
+      "r5"
     );
 
     form = form.validateAll();

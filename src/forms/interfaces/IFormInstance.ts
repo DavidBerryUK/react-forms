@@ -23,16 +23,17 @@ export default interface IFormInstance<T extends IFormSchema> {
   clone(): IFormInstance<T>;
   getAllValues(): any;
   getAllValuesByRow(): Array<any>;
-  getField(schemaField: ISchemaField, rowId: string | number | null | undefined): IFormField | undefined;
-  getFieldByName(fieldName: string, rowId: string | number | null | undefined): IFormField | undefined;
-  getValue(schemaField: ISchemaField, rowId: string | number | null | undefined): FieldType;
-  getValueAsBoolean(schemaField: ISchemaField, rowId: string | number | null | undefined): boolean | undefined;
-  getValueAsNumber(schemaField: ISchemaField, rowId: string | number | null | undefined): number | undefined;
-  getValueAsString(schemaField: ISchemaField, rowId: string | number | null | undefined): string | undefined;
+  getField(schemaField: ISchemaField, rowId?: string | number | null | undefined): IFormField | undefined;
+  getFieldByName(fieldName: string, rowId?: string | number | null | undefined): IFormField | undefined;
+  getValue(schemaField: ISchemaField, rowId?: string | number | null | undefined): FieldType;
+  getValueAsBoolean(schemaField: ISchemaField, rowId?: string | number | null | undefined): boolean | undefined;
+  getValueAsNumber(schemaField: ISchemaField, rowId?: string | number | null | undefined): number | undefined;
+  getValueAsString(schemaField: ISchemaField, rowId?: string | number | null | undefined): string | undefined;
+  getValueAsDate(schemaField: ISchemaField, rowId?: string | number | null | undefined): Date | undefined;
 
-  setValue(schemaField: ISchemaField, rowId: string | number | null | undefined, value: string | number | boolean | undefined | null): void;
+  setValue(schemaField: ISchemaField, value: string | number | boolean | undefined | null, rowId?: string | number | null | undefined): void;
   validateAll(): IFormInstance<T>;
 
   // set validations from custom validation (should really create a validator ), or from api responses
-  setUserValidationMessage(schemaField: ISchemaField, rowId: string | number | null | undefined, validationMessage: string | undefined | null): void;
+  setUserValidationMessage(schemaField: ISchemaField, validationMessage: string | undefined | null, rowId?: string | number | null | undefined): void;
 }

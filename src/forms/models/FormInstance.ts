@@ -61,24 +61,28 @@ export default class FormInstance<T extends IFormSchema> implements IFormInstanc
     return this.fieldCollection.validationCountTotal;
   }
 
-  setValue(schemaField: ISchemaField, rowId: string | number | null | undefined, value: string | number | boolean | undefined | Date | null) {
+  setValue(schemaField: ISchemaField, value: string | number | boolean | undefined | Date | null, rowId?: string | number | null | undefined) {
     this.fieldCollection.setValue(schemaField, rowId, value);
   }
 
-  getValue(schemaField: ISchemaField, rowId: string | number | null | undefined): FieldType {
+  getValue(schemaField: ISchemaField, rowId?: string | number | null | undefined): FieldType {
     return this.fieldCollection.getValue(schemaField, rowId);
   }
 
-  getValueAsString(schemaField: ISchemaField, rowId: string | number | null | undefined): string | undefined {
+  getValueAsString(schemaField: ISchemaField, rowId?: string | number | null | undefined): string | undefined {
     return this.fieldCollection.getValueAsString(schemaField, rowId);
   }
 
-  getValueAsBoolean(schemaField: ISchemaField, rowId: string | number | null | undefined): boolean | undefined {
+  getValueAsBoolean(schemaField: ISchemaField, rowId?: string | number | null | undefined): boolean | undefined {
     return this.fieldCollection.getValueAsBoolean(schemaField, rowId);
   }
 
-  getValueAsNumber(schemaField: ISchemaField, rowId: string | number | null | undefined): number | undefined {
+  getValueAsNumber(schemaField: ISchemaField, rowId?: string | number | null | undefined): number | undefined {
     return this.fieldCollection.getValueAsNumber(schemaField, rowId);
+  }
+
+  getValueAsDate(schemaField: ISchemaField, rowId?: string | number | null | undefined): Date | undefined {
+    return this.fieldCollection.getValueAsDate(schemaField, rowId);
   }
 
   getAllValues(): any {
@@ -89,16 +93,20 @@ export default class FormInstance<T extends IFormSchema> implements IFormInstanc
     return this.fieldCollection.getAllValuesByRow();
   }
 
-  getField(schemaField: ISchemaField, rowId: string | number | null | undefined): IFormField | undefined {
+  getField(schemaField: ISchemaField, rowId?: string | number | null | undefined): IFormField | undefined {
     return this.fieldCollection.getByKey(schemaField.id, rowId);
   }
 
-  getFieldByName(fieldName: string, rowId: string | number | null | undefined): IFormField | undefined {
+  getFieldByName(fieldName: string, rowId?: string | number | null | undefined): IFormField | undefined {
     return this.fieldCollection.getByKey(fieldName, rowId);
   }
 
   // set validations from custom validation (should really create a validator ), or from api responses
-  setUserValidationMessage(schemaField: ISchemaField, rowId: string | number | null | undefined, validationMessage: string | undefined | null): void {
+  setUserValidationMessage(
+    schemaField: ISchemaField,
+    validationMessage: string | undefined | null,
+    rowId?: string | number | null | undefined
+  ): void {
     this.fieldCollection.setUserValidationMessage(schemaField, rowId, validationMessage);
   }
 }

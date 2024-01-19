@@ -9,8 +9,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "string");
-    form.setValue(schema.fields.value, null, "");
+    form.setValue(schema.fields.dataType, "string");
+    form.setValue(schema.fields.value, "");
     form = form.validateAll();
 
     // Assert
@@ -19,14 +19,14 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.id).toEqual("dataType");
     expect(fieldDataType?.schemaField.caption).toEqual("Data Type");
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.id).toEqual("value");
     expect(fieldValue?.schemaField.caption).toEqual("Data Value");
     expect(fieldValue?.validation.isValid).toBeFalsy();
@@ -40,8 +40,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "string");
-    form.setValue(schema.fields.value, null, "1234567890");
+    form.setValue(schema.fields.dataType, "string");
+    form.setValue(schema.fields.value, "1234567890");
     form = form.validateAll();
 
     // Assert
@@ -50,12 +50,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
     expect(fieldValue?.validation.validationMessage).toBe("Data Value must be greater or equal to 20 characters");
   });
@@ -67,8 +67,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "string");
-    form.setValue(schema.fields.value, null, "12345678901234567890123456789012345678901234567890123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "string");
+    form.setValue(schema.fields.value, "12345678901234567890123456789012345678901234567890123456789012345678901234567890");
     form = form.validateAll();
 
     // Assert
@@ -77,12 +77,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
     expect(fieldValue?.validation.validationMessage).toBe("Data Value must be less or equal to 50 characters");
   });
@@ -94,8 +94,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "integer");
-    form.setValue(schema.fields.value, null, "");
+    form.setValue(schema.fields.dataType, "integer");
+    form.setValue(schema.fields.value, "");
     form = form.validateAll();
 
     // Assert
@@ -104,12 +104,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
     expect(fieldValue?.validation.validationMessage).toBe("Data Value is mandatory");
   });
@@ -121,8 +121,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "integer");
-    form.setValue(schema.fields.value, null, "one");
+    form.setValue(schema.fields.dataType, "integer");
+    form.setValue(schema.fields.value, "one");
     form = form.validateAll();
 
     // Assert
@@ -131,12 +131,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
     expect(fieldValue?.validation.validationMessage).toBe("Data Value must be a whole number");
   });
@@ -148,8 +148,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "integer");
-    form.setValue(schema.fields.value, null, "100.5");
+    form.setValue(schema.fields.dataType, "integer");
+    form.setValue(schema.fields.value, "100.5");
     form = form.validateAll();
 
     // Assert
@@ -158,12 +158,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
     expect(fieldValue?.validation.validationMessage).toBe("Data Value must be a whole number");
   });
@@ -175,8 +175,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "integer");
-    form.setValue(schema.fields.value, null, "100");
+    form.setValue(schema.fields.dataType, "integer");
+    form.setValue(schema.fields.value, "100");
     form = form.validateAll();
 
     // Assert
@@ -185,12 +185,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeTruthy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeTruthy();
     expect(fieldValue?.validation.validationMessage).toBe("");
   });
@@ -202,8 +202,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "decimal");
-    form.setValue(schema.fields.value, null, "");
+    form.setValue(schema.fields.dataType, "decimal");
+    form.setValue(schema.fields.value, "");
     form = form.validateAll();
 
     // Assert
@@ -212,12 +212,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
     expect(fieldValue?.validation.validationMessage).toBe("Data Value is mandatory");
   });
@@ -229,8 +229,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "decimal");
-    form.setValue(schema.fields.value, null, "one");
+    form.setValue(schema.fields.dataType, "decimal");
+    form.setValue(schema.fields.value, "one");
     form = form.validateAll();
 
     // Assert
@@ -239,12 +239,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeFalsy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
     expect(fieldValue?.validation.validationMessage).toBe("Data Value must be a decimal");
   });
@@ -256,8 +256,8 @@ describe("Add Condition to Rule", () => {
     //
     // set data type to string
     //
-    form.setValue(schema.fields.dataType, null, "decimal");
-    form.setValue(schema.fields.value, null, "100.55");
+    form.setValue(schema.fields.dataType, "decimal");
+    form.setValue(schema.fields.value, "100.55");
     form = form.validateAll();
 
     // Assert
@@ -266,12 +266,12 @@ describe("Add Condition to Rule", () => {
     expect(form.isValid).toBeTruthy();
 
     // field validation for Data Type
-    var fieldDataType = form.getField(schema.fields.dataType, null);
+    var fieldDataType = form.getField(schema.fields.dataType);
     expect(fieldDataType?.validation.isValid).toBeTruthy();
     expect(fieldDataType?.validation.validationMessage).toBe("");
 
     // field validation for Data Value
-    var fieldValue = form.getField(schema.fields.value, null);
+    var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeTruthy();
     expect(fieldValue?.validation.validationMessage).toBe("");
   });
