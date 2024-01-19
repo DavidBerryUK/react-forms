@@ -36,6 +36,8 @@ export default class RuleGroups implements IRuleGroups {
   }
 
   evaluateRules(form: IFormInstance<IFormSchema>, field: IFormField, transactionId?: string) {
+    // console.log(`RuleGroups::evaluateRules - for:${field.schemaField.id}-${field.schemaField.caption}`);
+
     if (transactionId === undefined || transactionId === null || transactionId === "") {
       transactionId = nanoid();
     }
@@ -53,6 +55,8 @@ export default class RuleGroups implements IRuleGroups {
 
     // check related fields
     //
+    // console.log(`      related field count:${field.schemaField.relatedFields.count}`);
+
     if (field.schemaField.relatedFields.count > 0) {
       field.schemaField.relatedFields.items.forEach((relatedField) => {
         const relatedFormField = form.getField(relatedField, field.rowId);

@@ -63,21 +63,3 @@ describe("When Query Builder", () => {
     expect(condition?.ruleGroup.items[2]).toBeInstanceOf(AssertContainsUpperCase);
   });
 });
-
-// //
-// // Test schema
-// //
-// class PersonSchema extends FormSchemaBase implements IFormSchema {
-//   fields = {
-//     supplyNameFlag: FieldBuilder.boolean().build(),
-//     fullName: FieldBuilder.string().build(),
-//   };
-
-//   constructor() {
-//     super();
-//     this.parseFields(this.fields);
-
-//     // when supply name flag is on, the the full name is mandatory
-//     this.fields.fullName.when(this.fields.supplyNameFlag.state().ifIsTrue()).mandatory();
-//   }
-// }

@@ -35,7 +35,7 @@ export default class ConditionalValidationBuilder extends GenericAssertMethodBui
     if (this._ruleGroup === undefined) {
       this._ruleGroup = RuleGroup.createRuleAndConditions(assertion, this._queryBuilder.conditions);
       this._ruleGroup.schemaField = this._schemaField;
-      this._schemaField.ruleGroups.add(this._ruleGroup);
+      this._schemaField.appendRules(this._ruleGroup);
 
       // console.log(this._ruleGroup);
       // console.log(this._schemaField);
