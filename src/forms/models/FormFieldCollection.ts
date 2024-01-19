@@ -2,7 +2,7 @@ import { FieldType } from "../types/FormTypes";
 import { nanoid } from "nanoid";
 import EnumMessageType from "../enums/EnumMessageType";
 import FormField from "./FormField";
-import FormUtility from "../utility/FormUtility";
+import FormUtility from "../../formUI/utility/FormUtility";
 import IFormField from "../interfaces/IFormField";
 import IFormFieldCollection from "../interfaces/IFormFieldCollection";
 import IFormInstance from "../interfaces/IFormInstance";

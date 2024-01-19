@@ -1,6 +1,6 @@
 import { FieldType } from "../types/FormTypes";
 import FormFieldValidationState from "./FormFieldValidationState";
-import FormUtility from "../utility/FormUtility";
+import FormUtility from "../../formUI/utility/FormUtility";
 import IFormField from "../interfaces/IFormField";
 import IFormFieldValidationState from "../interfaces/IFormFieldValidationState";
 import ISchemaField from "../interfaces/ISchemaField";

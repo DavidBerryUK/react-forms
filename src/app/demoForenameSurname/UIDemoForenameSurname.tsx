@@ -1,6 +1,6 @@
-import UIInputText from "../../forms/ui/inputs/uiInputText/UIInputText";
-import UILabel from "../../forms/ui/UILabel";
-import UIValidationMessage from "../../forms/ui/UIValidationMessage";
+import UIInputText from "../../formUI/inputRules/InputText/UIInputText";
+import UILabel from "../../formUI/UILabel";
+import UIValidationMessage from "../../formUI/UIValidationMessage";
 import useViewController from "./UseViewController";
 
 const UIDemoForenameSurname = () => {
@@ -19,21 +19,13 @@ const UIDemoForenameSurname = () => {
     <div>
       <div>
         <UILabel caption="Forename">
-          <UIInputText
-            value={forename}
-            onChange={handleForenameChanged}
-            rules={forenameRules.current}
-          />
+          <UIInputText value={forename} onChange={handleForenameChanged} rules={forenameRules.current} />
         </UILabel>
         <UIValidationMessage name="name" message={forenameValidationMessage} />
       </div>
       <div>
         <UILabel caption="Surname">
-          <UIInputText
-            value={surname}
-            onChange={handleSurnameChanged}
-            rules={surnameRules.current}
-          />
+          <UIInputText value={surname} onChange={handleSurnameChanged} rules={surnameRules.current} />
         </UILabel>
         <UIValidationMessage name="name" message={surnameValidationMessage} />
       </div>

@@ -1,7 +1,7 @@
-import UIInputPassword from "../../forms/ui/inputs/uiInputPassword/UIInputPassword";
-import UIInputText from "../../forms/ui/inputs/uiInputText/UIInputText";
-import UILabel from "../../forms/ui/UILabel";
-import UIValidationMessage from "../../forms/ui/UIValidationMessage";
+import UIInputPassword from "../../formUI/inputRules/inputPassword/UIInputPassword";
+import UIInputText from "../../formUI/inputRules/InputText/UIInputText";
+import UILabel from "../../formUI/UILabel";
+import UIValidationMessage from "../../formUI/UIValidationMessage";
 import useViewController from "./UseViewController";
 
 const UIDemoLogin = () => {

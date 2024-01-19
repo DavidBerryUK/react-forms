@@ -1,15 +1,13 @@
 import { useRef, useState } from "react";
-import AssertIsMandatory from "../../forms/assertions/AssertIsMandatory";
-import AssertLengthMin from "../../forms/assertions/AssertLengthMin";
-import AssertLengthMax from "../../forms/assertions/AssertLengthMax";
+import RuleBuilder from "../../forms/syntaxSugar/RuleBuilder";
 
 const useViewController = () => {
   const [forename, setForename] = useState("");
-  const forenameRules = useRef([new AssertIsMandatory(), new AssertLengthMin(8), new AssertLengthMax(20)]);
+  const forenameRules = useRef(RuleBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
   const [forenameValidationMessage, setForenameValidationMessage] = useState("");
 
   const [surname, setSurname] = useState("");
-  const surnameRules = useRef([new AssertIsMandatory(), new AssertLengthMin(8), new AssertLengthMax(20)]);
+  const surnameRules = useRef(RuleBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
   const [surnameValidationMessage, setSurnameValidationMessage] = useState("");
 
   const handleForenameChanged = (value: string, isValid: boolean, validationMessage: Array<string>) => {

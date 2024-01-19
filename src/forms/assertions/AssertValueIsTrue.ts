@@ -4,7 +4,7 @@ import IFormSchema from "../interfaces/IFormSchema";
 import IRule from "../interfaces/IRule";
 import IRuleResponse from "../interfaces/IRuleResponse";
 import RuleBase from "../models/RuleBase";
-import StringUtility from "../utility/StringUtility";
+import StringUtility from "../../formUI/utility/StringUtility";
 
 export default class AssertValueIsTrue extends RuleBase implements IRule {
   isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
