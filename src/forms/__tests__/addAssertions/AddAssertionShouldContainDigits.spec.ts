@@ -1,5 +1,5 @@
-import AssertContainsDigits from "../../../assertions/AssertContainsDigits";
-import FieldBuilder from "../../FieldBuilder";
+import AssertContainsDigits from "../../assertions/AssertContainsDigits";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldContainDigits", () => {
   test("Assertion - shouldContainDigits", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldContainDigits", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertContainsDigits);
   });
 });

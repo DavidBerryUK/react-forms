@@ -1,5 +1,5 @@
-import EnumFieldType from "../../../enums/EnumFieldType";
-import FieldBuilder from "../../FieldBuilder";
+import EnumFieldType from "../../enums/EnumFieldType";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - test specifying field types", () => {
   test("Field type is string (no caption)", () => {

@@ -1,13 +1,13 @@
+import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
+import AssertIsMandatory from "../../assertions/AssertIsMandatory";
+import AssertLengthMax from "../../assertions/AssertLengthMax";
+import AssertLengthMin from "../../assertions/AssertLengthMin";
+import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
+import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
 import Condition from "../../models/Condition";
 import EnumFieldType from "../../enums/EnumFieldType";
 import RuleGroup from "../../models/RuleGroup";
 import SchemaField from "../../models/SchemaField";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import AssertLengthMax from "../../assertions/AssertLengthMax";
-import AssertIsMandatory from "../../assertions/AssertIsMandatory";
-import AssertLengthMin from "../../assertions/AssertLengthMin";
-import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
-import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
 
 describe("Add Condition to Rule", () => {
   test("Basic Constructor", () => {
@@ -42,21 +42,21 @@ describe("Add Condition to Rule", () => {
     //
     // Assert all is setup as expected
     //
-    expect(fieldValue.ruleGroups.groups.length).toBe(3);
+    expect(fieldValue.ruleGroups.items.length).toBe(3);
 
     // asset string validation rule
-    expect(fieldValue.ruleGroups.groups[0].conditions.items.length).toBe(1);
-    expect(fieldValue.ruleGroups.groups[0].items.length).toBe(3);
-    expect(fieldValue.ruleGroups.groups[0].conditions.items[0]).toBe(conditionIsString);
+    expect(fieldValue.ruleGroups.items[0].conditions.items.length).toBe(1);
+    expect(fieldValue.ruleGroups.items[0].items.length).toBe(3);
+    expect(fieldValue.ruleGroups.items[0].conditions.items[0]).toBe(conditionIsString);
 
     // assert integer validation rule
-    expect(fieldValue.ruleGroups.groups[1].conditions.items.length).toBe(1);
-    expect(fieldValue.ruleGroups.groups[1].items.length).toBe(2);
-    expect(fieldValue.ruleGroups.groups[1].conditions.items[0]).toBe(conditionIsInteger);
+    expect(fieldValue.ruleGroups.items[1].conditions.items.length).toBe(1);
+    expect(fieldValue.ruleGroups.items[1].items.length).toBe(2);
+    expect(fieldValue.ruleGroups.items[1].conditions.items[0]).toBe(conditionIsInteger);
 
     // assert decimal validation rule
-    expect(fieldValue.ruleGroups.groups[2].conditions.items.length).toBe(1);
-    expect(fieldValue.ruleGroups.groups[2].items.length).toBe(2);
-    expect(fieldValue.ruleGroups.groups[2].conditions.items[0]).toBe(conditionIsDecimal);
+    expect(fieldValue.ruleGroups.items[2].conditions.items.length).toBe(1);
+    expect(fieldValue.ruleGroups.items[2].items.length).toBe(2);
+    expect(fieldValue.ruleGroups.items[2].conditions.items[0]).toBe(conditionIsDecimal);
   });
 });

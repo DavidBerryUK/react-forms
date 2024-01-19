@@ -1,5 +1,5 @@
-import AssertIsMandatory from "../../../assertions/AssertIsMandatory";
-import FieldBuilder from "../../FieldBuilder";
+import AssertIsMandatory from "../../assertions/AssertIsMandatory";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - Mandatory", () => {
   test("Assertion - mandatory", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - Mandatory", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertIsMandatory);
   });
 });

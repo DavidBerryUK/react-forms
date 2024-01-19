@@ -15,6 +15,6 @@ describe("Create Basic Condition Model", () => {
 
     // assert
     expect(condition.schemaField).toEqual(fieldDataType);
-    expect(condition.rules).toEqual(ruleIsString);
+    expect(condition.ruleGroup).toEqual(ruleIsString);
   });
 });

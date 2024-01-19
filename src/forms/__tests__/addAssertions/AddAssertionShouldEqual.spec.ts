@@ -1,5 +1,5 @@
-import AssertIsEqualTo from "../../../assertions/AssertIsEqualTo";
-import FieldBuilder from "../../FieldBuilder";
+import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldEqual", () => {
   test("Assertion - shouldEqual", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldEqual", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertIsEqualTo);
   });
 });

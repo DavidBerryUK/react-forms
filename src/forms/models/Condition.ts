@@ -12,38 +12,42 @@ import RuleGroup from "./RuleGroup";
 //
 
 export default class Condition implements ICondition {
-	readonly schemaField: ISchemaField;
-	readonly rules: IRuleGroup;
+  readonly schemaField: ISchemaField;
+  readonly ruleGroup: IRuleGroup;
 
-	static create(schemaField: ISchemaField, rule: IRule) {
-		return new Condition(schemaField, RuleGroup.create(rule));
-	}
+  static create(schemaField: ISchemaField, rule: IRule) {
+    return new Condition(schemaField, RuleGroup.create(rule));
+  }
 
-	static createWithRules(schemaField: ISchemaField, rules: Array<IRule>) {
-		return new Condition(schemaField, RuleGroup.createRules(rules));
-	}
+  static createWithRules(schemaField: ISchemaField, rules: Array<IRule>) {
+    return new Condition(schemaField, RuleGroup.createRules(rules));
+  }
 
-	static createWithRuleGroup(schemaField: ISchemaField, ruleGroup: RuleGroup) {
-		return new Condition(schemaField, ruleGroup);
-	}
+  static createWithRuleGroup(schemaField: ISchemaField, ruleGroup: RuleGroup) {
+    return new Condition(schemaField, ruleGroup);
+  }
 
-	private constructor(schemaField: ISchemaField, rules: IRuleGroup) {
-		rules.schemaField = schemaField;
-		this.schemaField = schemaField;
-		this.rules = rules;
-	}
+  private constructor(schemaField: ISchemaField, rules: IRuleGroup) {
+    rules.schemaField = schemaField;
+    this.schemaField = schemaField;
+    this.ruleGroup = rules;
+  }
 
-	//
-	// determine if conditions specified pass
-	//
-	doesConditionPass(form: IFormInstance<IFormSchema>, rowId: string | number | null | undefined, transactionId: string): boolean {
-		const field = form.getField(this.schemaField, rowId);
+  addRule(rule: IRule) {
+    this.ruleGroup.addRule(rule);
+  }
 
-		if (field === undefined) {
-			return false;
-		}
+  //
+  // determine if conditions specified pass
+  //
+  doesConditionPass(form: IFormInstance<IFormSchema>, rowId: string | number | null | undefined, transactionId: string): boolean {
+    const field = form.getField(this.schemaField, rowId);
 
-		const isValid = this.rules.evaluate(form, field, transactionId, false);
-		return isValid;
-	}
+    if (field === undefined) {
+      return false;
+    }
+
+    const isValid = this.ruleGroup.evaluate(form, field, transactionId, false);
+    return isValid;
+  }
 }

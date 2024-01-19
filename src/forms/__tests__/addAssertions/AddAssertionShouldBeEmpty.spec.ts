@@ -1,5 +1,5 @@
-import AssertIsEmpty from "../../../assertions/AssertIsEmpty";
-import FieldBuilder from "../../FieldBuilder";
+import AssertIsEmpty from "../../assertions/AssertIsEmpty";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeEmpty", () => {
   test("Assertion - shouldBeEmpty", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldBeEmpty", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertIsEmpty);
   });
 });

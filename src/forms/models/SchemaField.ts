@@ -82,6 +82,9 @@ export default class SchemaField implements ISchemaField {
   }
 
   public static createWithRules(id: string, caption: string, fieldType: EnumFieldType, rules: Array<IRule>): ISchemaField {
+    if (rules.length === 0) {
+      return new SchemaField(id, caption, fieldType);
+    }
     return new SchemaField(id, caption, fieldType, RuleGroup.createRules(rules));
   }
 
@@ -152,11 +155,19 @@ export default class SchemaField implements ISchemaField {
     }
     return true;
   }
+
+  //
+  // used to build up conditional validation in the following format
+  // this.fields.dietryRequirementsNotes.when(this.fields.dietryRequirementsFlag.state().ifIsTrue()).shouldHaveLengthBetween(10, 1000).mandatory();
+  //
+  // the conditional rules are not applied until the first conditional validation is provided, this is done
+  // by the conditionalValidationBuilder
   when(state: QueryBuilder): ConditionalValidationBuilder {
-    throw new Error("Method not implemented.");
+    return new ConditionalValidationBuilder(this, state);
   }
+
   state(): QueryBuilder {
-    throw new Error("Method not implemented.");
+    return new QueryBuilder(this);
   }
 
   clone(deep?: boolean): ISchemaField {

@@ -1,61 +1,65 @@
-import { nanoid } from 'nanoid';
-import FormFieldValidationState from './FormFieldValidationState';
+import { nanoid } from "nanoid";
+import FormFieldValidationState from "./FormFieldValidationState";
 import IFormField from "../interfaces/IFormField";
-import IFormInstance from '../interfaces/IFormInstance';
-import IFormSchema from '../interfaces/IFormSchema';
-import IRuleGroup from '../interfaces/IRuleGroup';
-import IRuleGroups from '../interfaces/IRuleGroups';
-import ISchemaField from '../interfaces/ISchemaField';
+import IFormInstance from "../interfaces/IFormInstance";
+import IFormSchema from "../interfaces/IFormSchema";
+import IRuleGroup from "../interfaces/IRuleGroup";
+import IRuleGroups from "../interfaces/IRuleGroups";
+import ISchemaField from "../interfaces/ISchemaField";
 
 export default class RuleGroups implements IRuleGroups {
-	groups: Array<IRuleGroup>;
+  items: Array<IRuleGroup>;
 
-	constructor(groups?: Array<IRuleGroup>) {
-		this.groups = groups || new Array<IRuleGroup>();
-	}
+  constructor(groups?: Array<IRuleGroup>) {
+    this.items = groups || new Array<IRuleGroup>();
+  }
 
-	clone(deep?: boolean): IRuleGroups {
-		throw new Error('Method not implemented.');
-	}
+  count(): number {
+    return this.items.length;
+  }
 
-	add(rules: IRuleGroup) {
-		if (rules === null || rules === undefined) {
-			console.error('RuleGroup::Attempting to add null/undefined rule to rule groups');
-		}
-		this.groups.push(rules);
-	}
+  clone(deep?: boolean): IRuleGroups {
+    throw new Error("Method not implemented.");
+  }
 
-	setSchemaField(schemaField: ISchemaField) {
-		this.groups.forEach((group) => {
-			group.schemaField = schemaField;
-		});
-	}
+  add(rules: IRuleGroup) {
+    if (rules === null || rules === undefined) {
+      console.error("RuleGroup::Attempting to add null/undefined rule to rule groups");
+    }
+    this.items.push(rules);
+  }
 
-	evaluateRules(form: IFormInstance<IFormSchema>, field: IFormField, transactionId?: string) {
-		if (transactionId === undefined || transactionId === null || transactionId === '') {
-			transactionId = nanoid();
-		}
+  setSchemaField(schemaField: ISchemaField) {
+    this.items.forEach((group) => {
+      group.schemaField = schemaField;
+    });
+  }
 
-		// reset validation
-		field.validation = new FormFieldValidationState(field.schemaField.caption);
+  evaluateRules(form: IFormInstance<IFormSchema>, field: IFormField, transactionId?: string) {
+    if (transactionId === undefined || transactionId === null || transactionId === "") {
+      transactionId = nanoid();
+    }
 
-		// perform validation
-		this.groups.forEach((group) => {
-			group.evaluate(form, field, transactionId!);
-		});
+    // reset validation
+    field.validation = new FormFieldValidationState(field.schemaField.caption);
 
-		// mark that this field have been validated in the forms current state
-		field.validation.transactionId = transactionId;
+    // perform validation
+    this.items.forEach((group) => {
+      group.evaluate(form, field, transactionId!);
+    });
 
-		// check related fields
-		//
-		if (field.schemaField.relatedFields.count > 0) {
-			field.schemaField.relatedFields.items.forEach((relatedField) => {
-				const relatedFormField = form.getField(relatedField, field.rowId);
-				if (relatedFormField !== undefined && relatedFormField !== null && relatedFormField.validation.transactionId !== transactionId) {
-					relatedField.ruleGroups.evaluateRules(form, relatedFormField, transactionId);
-				}
-			});
-		}
-	}
+    // mark that this field have been validated in the forms current state
+    field.validation.transactionId = transactionId;
+
+    // check related fields
+    //
+    if (field.schemaField.relatedFields.count > 0) {
+      field.schemaField.relatedFields.items.forEach((relatedField) => {
+        const relatedFormField = form.getField(relatedField, field.rowId);
+        if (relatedFormField !== undefined && relatedFormField !== null && relatedFormField.validation.transactionId !== transactionId) {
+          relatedField.ruleGroups.evaluateRules(form, relatedFormField, transactionId);
+        }
+      });
+    }
+  }
 }

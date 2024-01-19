@@ -1,146 +1,146 @@
-import FormInstance from '../../models/FormInstance';
 import ConditionalFormSchema from "../testSupport/ConditionalFormSchema";
+import FormInstance from "../../models/FormInstance";
 
-describe('Multi Row form with conditions', () => {
-    test('basic setup, all valid', () => {
+describe("Multi Row form with conditions", () => {
+  test("basic setup, all valid", () => {
+    const schema = new ConditionalFormSchema();
+    var form = new FormInstance(schema);
 
-        const schema = new ConditionalFormSchema();
-        var form = new FormInstance(schema);
+    //
+    // set data type to string
+    //
+    form.setValue(schema.fields.dataType, "r1", "string");
+    form.setValue(schema.fields.value, "r1", "123456789012345678901234567890");
 
-        //
-        // set data type to string
-        //
-        form.setValue(schema.fields.dataType, "r1", "string");
-        form.setValue(schema.fields.value, "r1", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "r2", "string");
+    form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
 
-        form.setValue(schema.fields.dataType, "r2", "string");
-        form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "r3", "string");
+    form.setValue(schema.fields.value, "r3", "123456789012345678901234567890");
 
-        form.setValue(schema.fields.dataType, "r3", "string");
-        form.setValue(schema.fields.value, "r3", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "r4", "string");
+    form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
 
-        form.setValue(schema.fields.dataType, "r4", "string");
-        form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "r5", "string");
+    form.setValue(schema.fields.value, "r5", "123456789012345678901234567890");
 
-        form.setValue(schema.fields.dataType, "r5", "string");
-        form.setValue(schema.fields.value, "r5", "123456789012345678901234567890");
+    form = form.validateAll();
 
-        form = form.validateAll();
+    // Assert
 
-        // Assert
+    // form validation
+    expect(form.isValid).toBeTruthy();
 
-        // form validation
-        expect(form.isValid).toBeTruthy();
+    // row validation
 
-        // row validation
+    const row1 = form.getField(schema.fields.value, "r1");
+    const row2 = form.getField(schema.fields.value, "r2");
+    const row3 = form.getField(schema.fields.value, "r3");
+    const row4 = form.getField(schema.fields.value, "r4");
+    const row5 = form.getField(schema.fields.value, "r5");
 
-        const row1 = form.getField(schema.fields.value, "r1");
-        const row2 = form.getField(schema.fields.value, "r2");
-        const row3 = form.getField(schema.fields.value, "r3");
-        const row4 = form.getField(schema.fields.value, "r4");
-        const row5 = form.getField(schema.fields.value, "r5");
+    expect(row1?.validation.isValid).toBeTruthy();
+    expect(row2?.validation.isValid).toBeTruthy();
+    expect(row3?.validation.isValid).toBeTruthy();
+    expect(row4?.validation.isValid).toBeTruthy();
+    expect(row5?.validation.isValid).toBeTruthy();
+  });
 
-        expect(row1?.validation.isValid).toBeTruthy();
-        expect(row2?.validation.isValid).toBeTruthy();
-        expect(row3?.validation.isValid).toBeTruthy();
-        expect(row4?.validation.isValid).toBeTruthy();
-        expect(row5?.validation.isValid).toBeTruthy();
-    })
+  test("single row invalid", () => {
+    const schema = new ConditionalFormSchema();
+    var form = new FormInstance(schema);
 
-    test('single row invalid', () => {
+    //
+    // set data type to string
+    //
+    form.setValue(schema.fields.dataType, "r1", "string");
+    form.setValue(schema.fields.value, "r1", "123456789012345678901234567890");
 
-        const schema = new ConditionalFormSchema();
-        var form = new FormInstance(schema);
+    form.setValue(schema.fields.dataType, "r2", "string");
+    form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
 
-        //
-        // set data type to string
-        //
-        form.setValue(schema.fields.dataType, "r1", "string");
-        form.setValue(schema.fields.value, "r1", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "r3", "string");
+    form.setValue(schema.fields.value, "r3", "");
 
-        form.setValue(schema.fields.dataType, "r2", "string");
-        form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "r4", "string");
+    form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
 
-        form.setValue(schema.fields.dataType, "r3", "string");
-        form.setValue(schema.fields.value, "r3", "");
+    form.setValue(schema.fields.dataType, "r5", "string");
+    form.setValue(schema.fields.value, "r5", "123456789012345678901234567890");
 
-        form.setValue(schema.fields.dataType, "r4", "string");
-        form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
+    form = form.validateAll();
 
-        form.setValue(schema.fields.dataType, "r5", "string");
-        form.setValue(schema.fields.value, "r5", "123456789012345678901234567890");
+    // Assert
 
-        form = form.validateAll();
+    // form validation
+    expect(form.isValid).toBeFalsy();
 
-        // Assert
+    // row validation
 
-        // form validation
-        expect(form.isValid).toBeFalsy();
+    const row1 = form.getField(schema.fields.value, "r1");
+    const row2 = form.getField(schema.fields.value, "r2");
+    const row3 = form.getField(schema.fields.value, "r3");
+    const row4 = form.getField(schema.fields.value, "r4");
+    const row5 = form.getField(schema.fields.value, "r5");
 
-        // row validation
+    expect(row1?.validation.isValid).toBeTruthy();
+    expect(row2?.validation.isValid).toBeTruthy();
+    expect(row3?.validation.isValid).toBeFalsy();
+    expect(row3?.validation.validationMessage).toEqual("Data Value is mandatory");
+    expect(row4?.validation.isValid).toBeTruthy();
+    expect(row5?.validation.isValid).toBeTruthy();
+  });
 
-        const row1 = form.getField(schema.fields.value, "r1");
-        const row2 = form.getField(schema.fields.value, "r2");
-        const row3 = form.getField(schema.fields.value, "r3");
-        const row4 = form.getField(schema.fields.value, "r4");
-        const row5 = form.getField(schema.fields.value, "r5");
+  test("multiple string rows with different error messages", () => {
+    const schema = new ConditionalFormSchema();
+    var form = new FormInstance(schema);
 
-        expect(row1?.validation.isValid).toBeTruthy();
-        expect(row2?.validation.isValid).toBeTruthy();
-        expect(row3?.validation.isValid).toBeFalsy();
-        expect(row3?.validation.validationMessage).toEqual("Data Value is mandatory");
-        expect(row4?.validation.isValid).toBeTruthy();
-        expect(row5?.validation.isValid).toBeTruthy();
-    })
+    //
+    // set data type to string
+    //
+    form.setValue(schema.fields.dataType, "r1", "string");
+    form.setValue(schema.fields.value, "r1", "12345");
 
-    test('multiple string rows with different error messages', () => {
+    form.setValue(schema.fields.dataType, "r2", "string");
+    form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
 
-        const schema = new ConditionalFormSchema();
-        var form = new FormInstance(schema);
+    form.setValue(schema.fields.dataType, "r3", "string");
+    form.setValue(schema.fields.value, "r3", "");
 
-        //
-        // set data type to string
-        //
-        form.setValue(schema.fields.dataType, "r1", "string");
-        form.setValue(schema.fields.value, "r1", "12345");
+    form.setValue(schema.fields.dataType, "r4", "string");
+    form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
 
-        form.setValue(schema.fields.dataType, "r2", "string");
-        form.setValue(schema.fields.value, "r2", "123456789012345678901234567890");
+    form.setValue(schema.fields.dataType, "r5", "string");
+    form.setValue(
+      schema.fields.value,
+      "r5",
+      "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+    );
 
-        form.setValue(schema.fields.dataType, "r3", "string");
-        form.setValue(schema.fields.value, "r3", "");
+    form = form.validateAll();
 
-        form.setValue(schema.fields.dataType, "r4", "string");
-        form.setValue(schema.fields.value, "r4", "123456789012345678901234567890");
+    // Assert
 
-        form.setValue(schema.fields.dataType, "r5", "string");
-        form.setValue(schema.fields.value, "r5", "123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890");
+    // form validation
+    expect(form.isValid).toBeFalsy();
 
-        form = form.validateAll();
+    // row validation
 
-        // Assert
+    const row1 = form.getField(schema.fields.value, "r1");
+    const row2 = form.getField(schema.fields.value, "r2");
+    const row3 = form.getField(schema.fields.value, "r3");
+    const row4 = form.getField(schema.fields.value, "r4");
+    const row5 = form.getField(schema.fields.value, "r5");
 
-        // form validation
-        expect(form.isValid).toBeFalsy();
+    expect(row1?.validation.isValid).toBeFalsy();
+    expect(row1?.validation.validationMessage).toEqual("Data Value must be greater or equal to 20 characters");
 
-        // row validation
+    expect(row2?.validation.isValid).toBeTruthy();
+    expect(row3?.validation.isValid).toBeFalsy();
+    expect(row3?.validation.validationMessage).toEqual("Data Value is mandatory");
+    expect(row4?.validation.isValid).toBeTruthy();
 
-        const row1 = form.getField(schema.fields.value, "r1");
-        const row2 = form.getField(schema.fields.value, "r2");
-        const row3 = form.getField(schema.fields.value, "r3");
-        const row4 = form.getField(schema.fields.value, "r4");
-        const row5 = form.getField(schema.fields.value, "r5");
-
-        expect(row1?.validation.isValid).toBeFalsy();
-        expect(row1?.validation.validationMessage).toEqual("Data Value must be greater or equal to 20 characters");
-
-        expect(row2?.validation.isValid).toBeTruthy();
-        expect(row3?.validation.isValid).toBeFalsy();
-        expect(row3?.validation.validationMessage).toEqual("Data Value is mandatory");
-        expect(row4?.validation.isValid).toBeTruthy();
-
-        expect(row5?.validation.isValid).toBeFalsy();
-        expect(row5?.validation.validationMessage).toEqual("Data Value must be less or equal to 50 characters");
-    })
-
-})
+    expect(row5?.validation.isValid).toBeFalsy();
+    expect(row5?.validation.validationMessage).toEqual("Data Value must be less or equal to 50 characters");
+  });
+});

@@ -1,5 +1,5 @@
-import AssertValueIsInteger from "../../../assertions/AssertValueIsInteger";
-import FieldBuilder from "../../FieldBuilder";
+import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {
   test("Assertion - shouldBeInteger", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - ", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertValueIsInteger);
   });
 });

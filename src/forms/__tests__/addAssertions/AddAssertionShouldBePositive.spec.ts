@@ -1,5 +1,5 @@
-import AssertValueIsPositive from "../../../assertions/AssertValueIsPositive";
-import FieldBuilder from "../../FieldBuilder";
+import AssertValueIsPositive from "../../assertions/AssertValueIsPositive";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBePositive", () => {
   test("Assertion - shouldBePositive", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldBePositive", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertValueIsPositive);
   });
 });

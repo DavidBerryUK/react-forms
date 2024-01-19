@@ -1,5 +1,5 @@
-import AssertContainsSymbols from "../../../assertions/AssertContainsSymbols";
-import FieldBuilder from "../../FieldBuilder";
+import AssertContainsSymbols from "../../assertions/AssertContainsSymbols";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldContainSymbols", () => {
   test("Assertion - shouldContainSymbols", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldContainSymbols", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertContainsSymbols);
   });
 });

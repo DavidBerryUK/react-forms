@@ -1,5 +1,5 @@
-import AssertValueIsDateTimeLocal from "../../../assertions/AssertValueIsDateTimeLocal";
-import FieldBuilder from "../../FieldBuilder";
+import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLocal";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeDateTimeLocal", () => {
   test("Assertion - shouldBeDateTimeLocal", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldBeDateTimeLocal", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertValueIsDateTimeLocal);
   });
 });

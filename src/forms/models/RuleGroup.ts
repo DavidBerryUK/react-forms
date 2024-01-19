@@ -42,6 +42,13 @@ export default class RuleGroup implements IRuleGroup {
     return new RuleGroup(rules, new Conditions(conditions));
   }
 
+  public addRule(rule: IRule): void {
+    this.items.push(rule);
+  }
+
+  public addCondition(condition: ICondition): void {
+    this.conditions.addCondition(condition);
+  }
   //
   // optional conditions,
   //  if provided then the rules will only be evaluated if

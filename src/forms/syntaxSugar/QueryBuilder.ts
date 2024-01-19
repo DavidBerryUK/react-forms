@@ -1,18 +1,46 @@
 import GenericQueryMethodBuilder from "./base/GenericQueryMethodBuilder";
 import IRule from "../interfaces/IRule";
 import ISchemaField from "../interfaces/ISchemaField";
+import Condition from "../models/Condition";
+import ICondition from "../interfaces/ICondition";
 
+/**
+ * allow a query to be built, used as a parameter for the [when] statement.
+ *
+ * This builds up a single conditions instance for the field specified inside the when statement
+ * along with all the rules appended to it.
+ *
+ * in the instance below, the field will be supplyNameFlag and the rules will be 'IfIsTrue' and 'Mandatory'
+ * this instance of QueryBuilder is then passed into the "when" statement for further processing
+ *
+ * this.fields.fullName.when(this.fields.supplyNameFlag.state().ifIsTrue()).mandatory();
+ *
+ */
 export default class QueryBuilder extends GenericQueryMethodBuilder<QueryBuilder> {
   private _schemaField: ISchemaField;
-  private _rules: Array<IRule>;
+  private _condition: ICondition | undefined;
+
+  conditions: Array<ICondition>;
 
   constructor(schemaField: ISchemaField) {
     super((rule) => this.newAssertionCallback(rule));
-    this._rules = new Array<IRule>();
     this._schemaField = schemaField;
+    this.conditions = new Array<ICondition>();
   }
 
+  /**
+   * ensure a new condition
+   * note that each condition is a field and a rule group
+   *
+   * @param assertion a new assertion rule to be added to the field
+   */
   private newAssertionCallback(assertion: IRule): void {
-    this._rules.push(assertion);
+    if (this._condition === undefined) {
+      this._condition = Condition.create(this._schemaField, assertion);
+      this.conditions.push(this._condition);
+      return;
+    }
+
+    this._condition.addRule(assertion);
   }
 }

@@ -43,7 +43,7 @@ export default class SchemaFieldRelationships {
 
   // examine rule groups to see if fields should be linked
   processRuleGroupsForRelatedFields() {
-    this.field.ruleGroups.groups.forEach((group) => {
+    this.field.ruleGroups.items.forEach((group) => {
       group.conditions.items.forEach((condition) => {
         this.join(condition.schemaField);
       });

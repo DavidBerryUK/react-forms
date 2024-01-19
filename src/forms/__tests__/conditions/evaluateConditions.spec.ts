@@ -1,5 +1,5 @@
-import FormInstance from "../../models/FormInstance";
 import ConditionalFormSchema from "../testSupport/ConditionalFormSchema";
+import FormInstance from "../../models/FormInstance";
 
 describe("Add Condition to Rule", () => {
   test("data type=string test:expect error message that value is mandatory", () => {

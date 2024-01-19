@@ -1,5 +1,5 @@
-import AssertContainsLowerCase from "../../../assertions/AssertContainsLowerCase";
-import FieldBuilder from "../../FieldBuilder";
+import AssertContainsLowerCase from "../../assertions/AssertContainsLowerCase";
+import FieldBuilder from "../../syntaxSugar/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldContainLowerCase", () => {
   test("Assertion - shouldContainLowerCase", () => {
@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldContainLowerCase", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.groups[0].items[0];
+    const item = field.ruleGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertContainsLowerCase);
   });
 });
