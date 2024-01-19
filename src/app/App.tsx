@@ -1,11 +1,14 @@
-import UIDemoForenameSurname from "./demoForenameSurname/UIDemoForenameSurname";
-import UIDemoLogin from "./demoLogin/UIDemoLogin";
+// import UIDemoForenameSurname from "./demoForenameSurname/UIDemoForenameSurname";
+// import UIDemoLogin from "./demoLogin/UIDemoLogin";
+
+import UIDemoFormPerson from "./demoFormPerson/UIDemoFormPerson";
 
 const App = () => {
   return (
     <div>
-      <UIDemoForenameSurname />
-      <UIDemoLogin />
+      <UIDemoFormPerson />
+      {/* <UIDemoForenameSurname />
+      <UIDemoLogin /> */}
     </div>
   );
 };
