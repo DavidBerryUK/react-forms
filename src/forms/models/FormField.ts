@@ -3,7 +3,7 @@ import FormFieldValidationState from "./FormFieldValidationState";
 import FormUtility from "../../formUI/utility/FormUtility";
 import IFormField from "../interfaces/form/IFormField";
 import IFormFieldValidationState from "../interfaces/form/IFormFieldValidationState";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 
 // name     - name of the field
 // rowId    - optional, if the form has repeating rows then this will identify the field on the row

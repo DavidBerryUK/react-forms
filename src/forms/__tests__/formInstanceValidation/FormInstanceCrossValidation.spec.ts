@@ -1,7 +1,7 @@
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 import FormInstance from "../../models/FormInstance";
 import FormSchemaBase from "../../models/FormSchemaBase";
-import IFormSchema from "../../interfaces/IFormSchema";
+import IFormSchema from "../../interfaces/form/IFormSchema";
 
 //
 // note , these tests will not work until the cross validation syntax sugar correctly

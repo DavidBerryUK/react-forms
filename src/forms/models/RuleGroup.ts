@@ -8,7 +8,7 @@ import IConditions from "../interfaces/condition/IConditions";
 import IFormSchema from "../interfaces/form/IFormSchema";
 import IRule from "../interfaces/rules/IRule";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 
 export default class RuleGroup implements IRuleGroup {
   //

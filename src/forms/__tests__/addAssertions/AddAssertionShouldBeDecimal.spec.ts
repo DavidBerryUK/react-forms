@@ -1,11 +1,11 @@
 import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {
   test("Assertion - shouldBeDecimal", () => {
     // ACT
     //
-    var field = FieldBuilder.date().shouldBeDecimal().build();
+    var field = FieldBuilder.number().shouldBeDecimal().build();
 
     //
     // ASSERT

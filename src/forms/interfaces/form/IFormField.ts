@@ -1,5 +1,5 @@
 import IFormFieldValidationState from "./IFormFieldValidationState";
-import ISchemaField from "../schema/ISchemaField";
+import ISchemaField from "../schemaField/ISchemaField";
 import { FieldType } from "../../types/FormTypes";
 
 export default interface FormField {

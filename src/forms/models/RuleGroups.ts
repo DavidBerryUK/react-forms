@@ -5,7 +5,7 @@ import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import IRuleGroups from "../interfaces/rules/IRuleGroups";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 
 export default class RuleGroups implements IRuleGroups {
   items: Array<IRuleGroup>;

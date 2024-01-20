@@ -1,6 +1,6 @@
 import GenericQueryMethodBuilder from "./base/GenericQueryMethodBuilder";
 import IRule from "../interfaces/rules/IRule";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import Condition from "../models/Condition";
 import ICondition from "../interfaces/condition/ICondition";
 

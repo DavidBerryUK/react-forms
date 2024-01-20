@@ -1,7 +1,7 @@
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 import FormInstance from "../../models/FormInstance";
 import FormSchemaBase from "../../models/FormSchemaBase";
-import IFormSchema from "../../interfaces/IFormSchema";
+import IFormSchema from "../../interfaces/form/IFormSchema";
 
 describe("Form Instances - validate", () => {
   test("Mandatory - populate fields - expect to pass", () => {
@@ -79,8 +79,8 @@ describe("Form Instances - validate", () => {
 
 export default class PersonSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    forename: FieldBuilder.caption("Forename").string().mandatory().build(),
-    surname: FieldBuilder.caption("Surname").string().mandatory().build(),
+    forename: FieldBuilder.string("Forename").mandatory().build(),
+    surname: FieldBuilder.string("Surname").mandatory().build(),
   };
 
   constructor() {

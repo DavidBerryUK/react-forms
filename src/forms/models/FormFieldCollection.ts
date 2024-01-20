@@ -8,7 +8,7 @@ import IFormFieldCollection from "../interfaces/form/IFormFieldCollection";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
 import IRowValuesModel from "../interfaces/form/IRowValuesModel";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import RowValuesModel from "./RowValuesModel";
 
 // Maintain a collection of fields, as well as provide

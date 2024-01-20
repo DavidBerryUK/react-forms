@@ -1,7 +1,7 @@
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 import FormInstance from "../../models/FormInstance";
 import FormSchemaBase from "../../models/FormSchemaBase";
-import IFormSchema from "../../interfaces/IFormSchema";
+import IFormSchema from "../../interfaces/form/IFormSchema";
 
 describe("Form Instances - conditional validate", () => {
   test("Mandatory - conditional 'nameRequired=false' and no name provied - expect pass", () => {

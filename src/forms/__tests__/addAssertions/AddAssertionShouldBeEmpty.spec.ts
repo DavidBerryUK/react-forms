@@ -1,5 +1,5 @@
 import AssertIsEmpty from "../../assertions/AssertIsEmpty";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeEmpty", () => {
   test("Assertion - shouldBeEmpty", () => {

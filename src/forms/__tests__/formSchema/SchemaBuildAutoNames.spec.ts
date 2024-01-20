@@ -1,6 +1,6 @@
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 import FormSchemaBase from "../../models/FormSchemaBase";
-import IFormSchema from "../../interfaces/IFormSchema";
+import IFormSchema from "../../interfaces/form/IFormSchema";
 
 describe("Built Schema - test that field id names are auto created by the schema processing", () => {
   test("fields are added to the schema", () => {

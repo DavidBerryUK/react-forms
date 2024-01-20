@@ -6,7 +6,7 @@ import IFormInstance from "../form/IFormInstance";
 import IFormSchema from "../form/IFormSchema";
 import IRule from "../rules/IRule";
 import IRuleGroup from "../rules/IRuleGroup";
-import ISchemaField from "../schema/ISchemaField";
+import ISchemaField from "../schemaField/ISchemaField";
 
 //
 export default interface ICondition {

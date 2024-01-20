@@ -1,5 +1,5 @@
 import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldEqual", () => {
   test("Assertion - shouldEqual", () => {

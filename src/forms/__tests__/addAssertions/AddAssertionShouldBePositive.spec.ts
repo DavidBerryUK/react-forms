@@ -1,11 +1,11 @@
 import AssertValueIsPositive from "../../assertions/AssertValueIsPositive";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBePositive", () => {
   test("Assertion - shouldBePositive", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldBePositive(false).build();
+    var field = FieldBuilder.number().shouldBePositive(false).build();
 
     //
     // ASSERT

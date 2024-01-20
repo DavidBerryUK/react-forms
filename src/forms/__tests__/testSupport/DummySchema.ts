@@ -1,6 +1,6 @@
 import EnumFieldType from "../../enums/EnumFieldType";
 import FormSchemaBase from "../../models/FormSchemaBase";
-import IFormSchema from "../../interfaces/IFormSchema";
+import IFormSchema from "../../interfaces/form/IFormSchema";
 import SchemaField from "../../models/SchemaField";
 
 class Fields {

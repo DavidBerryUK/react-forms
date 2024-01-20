@@ -1,4 +1,4 @@
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 import FormSchemaBase from "../../models/FormSchemaBase";
 
 describe("Dynamic Built Schema", () => {
@@ -6,8 +6,8 @@ describe("Dynamic Built Schema", () => {
     //
     // ACT
     //
-    const dietryRequirementsFlag = FieldBuilder.id("dietryRequirementsFlag").boolean("Any special dietary requirements?").build();
-    const dietryRequirementsNotes = FieldBuilder.id("dietryRequirementsNotes").string("Dietry Notes").build();
+    const dietryRequirementsFlag = FieldBuilder.boolean("Any special dietary requirements?").id("dietryRequirementsFlag").build();
+    const dietryRequirementsNotes = FieldBuilder.string("Dietry Notes").id("dietryRequirementsNotes").build();
 
     var schema = new FormSchemaBase();
     schema.addField(dietryRequirementsFlag);

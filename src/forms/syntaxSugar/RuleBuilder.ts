@@ -1,14 +1,12 @@
-import GenericAssertMethodBuilder from "./base/GenericAssertMethodBuilder";
 import EnumFieldType from "../enums/EnumFieldType";
 import IRule from "../interfaces/rules/IRule";
 
-export default class RuleBuilder extends GenericAssertMethodBuilder<RuleBuilder> {
+export default class RuleBuilder {
   private _fieldType: EnumFieldType;
   private _caption: string;
   private _rules: Array<IRule>;
 
   constructor() {
-    super((rule) => this.newAssertionCallback(rule));
     this._caption = "";
     this._rules = new Array<IRule>();
     this._fieldType = EnumFieldType.string;

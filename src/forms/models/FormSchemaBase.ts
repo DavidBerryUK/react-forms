@@ -1,5 +1,5 @@
 import IFormSchema from "../interfaces/form/IFormSchema";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import SchemaField from "./SchemaField";
 import SchemaFieldCollection from "./SchemaFieldCollection";
 

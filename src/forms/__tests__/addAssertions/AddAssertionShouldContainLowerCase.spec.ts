@@ -1,5 +1,5 @@
 import AssertContainsLowerCase from "../../assertions/AssertContainsLowerCase";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldContainLowerCase", () => {
   test("Assertion - shouldContainLowerCase", () => {

@@ -1,6 +1,6 @@
 import IFormSchema from "../forms/interfaces/form/IFormSchema";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
-import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
+import FieldBuilder from "../forms/syntaxSugar/fieldBuilders/FieldBuilder";
 
 export default class SchemaAddress extends FormSchemaBase implements IFormSchema {
   fields = {

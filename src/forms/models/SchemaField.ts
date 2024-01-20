@@ -4,7 +4,7 @@ import ICondition from "../interfaces/condition/ICondition";
 import IRule from "../interfaces/rules/IRule";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import IRuleGroups from "../interfaces/rules/IRuleGroups";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import QueryBuilder from "../syntaxSugar/QueryBuilder";
 import RuleGroup from "./RuleGroup";
 import RuleGroups from "./RuleGroups";

@@ -7,7 +7,7 @@ import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
 import Condition from "../../models/Condition";
 import enumFieldType from "../../enums/EnumFieldType";
 import FormSchemaBase from "../../models/FormSchemaBase";
-import IFormSchema from "../../interfaces/IFormSchema";
+import IFormSchema from "../../interfaces/form/IFormSchema";
 import RuleGroup from "../../models/RuleGroup";
 import SchemaField from "../../models/SchemaField";
 

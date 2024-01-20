@@ -4,7 +4,7 @@ import AssertLengthMax from "../forms/assertions/AssertLengthMax";
 import AssertValueIsDecimal from "../forms/assertions/AssertValueIsDecimal";
 import AssertValueIsInteger from "../forms/assertions/AssertValueIsInteger";
 import AssertValueIsTrue from "../forms/assertions/AssertValueIsTrue";
-import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
+import FieldBuilder from "../forms/syntaxSugar/fieldBuilders/FieldBuilder";
 import Condition from "../forms/models/Condition";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/form/IFormSchema";

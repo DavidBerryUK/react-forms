@@ -9,7 +9,7 @@ import FormFieldCollection from "./FormFieldCollection";
 import IFormFieldCollection from "../interfaces/form/IFormFieldCollection";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import IFormField from "../interfaces/form/IFormField";
 
 //

@@ -3,7 +3,7 @@ import IFormField from "./IFormField";
 import IFormInstance from "./IFormInstance";
 import IFormSchema from "./IFormSchema";
 import IRowValuesModel from "./IRowValuesModel";
-import ISchemaField from "../schema/ISchemaField";
+import ISchemaField from "../schemaField/ISchemaField";
 
 export default interface IFormFieldCollection {
   fieldArray: Array<IFormField>;

@@ -1,25 +1,21 @@
+import AssertContainsUpperCase from "../../assertions/AssertContainsUpperCase";
+import AssertIsPopulated from "../../assertions/AssertIsPopulated";
+import AssertLengthMax from "../../assertions/AssertLengthMax";
+import AssertLengthMin from "../../assertions/AssertLengthMin";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
+
 // test then the when statement applies the condition to the ISchemeField correctly
 //
 // example
 // this.fields.dietryRequirementsNotes.when(this.fields.dietryRequirementsFlag.state().ifIsTrue()).shouldHaveLengthBetween(10, 1000).mandatory();
 //                                     <--> testing this part
-
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
-
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
-import AssertLengthMax from "../../assertions/AssertLengthMax";
-import AssertContainsUpperCase from "../../assertions/AssertContainsUpperCase";
-import exp from "constants";
-import { fi } from "date-fns/locale";
-import AssertLengthMin from "../../assertions/AssertLengthMin";
-
 //
 describe("When parameter hander", () => {
   test("test simple when clause", () => {
     //
     // Arrange
     //
-    var fieldName = FieldBuilder.id("Name").caption("Full Name").string().build();
+    var fieldName = FieldBuilder.string("Full Name").id("Name").build();
 
     //
     // act

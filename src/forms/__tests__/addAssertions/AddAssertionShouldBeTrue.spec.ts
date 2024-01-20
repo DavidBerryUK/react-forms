@@ -1,11 +1,11 @@
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeTrue", () => {
   test("Assertion - shouldBeTrue", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldBeTrue().build();
+    var field = FieldBuilder.boolean().shouldBeTrue().build();
 
     //
     // ASSERT

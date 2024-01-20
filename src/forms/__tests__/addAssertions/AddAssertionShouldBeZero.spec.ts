@@ -1,11 +1,11 @@
 import AssertValueIsZero from "../../assertions/AssertValueIsZero";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeZero", () => {
   test("Assertion - shouldBeZero", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldBeZero().build();
+    var field = FieldBuilder.number().shouldBeZero().build();
 
     //
     // ASSERT

@@ -3,7 +3,7 @@ import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
 import IRule from "../interfaces/rules/IRule";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import RuleGroup from "./RuleGroup";
 
 //

@@ -1,5 +1,5 @@
 import AssertContainsDigits from "../../assertions/AssertContainsDigits";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldContainDigits", () => {
   test("Assertion - shouldContainDigits", () => {

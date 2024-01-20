@@ -4,7 +4,7 @@ import IFormField from "../form/IFormField";
 import IFormInstance from "../form/IFormInstance";
 import IFormSchema from "../form/IFormSchema";
 import IRule from "./IRule";
-import ISchemaField from "../schema/ISchemaField";
+import ISchemaField from "../schemaField/ISchemaField";
 
 export default interface IRuleGroup {
   schemaField: ISchemaField | undefined;

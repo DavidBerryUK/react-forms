@@ -1,5 +1,5 @@
 import AssertContainsUpperCase from "../../assertions/AssertContainsUpperCase";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldContainUpperCase", () => {
   test("Assertion - shouldContainUpperCase", () => {

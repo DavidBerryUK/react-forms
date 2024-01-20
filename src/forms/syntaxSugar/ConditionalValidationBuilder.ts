@@ -1,7 +1,7 @@
-import GenericAssertMethodBuilder from "./base/GenericAssertMethodBuilder";
+import GenericAssertMethodBuilder from "./base/AssertGenericMethodBuilder";
 import IRule from "../interfaces/rules/IRule";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
-import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import QueryBuilder from "./QueryBuilder";
 import RuleGroup from "../models/RuleGroup";
 

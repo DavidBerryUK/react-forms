@@ -1,4 +1,4 @@
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 import QueryBuilder from "../../syntaxSugar/QueryBuilder";
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
 import AssertIsPopulated from "../../assertions/AssertIsPopulated";

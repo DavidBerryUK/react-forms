@@ -3,7 +3,7 @@ import AssertLengthMax from "../../assertions/AssertLengthMax";
 import AssertPostCodeUK from "../../assertions/AssertPostCodeUk";
 import enumFieldType from "../../enums/EnumFieldType";
 import FormSchemaBase from "../../models/FormSchemaBase";
-import IFormSchema from "../../interfaces/IFormSchema";
+import IFormSchema from "../../interfaces/form/IFormSchema";
 import SchemaField from "../../models/SchemaField";
 
 class Fields {

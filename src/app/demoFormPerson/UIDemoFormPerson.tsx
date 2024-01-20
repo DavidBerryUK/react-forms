@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FieldBuilder from "../../forms/syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../forms/syntaxSugar/fieldBuilders/FieldBuilder";
 import FormInstance from "../../forms/models/FormInstance";
 import FormSchemaBase from "../../forms/models/FormSchemaBase";
 import IFormInstance from "../../forms/interfaces/form/IFormInstance";

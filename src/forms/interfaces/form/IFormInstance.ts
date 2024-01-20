@@ -2,7 +2,7 @@ import { FieldType } from "../../types/FormTypes";
 import IFormField from "./IFormField";
 import IFormFieldCollection from "./IFormFieldCollection";
 import IFormSchema from "./IFormSchema";
-import ISchemaField from "../schema/ISchemaField";
+import ISchemaField from "../schemaField/ISchemaField";
 //
 // form model used to track content changes.
 //

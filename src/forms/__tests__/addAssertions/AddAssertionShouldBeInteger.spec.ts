@@ -1,11 +1,11 @@
 import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
-import FieldBuilder from "../../syntaxSugar/FieldBuilder";
+import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {
   test("Assertion - shouldBeInteger", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldBeInteger().build();
+    var field = FieldBuilder.number().shouldBeInteger().build();
 
     //
     // ASSERT

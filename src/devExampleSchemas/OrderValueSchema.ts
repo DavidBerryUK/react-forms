@@ -1,4 +1,4 @@
-import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
+import FieldBuilder from "../forms/syntaxSugar/fieldBuilders/FieldBuilder";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/form/IFormSchema";
 
