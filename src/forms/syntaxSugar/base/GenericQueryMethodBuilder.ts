@@ -1,4 +1,4 @@
-import IRule from "../../interfaces/IRule";
+import IRule from "../../interfaces/rules/IRule";
 import AssertContainsDigits from "../../assertions/AssertContainsDigits";
 import AssertContainsLowerCase from "../../assertions/AssertContainsLowerCase";
 import AssertContainsNoWhiteSpaces from "../../assertions/AssertContainsNoWhiteSpaces";

@@ -1,9 +1,9 @@
-import ConditionalValidationBuilder from "../syntaxSugar/ConditionalValidationBuilder";
-import EnumFieldType from "../enums/EnumFieldType";
-import IRuleGroup from "./IRuleGroup";
-import IRuleGroups from "./IRuleGroups";
+import ConditionalValidationBuilder from "../../syntaxSugar/ConditionalValidationBuilder";
+import EnumFieldType from "../../enums/EnumFieldType";
+import IRuleGroup from "../rules/IRuleGroup";
+import IRuleGroups from "../rules/IRuleGroups";
 import ISchemaFieldRelationships from "./ISchemaFieldRelationships";
-import QueryBuilder from "../syntaxSugar/QueryBuilder";
+import QueryBuilder from "../../syntaxSugar/QueryBuilder";
 
 export default interface ISchemaField {
   readonly type: string;

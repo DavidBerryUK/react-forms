@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import IRule from "../../forms/interfaces/IRule";
+import IRule from "../../forms/interfaces/rules/IRule";
 
 const useInputBaseController = (rules: Array<IRule>, onChange?: (value: string, isValid: boolean, validationMessages: Array<string>) => void) => {
   const [validationRules, setValidationRules] = useState<Array<IRule>>(new Array<IRule>());

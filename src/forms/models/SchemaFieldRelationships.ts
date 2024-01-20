@@ -1,4 +1,4 @@
-import ISchemaField from "../interfaces/ISchemaField";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 
 export default class SchemaFieldRelationships {
   field: ISchemaField;

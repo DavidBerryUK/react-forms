@@ -1,4 +1,4 @@
-import EnumMessageType from "../enums/EnumMessageType";
+import EnumMessageType from "../../enums/EnumMessageType";
 
 export default interface IValidationMessageCollection {
   get countAll(): number;

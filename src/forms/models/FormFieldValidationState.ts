@@ -1,6 +1,6 @@
 import EnumMessageType from "../enums/EnumMessageType";
-import IFormFieldValidationState from "../interfaces/IFormFieldValidationState";
-import IValidationMessageCollection from "../interfaces/IValidationMessageCollection";
+import IFormFieldValidationState from "../interfaces/form/IFormFieldValidationState";
+import IValidationMessageCollection from "../interfaces/messages/IValidationMessageCollection";
 import ValidationMessageCollection from "./ValidationMessageCollection";
 
 export default class FormFieldValidationState implements IFormFieldValidationState {

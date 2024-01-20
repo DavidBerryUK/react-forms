@@ -1,7 +1,7 @@
 import GenericAssertMethodBuilder from "./base/GenericAssertMethodBuilder";
 import EnumFieldType from "../enums/EnumFieldType";
-import IRule from "../interfaces/IRule";
-import ISchemaField from "../interfaces/ISchemaField";
+import IRule from "../interfaces/rules/IRule";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 import SchemaField from "../models/SchemaField";
 
 export default class FieldBuilder extends GenericAssertMethodBuilder<FieldBuilder> {

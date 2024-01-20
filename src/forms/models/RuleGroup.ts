@@ -1,14 +1,14 @@
 import Conditions from "./Conditions";
 import EnumFieldType from "../enums/EnumFieldType";
 import EnumMessageType from "../enums/EnumMessageType";
-import FormField from "../interfaces/IFormField";
+import FormField from "../interfaces/form/IFormField";
 import FormInstance from "./FormInstance";
-import ICondition from "../interfaces/ICondition";
-import IConditions from "../interfaces/IConditions";
-import IFormSchema from "../interfaces/IFormSchema";
-import IRule from "../interfaces/IRule";
-import IRuleGroup from "../interfaces/IRuleGroup";
-import ISchemaField from "../interfaces/ISchemaField";
+import ICondition from "../interfaces/condition/ICondition";
+import IConditions from "../interfaces/condition/IConditions";
+import IFormSchema from "../interfaces/form/IFormSchema";
+import IRule from "../interfaces/rules/IRule";
+import IRuleGroup from "../interfaces/rules/IRuleGroup";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 
 export default class RuleGroup implements IRuleGroup {
   //

@@ -1,4 +1,4 @@
-import IRule from "../../../forms/interfaces/IRule";
+import IRule from "../../../forms/interfaces/rules/IRule";
 import React from "react";
 import useInputBaseController from "../../hooks/UseInputBaseController";
 

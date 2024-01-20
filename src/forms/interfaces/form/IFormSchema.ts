@@ -1,4 +1,4 @@
-import ISchemaFieldsCollection from "./ISchemaFieldCollection";
+import ISchemaFieldsCollection from "../schema/ISchemaFieldCollection";
 
 export default interface IFormSchema {
   fieldCollection: ISchemaFieldsCollection;

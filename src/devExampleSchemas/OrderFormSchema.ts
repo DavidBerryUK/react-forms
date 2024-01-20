@@ -1,6 +1,6 @@
 import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
-import IFormSchema from "../forms/interfaces/IFormSchema";
+import IFormSchema from "../forms/interfaces/form/IFormSchema";
 
 export default class OrderFormSchema extends FormSchemaBase implements IFormSchema {
   fields = {

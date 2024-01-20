@@ -1,5 +1,5 @@
-import ISchemaField from "../interfaces/ISchemaField";
-import ISchemaFieldsCollection from "../interfaces/ISchemaFieldCollection";
+import ISchemaField from "../interfaces/schema/ISchemaField";
+import ISchemaFieldsCollection from "../interfaces/schema/ISchemaFieldCollection";
 //
 // Defines the dataset, which is a collection of schema fields
 //

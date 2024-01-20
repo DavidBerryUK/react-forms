@@ -1,8 +1,8 @@
-import { FieldType } from "../types/FormTypes";
+import { FieldType } from "../../types/FormTypes";
 import IFormField from "./IFormField";
 import IFormFieldCollection from "./IFormFieldCollection";
 import IFormSchema from "./IFormSchema";
-import ISchemaField from "./ISchemaField";
+import ISchemaField from "../schema/ISchemaField";
 //
 // form model used to track content changes.
 //

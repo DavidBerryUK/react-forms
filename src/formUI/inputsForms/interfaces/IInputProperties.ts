@@ -1,6 +1,6 @@
-import IFormInstance from "../../../forms/interfaces/IFormInstance";
-import IFormSchema from "../../../forms/interfaces/IFormSchema";
-import ISchemaField from "../../../forms/interfaces/ISchemaField";
+import IFormInstance from "../../../forms/interfaces/form/IFormInstance";
+import IFormSchema from "../../../forms/interfaces/form/IFormSchema";
+import ISchemaField from "../../../forms/interfaces/schema/ISchemaField";
 import FormInstance from "../../../forms/models/FormInstance";
 
 interface IInputPropertiesBase {

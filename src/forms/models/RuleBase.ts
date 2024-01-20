@@ -1,29 +1,28 @@
-import IRuleResponse from "../interfaces/IRuleResponse";
+import IRuleResponse from "../interfaces/rules/IRuleResponse";
 import RuleResponse from "./RuleResponse";
 
 export default class RuleBase {
-	readonly customMessage?: string;
+  readonly customMessage?: string;
 
-	constructor(customMessage?: string) {
-		this.customMessage = customMessage;
-	}
+  constructor(customMessage?: string) {
+    this.customMessage = customMessage;
+  }
 
-	isValueEmpty(value: string | number | Date | undefined | null): boolean {
-		if (value === undefined || value === null) {
-			return true;
-		}
-		if ( typeof value === "string" && value.trim().length === 0)
-		{
-			return true;
-		}
-		return false;
-	}
+  isValueEmpty(value: string | number | Date | undefined | null): boolean {
+    if (value === undefined || value === null) {
+      return true;
+    }
+    if (typeof value === "string" && value.trim().length === 0) {
+      return true;
+    }
+    return false;
+  }
 
-	fail(message: string): IRuleResponse {
-		return RuleResponse.fail(this.customMessage || message);
-	}
+  fail(message: string): IRuleResponse {
+    return RuleResponse.fail(this.customMessage || message);
+  }
 
-	pass(): IRuleResponse {
-		return RuleResponse.pass();
-	}
+  pass(): IRuleResponse {
+    return RuleResponse.pass();
+  }
 }

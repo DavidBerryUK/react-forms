@@ -1,4 +1,4 @@
-import IRule from "../interfaces/IRule";
+import IRule from "../interfaces/rules/IRule";
 import RuleBaseContain from "../models/RuleBaseContain";
 
 export default class AssertContainsSymbols extends RuleBaseContain implements IRule {

@@ -2,8 +2,8 @@ import { useState } from "react";
 import FieldBuilder from "../../forms/syntaxSugar/FieldBuilder";
 import FormInstance from "../../forms/models/FormInstance";
 import FormSchemaBase from "../../forms/models/FormSchemaBase";
-import IFormInstance from "../../forms/interfaces/IFormInstance";
-import IFormSchema from "../../forms/interfaces/IFormSchema";
+import IFormInstance from "../../forms/interfaces/form/IFormInstance";
+import IFormSchema from "../../forms/interfaces/form/IFormSchema";
 import UIFormString from "../../formUI/inputsForms/UIFormString";
 
 const UIDemoFormPerson = () => {

@@ -1,6 +1,6 @@
 import GenericAssertMethodBuilder from "./base/GenericAssertMethodBuilder";
 import EnumFieldType from "../enums/EnumFieldType";
-import IRule from "../interfaces/IRule";
+import IRule from "../interfaces/rules/IRule";
 
 export default class RuleBuilder extends GenericAssertMethodBuilder<RuleBuilder> {
   private _fieldType: EnumFieldType;

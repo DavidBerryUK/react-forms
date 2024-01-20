@@ -1,7 +1,7 @@
-import { FieldType } from "../types/FormTypes";
-import IFormInstance from "./IFormInstance";
-import IFormSchema from "./IFormSchema";
-import IFormField from "./IFormField";
+import { FieldType } from "../../types/FormTypes";
+import IFormInstance from "../form/IFormInstance";
+import IFormSchema from "../form/IFormSchema";
+import IFormField from "../form/IFormField";
 import IRuleResponse from "./IRuleResponse";
 
 // Define properties and methods for a validation rule.
@@ -15,9 +15,5 @@ export default interface IRule {
   // form 	- instance of the form
   // field 	- field being validated from the form
   // value	- value from the field, trimmed
-  isValid(
-    form: IFormInstance<IFormSchema> | null,
-    field: IFormField | null,
-    value: FieldType
-  ): IRuleResponse;
+  isValid(form: IFormInstance<IFormSchema> | null, field: IFormField | null, value: FieldType): IRuleResponse;
 }

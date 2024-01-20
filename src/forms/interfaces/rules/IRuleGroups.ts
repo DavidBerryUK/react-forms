@@ -1,8 +1,8 @@
-import IFormField from "./IFormField";
-import IFormInstance from "./IFormInstance";
-import IFormSchema from "./IFormSchema";
+import IFormField from "../form/IFormField";
+import IFormInstance from "../form/IFormInstance";
+import IFormSchema from "../form/IFormSchema";
 import IRuleGroup from "./IRuleGroup";
-import ISchemaField from "./ISchemaField";
+import ISchemaField from "../schema/ISchemaField";
 
 export default interface IRuleGroups {
   items: Array<IRuleGroup>;

@@ -3,12 +3,12 @@ import { nanoid } from "nanoid";
 import EnumMessageType from "../enums/EnumMessageType";
 import FormField from "./FormField";
 import FormUtility from "../../formUI/utility/FormUtility";
-import IFormField from "../interfaces/IFormField";
-import IFormFieldCollection from "../interfaces/IFormFieldCollection";
-import IFormInstance from "../interfaces/IFormInstance";
-import IFormSchema from "../interfaces/IFormSchema";
-import IRowValuesModel from "../interfaces/IRowValuesModel";
-import ISchemaField from "../interfaces/ISchemaField";
+import IFormField from "../interfaces/form/IFormField";
+import IFormFieldCollection from "../interfaces/form/IFormFieldCollection";
+import IFormInstance from "../interfaces/form/IFormInstance";
+import IFormSchema from "../interfaces/form/IFormSchema";
+import IRowValuesModel from "../interfaces/form/IRowValuesModel";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 import RowValuesModel from "./RowValuesModel";
 
 // Maintain a collection of fields, as well as provide

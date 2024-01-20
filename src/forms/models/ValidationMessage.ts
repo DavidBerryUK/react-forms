@@ -1,5 +1,5 @@
 import EnumMessageType from "../enums/EnumMessageType";
-import IValidationMessage from "../interfaces/IValidationMessage";
+import IValidationMessage from "../interfaces/messages/IValidationMessage";
 
 export default class ValidationMessage implements IValidationMessage {
   messageType: EnumMessageType;

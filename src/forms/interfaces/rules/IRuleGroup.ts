@@ -1,10 +1,10 @@
-import ICondition from "./ICondition";
-import IConditions from "./IConditions";
-import IFormField from "./IFormField";
-import IFormInstance from "./IFormInstance";
-import IFormSchema from "./IFormSchema";
+import ICondition from "../condition/ICondition";
+import IConditions from "../condition/IConditions";
+import IFormField from "../form/IFormField";
+import IFormInstance from "../form/IFormInstance";
+import IFormSchema from "../form/IFormSchema";
 import IRule from "./IRule";
-import ISchemaField from "./ISchemaField";
+import ISchemaField from "../schema/ISchemaField";
 
 export default interface IRuleGroup {
   schemaField: ISchemaField | undefined;

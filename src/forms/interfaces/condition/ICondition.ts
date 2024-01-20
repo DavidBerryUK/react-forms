@@ -2,11 +2,11 @@
 // class provides option of making rule evaluation for a field
 //  dependent upon specific conditions being met.
 
-import IFormInstance from "./IFormInstance";
-import IFormSchema from "./IFormSchema";
-import IRule from "./IRule";
-import IRuleGroup from "./IRuleGroup";
-import ISchemaField from "./ISchemaField";
+import IFormInstance from "../form/IFormInstance";
+import IFormSchema from "../form/IFormSchema";
+import IRule from "../rules/IRule";
+import IRuleGroup from "../rules/IRuleGroup";
+import ISchemaField from "../schema/ISchemaField";
 
 //
 export default interface ICondition {

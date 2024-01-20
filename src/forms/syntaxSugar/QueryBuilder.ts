@@ -1,8 +1,8 @@
 import GenericQueryMethodBuilder from "./base/GenericQueryMethodBuilder";
-import IRule from "../interfaces/IRule";
-import ISchemaField from "../interfaces/ISchemaField";
+import IRule from "../interfaces/rules/IRule";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 import Condition from "../models/Condition";
-import ICondition from "../interfaces/ICondition";
+import ICondition from "../interfaces/condition/ICondition";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.

@@ -1,5 +1,5 @@
 import React from "react";
-import IRule from "../../../forms/interfaces/IRule";
+import IRule from "../../../forms/interfaces/rules/IRule";
 import useInputBaseController from "../../hooks/UseInputBaseController";
 
 interface IProperties {

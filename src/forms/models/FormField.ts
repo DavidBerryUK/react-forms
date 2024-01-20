@@ -1,9 +1,9 @@
 import { FieldType } from "../types/FormTypes";
 import FormFieldValidationState from "./FormFieldValidationState";
 import FormUtility from "../../formUI/utility/FormUtility";
-import IFormField from "../interfaces/IFormField";
-import IFormFieldValidationState from "../interfaces/IFormFieldValidationState";
-import ISchemaField from "../interfaces/ISchemaField";
+import IFormField from "../interfaces/form/IFormField";
+import IFormFieldValidationState from "../interfaces/form/IFormFieldValidationState";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 
 // name     - name of the field
 // rowId    - optional, if the form has repeating rows then this will identify the field on the row

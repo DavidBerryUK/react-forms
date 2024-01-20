@@ -7,7 +7,7 @@ import AssertValueIsTrue from "../forms/assertions/AssertValueIsTrue";
 import FieldBuilder from "../forms/syntaxSugar/FieldBuilder";
 import Condition from "../forms/models/Condition";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
-import IFormSchema from "../forms/interfaces/IFormSchema";
+import IFormSchema from "../forms/interfaces/form/IFormSchema";
 import RuleGroup from "../forms/models/RuleGroup";
 
 //

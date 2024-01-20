@@ -1,11 +1,11 @@
 import { nanoid } from "nanoid";
 import FormFieldValidationState from "./FormFieldValidationState";
-import IFormField from "../interfaces/IFormField";
-import IFormInstance from "../interfaces/IFormInstance";
-import IFormSchema from "../interfaces/IFormSchema";
-import IRuleGroup from "../interfaces/IRuleGroup";
-import IRuleGroups from "../interfaces/IRuleGroups";
-import ISchemaField from "../interfaces/ISchemaField";
+import IFormField from "../interfaces/form/IFormField";
+import IFormInstance from "../interfaces/form/IFormInstance";
+import IFormSchema from "../interfaces/form/IFormSchema";
+import IRuleGroup from "../interfaces/rules/IRuleGroup";
+import IRuleGroups from "../interfaces/rules/IRuleGroups";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 
 export default class RuleGroups implements IRuleGroups {
   items: Array<IRuleGroup>;

@@ -1,5 +1,5 @@
-import EnumMessageType from "../enums/EnumMessageType";
-import IValidationMessageCollection from "./IValidationMessageCollection";
+import EnumMessageType from "../../enums/EnumMessageType";
+import IValidationMessageCollection from "../messages/IValidationMessageCollection";
 
 export default interface IFormFieldValidationState {
   hasBeenValidated: boolean;

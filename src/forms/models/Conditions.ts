@@ -1,6 +1,6 @@
-import ICondition from "../interfaces/ICondition";
-import IConditions from "../interfaces/IConditions";
-import IFormSchema from "../interfaces/IFormSchema";
+import ICondition from "../interfaces/condition/ICondition";
+import IConditions from "../interfaces/condition/IConditions";
+import IFormSchema from "../interfaces/form/IFormSchema";
 import FormInstance from "./FormInstance";
 
 //

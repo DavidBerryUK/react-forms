@@ -1,6 +1,6 @@
 import ICondition from "./ICondition";
-import IFormInstance from "./IFormInstance";
-import IFormSchema from "./IFormSchema";
+import IFormInstance from "../form/IFormInstance";
+import IFormSchema from "../form/IFormSchema";
 
 //
 // class provides option of making rule evaluation for a field

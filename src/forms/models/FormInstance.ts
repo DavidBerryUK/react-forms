@@ -6,11 +6,11 @@
 
 import { FieldType } from "../types/FormTypes";
 import FormFieldCollection from "./FormFieldCollection";
-import IFormFieldCollection from "../interfaces/IFormFieldCollection";
-import IFormInstance from "../interfaces/IFormInstance";
-import IFormSchema from "../interfaces/IFormSchema";
-import ISchemaField from "../interfaces/ISchemaField";
-import IFormField from "../interfaces/IFormField";
+import IFormFieldCollection from "../interfaces/form/IFormFieldCollection";
+import IFormInstance from "../interfaces/form/IFormInstance";
+import IFormSchema from "../interfaces/form/IFormSchema";
+import ISchemaField from "../interfaces/schema/ISchemaField";
+import IFormField from "../interfaces/form/IFormField";
 
 //
 export default class FormInstance<T extends IFormSchema> implements IFormInstance<T> {

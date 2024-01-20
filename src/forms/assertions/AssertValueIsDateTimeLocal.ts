@@ -1,4 +1,4 @@
-import IRule from "../interfaces/IRule";
+import IRule from "../interfaces/rules/IRule";
 import RuleBaseDateTime from "../models/RuleBaseDateTime";
 
 export default class AssertValueIsDateTimeLocal extends RuleBaseDateTime implements IRule {

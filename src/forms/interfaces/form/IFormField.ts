@@ -1,6 +1,6 @@
 import IFormFieldValidationState from "./IFormFieldValidationState";
-import ISchemaField from "./ISchemaField";
-import { FieldType } from "../types/FormTypes";
+import ISchemaField from "../schema/ISchemaField";
+import { FieldType } from "../../types/FormTypes";
 
 export default interface FormField {
   // unique id for the field

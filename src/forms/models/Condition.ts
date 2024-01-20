@@ -1,9 +1,9 @@
-import ICondition from "../interfaces/ICondition";
-import IFormInstance from "../interfaces/IFormInstance";
-import IFormSchema from "../interfaces/IFormSchema";
-import IRule from "../interfaces/IRule";
-import IRuleGroup from "../interfaces/IRuleGroup";
-import ISchemaField from "../interfaces/ISchemaField";
+import ICondition from "../interfaces/condition/ICondition";
+import IFormInstance from "../interfaces/form/IFormInstance";
+import IFormSchema from "../interfaces/form/IFormSchema";
+import IRule from "../interfaces/rules/IRule";
+import IRuleGroup from "../interfaces/rules/IRuleGroup";
+import ISchemaField from "../interfaces/schema/ISchemaField";
 import RuleGroup from "./RuleGroup";
 
 //
