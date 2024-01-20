@@ -53,4 +53,8 @@ export default class FieldBuilderBase<T extends FieldBuilderBase<T>> {
   build(): ISchemaField {
     return SchemaField.createWithRules(this._id, this._caption, this._fieldType, this._rules);
   }
+
+  toRules(): Array<IRule> {
+    return this._rules;
+  }
 }

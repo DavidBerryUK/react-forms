@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
-import RuleBuilder from "../../forms/syntaxSugar/RuleBuilder";
+import FieldBuilder from "../../forms/syntaxSugar/fieldBuilders/FieldBuilder";
 
 const useViewController = () => {
   const [forename, setForename] = useState("");
-  const forenameRules = useRef(RuleBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
+  const forenameRules = useRef(FieldBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
   const [forenameValidationMessage, setForenameValidationMessage] = useState("");
 
   const [surname, setSurname] = useState("");
-  const surnameRules = useRef(RuleBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
+  const surnameRules = useRef(FieldBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
   const [surnameValidationMessage, setSurnameValidationMessage] = useState("");
 
   const handleForenameChanged = (value: string, isValid: boolean, validationMessage: Array<string>) => {

@@ -16,7 +16,6 @@ import AssertValueMax from "../../assertions/AssertValueMax";
 import AssertValueMin from "../../assertions/AssertValueMin";
 import EnumFieldType from "../../enums/EnumFieldType";
 import FieldBuilderBase from "./FieldBuilderBase";
-import IRule from "../../interfaces/rules/IRule";
 
 export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderString> {
   constructor() {

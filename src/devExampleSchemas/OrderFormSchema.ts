@@ -14,7 +14,7 @@ export default class OrderFormSchema extends FormSchemaBase implements IFormSche
     orderStatus: FieldBuilder.string("Order Status").build(),
     regNo: FieldBuilder.string("Reg No").build(),
     vehicleId: FieldBuilder.number("vehicleId").build(),
-    startDate: FieldBuilder.string("Start Date").date().build(),
+    startDate: FieldBuilder.date("Start Date").build(),
     startRef: FieldBuilder.string("Start Ref").build(),
     agentOriginal: FieldBuilder.string("Original Service Agent").build(),
   };

@@ -5,7 +5,6 @@ import AssertIsPopulated from "../../assertions/AssertIsPopulated";
 import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
 import EnumFieldType from "../../enums/EnumFieldType";
-import IRule from "../../interfaces/rules/IRule";
 
 import FieldBuilderBase from "./FieldBuilderBase";
 

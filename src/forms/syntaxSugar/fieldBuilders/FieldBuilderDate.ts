@@ -8,7 +8,6 @@ import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLo
 import AssertValueIsTime from "../../assertions/AssertValueIsTime";
 import EnumFieldType from "../../enums/EnumFieldType";
 import FieldBuilderBase from "./FieldBuilderBase";
-import IRule from "../../interfaces/rules/IRule";
 
 export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate> {
   constructor() {

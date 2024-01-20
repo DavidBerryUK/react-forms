@@ -1,12 +1,12 @@
 import { useRef, useState } from "react";
-import RuleBuilder from "../../forms/syntaxSugar/RuleBuilder";
+import FieldBuilder from "../../forms/syntaxSugar/fieldBuilders/FieldBuilder";
 
 const useViewController = () => {
   //
   // User Name
   //
   const [username, setUserName] = useState("");
-  const usernameRules = useRef(RuleBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
+  const usernameRules = useRef(FieldBuilder.string().mandatory().shouldHaveLengthBetween(8, 20).toRules());
   const [usernameValidationMessage, setUserNameValidationMessage] = useState("");
 
   //
@@ -14,7 +14,7 @@ const useViewController = () => {
   //
   const [password, setPassword] = useState("");
   const passwordRules = useRef(
-    RuleBuilder.string()
+    FieldBuilder.string()
       .mandatory()
       .shouldHaveLengthBetween(8, 20)
       .shouldContainSymbols(1, 99)

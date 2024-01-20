@@ -1,5 +1,4 @@
 import EnumFieldType from "../../enums/EnumFieldType";
-import IRule from "../../interfaces/rules/IRule";
 import ISchemaField from "../../interfaces/schemaField/ISchemaField";
 import SchemaField from "../../models/SchemaField";
 import FieldBuilderString from "./FieldBuilderString";
@@ -11,17 +10,11 @@ export default class FieldBuilder {
   private _fieldType: EnumFieldType;
   private _caption: string;
   private _id: string;
-  private _rules: Array<IRule>;
 
   constructor() {
     this._id = "";
     this._caption = "";
-    this._rules = new Array<IRule>();
     this._fieldType = EnumFieldType.string;
-  }
-
-  private newAssertionCallback(assertion: IRule): void {
-    this._rules.push(assertion);
   }
 
   /****************************/
@@ -63,6 +56,6 @@ export default class FieldBuilder {
   /* Finish Off               */
   /****************************/
   build(): ISchemaField {
-    return SchemaField.createWithRules(this._id, this._caption, this._fieldType, this._rules);
+    return SchemaField.create(this._id, this._caption, this._fieldType);
   }
 }
