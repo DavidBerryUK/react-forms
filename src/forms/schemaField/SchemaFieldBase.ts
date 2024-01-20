@@ -1,18 +1,18 @@
 import ConditionalValidationBuilder from "../syntaxSugar/ConditionalValidationBuilder";
 import EnumFieldType from "../enums/EnumFieldType";
-import ICondition from "../interfaces/condition/ICondition";
-import IRule from "../interfaces/rules/IRule";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import IRuleGroups from "../interfaces/rules/IRuleGroups";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
-import QueryBuilder from "../syntaxSugar/QueryBuilder";
-import RuleGroup from "./RuleGroup";
-import RuleGroups from "./RuleGroups";
-import SchemaFieldRelationships from "./SchemaFieldRelationships";
+import QueryBuilderBoolean from "../syntaxSugar/queryBuilders/QueryBuilderBoolean";
+import QueryBuilderDate from "../syntaxSugar/queryBuilders/QueryBuilderDate";
+import QueryBuilderNumber from "../syntaxSugar/queryBuilders/QueryBuilderNumber";
+import QueryBuilderString from "../syntaxSugar/queryBuilders/QueryBuilderString";
+import RuleGroups from "../models/RuleGroups";
+import SchemaFieldRelationships from "../models/SchemaFieldRelationships";
 //
 // define a field in the form dataset
 //
-export default class SchemaField implements ISchemaField {
+export default abstract class SchemaFieldBase implements ISchemaField {
   readonly type: string = "SchemaField";
 
   // key field name - must be same at on the API Model
@@ -29,72 +29,6 @@ export default class SchemaField implements ISchemaField {
   ruleGroups: IRuleGroups;
   readonly fieldType: EnumFieldType;
   readonly relatedFields: SchemaFieldRelationships;
-
-  //
-  // convenience creators for different combinations
-  // of fields with single or multiple validation rules
-  // in combination with none, single or multiple conditions
-  //
-  public static create(id: string, caption: string, fieldType: EnumFieldType): ISchemaField {
-    return new SchemaField(id, caption, fieldType);
-  }
-
-  public static createWithRule(id: string, caption: string, fieldType: EnumFieldType, rule: IRule): ISchemaField {
-    return new SchemaField(id, caption, fieldType, RuleGroup.create(rule));
-  }
-
-  public static createWithRuleGroup(id: string, caption: string, fieldType: EnumFieldType, ruleGroup: IRuleGroup): ISchemaField {
-    return new SchemaField(id, caption, fieldType, ruleGroup);
-  }
-
-  public static createWithRuleAndCondition(id: string, caption: string, fieldType: EnumFieldType, rule: IRule, condition: ICondition): ISchemaField {
-    return new SchemaField(id, caption, fieldType, RuleGroup.createRuleAndCondition(rule, condition));
-  }
-
-  public static createWithRuleAndConditions(
-    id: string,
-    caption: string,
-    fieldType: EnumFieldType,
-    rule: IRule,
-    condition: Array<ICondition>
-  ): ISchemaField {
-    return new SchemaField(id, caption, fieldType, RuleGroup.createRuleAndConditions(rule, condition));
-  }
-
-  public static createWithRulesAndCondition(
-    id: string,
-    caption: string,
-    fieldType: EnumFieldType,
-    rules: Array<IRule>,
-    condition: ICondition
-  ): ISchemaField {
-    return new SchemaField(id, caption, fieldType, RuleGroup.createRulesAndCondition(rules, condition));
-  }
-
-  public static createWithRulesAndConditions(
-    id: string,
-    caption: string,
-    fieldType: EnumFieldType,
-    rules: Array<IRule>,
-    conditions: Array<ICondition>
-  ): ISchemaField {
-    return new SchemaField(id, caption, fieldType, RuleGroup.createRulesAndConditions(rules, conditions));
-  }
-
-  public static createWithRules(id: string, caption: string, fieldType: EnumFieldType, rules: Array<IRule>): ISchemaField {
-    if (rules.length === 0) {
-      return new SchemaField(id, caption, fieldType);
-    }
-    return new SchemaField(id, caption, fieldType, RuleGroup.createRules(rules));
-  }
-
-  public static createWithRuleGroups(id: string, caption: string, fieldType: EnumFieldType, ruleGroups: Array<IRuleGroup>) {
-    const field = new SchemaField(id, caption, fieldType);
-    ruleGroups.forEach((group) => {
-      field.appendRules(group);
-    });
-    return field;
-  }
 
   // clear all rules
   clearRules() {
@@ -128,7 +62,7 @@ export default class SchemaField implements ISchemaField {
     return this.id === field.id;
   }
 
-  private constructor(
+  constructor(
     id: string,
     caption: string,
     fieldType: EnumFieldType,
@@ -162,13 +96,11 @@ export default class SchemaField implements ISchemaField {
   //
   // the conditional rules are not applied until the first conditional validation is provided, this is done
   // by the conditionalValidationBuilder
-  when(state: QueryBuilder): ConditionalValidationBuilder {
+  when(state: QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber): ConditionalValidationBuilder {
     return new ConditionalValidationBuilder(this, state);
   }
 
-  state(): QueryBuilder {
-    return new QueryBuilder(this);
-  }
+  abstract state(): QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber;
 
   clone(deep?: boolean): ISchemaField {
     throw new Error("Method not implemented.");

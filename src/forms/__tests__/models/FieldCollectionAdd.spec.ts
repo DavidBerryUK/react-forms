@@ -1,13 +1,13 @@
 import EnumFieldType from "../../enums/EnumFieldType";
 import FormFieldCollection from "../../models/FormFieldCollection";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("Field Collection Add", () => {
   test("Add Single New Field", () => {
     // Assign
     //
     const collection = new FormFieldCollection();
-    const fieldTitle1 = SchemaField.create("Name#1", "Name One", EnumFieldType.string);
+    const fieldTitle1 = SchemaFieldString.create("Name#1", "Name One", EnumFieldType.string);
 
     // Act
     //
@@ -29,9 +29,9 @@ describe("Field Collection Add", () => {
     //
     const collection = new FormFieldCollection();
 
-    const fieldTitle1 = SchemaField.create("Name#1", "Name One", EnumFieldType.string);
-    const fieldTitle2 = SchemaField.create("Name#2", "Name Two", EnumFieldType.string);
-    const fieldTitle3 = SchemaField.create("Name#3", "Name Three", EnumFieldType.string);
+    const fieldTitle1 = SchemaFieldString.create("Name#1", "Name One", EnumFieldType.string);
+    const fieldTitle2 = SchemaFieldString.create("Name#2", "Name Two", EnumFieldType.string);
+    const fieldTitle3 = SchemaFieldString.create("Name#3", "Name Three", EnumFieldType.string);
 
     // Act
     //

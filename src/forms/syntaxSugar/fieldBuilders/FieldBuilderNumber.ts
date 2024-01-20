@@ -11,6 +11,7 @@ import AssertValueIsZero from "../../assertions/AssertValueIsZero";
 import AssertValueMax from "../../assertions/AssertValueMax";
 import AssertValueMin from "../../assertions/AssertValueMin";
 import EnumFieldType from "../../enums/EnumFieldType";
+import SchemaFieldNumber from "../../schemaField/SchemaFieldNumber";
 import FieldBuilderBase from "./FieldBuilderBase";
 
 export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNumber> {
@@ -79,5 +80,9 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
   mandatory(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertIsMandatory(customMessage));
     return this;
+  }
+
+  build(): SchemaFieldNumber {
+    return SchemaFieldNumber.createWithRules(this._id, this._caption, this._fieldType, this._rules);
   }
 }

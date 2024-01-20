@@ -7,12 +7,12 @@ import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
 import Condition from "../../models/Condition";
 import EnumFieldType from "../../enums/EnumFieldType";
 import RuleGroup from "../../models/RuleGroup";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("Add Condition to Rule", () => {
   test("Basic Constructor", () => {
     // these are tested elsewhere
-    var fieldDataType = SchemaField.create("dataType", "Data Type", EnumFieldType.string);
+    var fieldDataType = SchemaFieldString.create("dataType", "Data Type", EnumFieldType.string);
 
     // Create conditions for validation
     //
@@ -33,7 +33,7 @@ describe("Add Condition to Rule", () => {
     //
     // assign all the validation and rules to the schema field
     //
-    var fieldValue = SchemaField.createWithRuleGroups("value", "Data Value", EnumFieldType.string, [
+    var fieldValue = SchemaFieldString.createWithRuleGroups("value", "Data Value", EnumFieldType.string, [
       stringValidationRules,
       integerValidationRules,
       decimalValidationRules,

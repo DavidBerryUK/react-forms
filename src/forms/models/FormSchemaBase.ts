@@ -1,6 +1,6 @@
 import IFormSchema from "../interfaces/form/IFormSchema";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
-import SchemaField from "./SchemaField";
+import SchemaFieldBase from "../schemaField/SchemaFieldBase";
 import SchemaFieldCollection from "./SchemaFieldCollection";
 
 export default class FormSchemaBase implements IFormSchema {
@@ -18,7 +18,7 @@ export default class FormSchemaBase implements IFormSchema {
     const keys = Object.keys(fields);
     keys.forEach((key) => {
       const property = Reflect.get(fields, key);
-      if (SchemaField.isSchemaField(property)) {
+      if (SchemaFieldBase.isSchemaField(property)) {
         if (!property.hasId()) {
           property.id = key;
         }

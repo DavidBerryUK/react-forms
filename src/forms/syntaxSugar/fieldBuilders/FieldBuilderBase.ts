@@ -1,13 +1,11 @@
 import EnumFieldType from "../../enums/EnumFieldType";
 import IRule from "../../interfaces/rules/IRule";
-import ISchemaField from "../../interfaces/schemaField/ISchemaField";
-import SchemaField from "../../models/SchemaField";
 
-export default class FieldBuilderBase<T extends FieldBuilderBase<T>> {
-  private _fieldType: EnumFieldType;
-  private _caption: string;
-  private _id: string;
-  private _rules: Array<IRule>;
+export default abstract class FieldBuilderBase<T extends FieldBuilderBase<T>> {
+  protected _fieldType: EnumFieldType;
+  protected _caption: string;
+  protected _id: string;
+  protected _rules: Array<IRule>;
 
   constructor(fieldType: EnumFieldType) {
     this._id = "";
@@ -50,9 +48,6 @@ export default class FieldBuilderBase<T extends FieldBuilderBase<T>> {
   /****************************/
   /* Finish Off               */
   /****************************/
-  build(): ISchemaField {
-    return SchemaField.createWithRules(this._id, this._caption, this._fieldType, this._rules);
-  }
 
   toRules(): Array<IRule> {
     return this._rules;

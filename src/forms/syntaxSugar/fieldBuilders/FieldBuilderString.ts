@@ -15,6 +15,7 @@ import AssertValueIsBetween from "../../assertions/AssertValueIsBetween";
 import AssertValueMax from "../../assertions/AssertValueMax";
 import AssertValueMin from "../../assertions/AssertValueMin";
 import EnumFieldType from "../../enums/EnumFieldType";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 import FieldBuilderBase from "./FieldBuilderBase";
 
 export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderString> {
@@ -103,5 +104,9 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
   mandatory(customMessage?: string): FieldBuilderString {
     this.add(new AssertIsMandatory(customMessage));
     return this;
+  }
+
+  build(): SchemaFieldString {
+    return SchemaFieldString.createWithRules(this._id, this._caption, this._fieldType, this._rules);
   }
 }

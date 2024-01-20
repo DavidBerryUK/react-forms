@@ -5,6 +5,7 @@ import AssertIsPopulated from "../../assertions/AssertIsPopulated";
 import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
 import EnumFieldType from "../../enums/EnumFieldType";
+import SchemaFieldBoolean from "../../schemaField/SchemaFieldBoolean";
 
 import FieldBuilderBase from "./FieldBuilderBase";
 
@@ -44,5 +45,9 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
   mandatory(customMessage?: string): FieldBuilderBoolean {
     this.add(new AssertIsMandatory(customMessage));
     return this;
+  }
+
+  build(): SchemaFieldBoolean {
+    return SchemaFieldBoolean.createWithRules(this._id, this._caption, this._fieldType, this._rules);
   }
 }

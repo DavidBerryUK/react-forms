@@ -2,7 +2,10 @@ import GenericAssertMethodBuilder from "./base/AssertGenericMethodBuilder";
 import IRule from "../interfaces/rules/IRule";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
-import QueryBuilder from "./QueryBuilder";
+import QueryBuilderBoolean from "./queryBuilders/QueryBuilderBoolean";
+import QueryBuilderDate from "./queryBuilders/QueryBuilderDate";
+import QueryBuilderNumber from "./queryBuilders/QueryBuilderNumber";
+import QueryBuilderString from "./queryBuilders/QueryBuilderString";
 import RuleGroup from "../models/RuleGroup";
 
 //
@@ -17,10 +20,10 @@ import RuleGroup from "../models/RuleGroup";
 //
 export default class ConditionalValidationBuilder extends GenericAssertMethodBuilder<ConditionalValidationBuilder> {
   private _schemaField: ISchemaField;
-  private _queryBuilder: QueryBuilder;
+  private _queryBuilder: QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber;
   private _ruleGroup: IRuleGroup | undefined;
 
-  constructor(schemaField: ISchemaField, queryBuilder: QueryBuilder) {
+  constructor(schemaField: ISchemaField, queryBuilder: QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber) {
     super((rule) => this.registerNewAssertion(rule));
 
     this._schemaField = schemaField;

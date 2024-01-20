@@ -1,12 +1,12 @@
 import EnumFieldType from "../../enums/EnumFieldType";
 import FormField from "../../models/FormField";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("Field Model Constructor", () => {
   test("constructor - empty rule collection", () => {
     // Assign / Act
     //
-    const model = new FormField("Name-Text", null, SchemaField.create("Test-Field", "Test-Text", EnumFieldType.string));
+    const model = new FormField("Name-Text", null, SchemaFieldString.create("Test-Field", "Test-Text", EnumFieldType.string));
 
     // Assert
     //

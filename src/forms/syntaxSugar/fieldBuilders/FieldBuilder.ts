@@ -1,6 +1,4 @@
 import EnumFieldType from "../../enums/EnumFieldType";
-import ISchemaField from "../../interfaces/schemaField/ISchemaField";
-import SchemaField from "../../models/SchemaField";
 import FieldBuilderString from "./FieldBuilderString";
 import FieldBuilderNumber from "./FieldBuilderNumber";
 import FieldBuilderBoolean from "./FieldBuilderBoolean";
@@ -50,12 +48,5 @@ export default class FieldBuilder {
       builder.caption(caption);
     }
     return builder;
-  }
-
-  /****************************/
-  /* Finish Off               */
-  /****************************/
-  build(): ISchemaField {
-    return SchemaField.create(this._id, this._caption, this._fieldType);
   }
 }

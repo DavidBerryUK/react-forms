@@ -2,12 +2,12 @@ import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
 import Condition from "../../models/Condition";
 import EnumFieldType from "../../enums/EnumFieldType";
 import RuleGroup from "../../models/RuleGroup";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("Create Basic Condition Model", () => {
   test("Basic Constructor", () => {
     // these are tested elsewhere
-    var fieldDataType = SchemaField.create("dataType", "Data Type", EnumFieldType.string);
+    var fieldDataType = SchemaFieldString.create("dataType", "Data Type", EnumFieldType.string);
     var ruleIsString = RuleGroup.create(new AssertIsEqualTo("string", true));
 
     // act

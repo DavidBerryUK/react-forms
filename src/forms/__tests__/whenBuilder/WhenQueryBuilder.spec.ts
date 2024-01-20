@@ -1,9 +1,10 @@
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
-import QueryBuilder from "../../syntaxSugar/QueryBuilder";
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
 import AssertIsPopulated from "../../assertions/AssertIsPopulated";
 import AssertLengthMax from "../../assertions/AssertLengthMax";
 import AssertContainsUpperCase from "../../assertions/AssertContainsUpperCase";
+import QueryBuilderBoolean from "../../syntaxSugar/queryBuilders/QueryBuilderBoolean";
+import QueryBuilderString from "../../syntaxSugar/queryBuilders/QueryBuilderString";
 
 //
 // the Query builder is return from the "ISchemaField.State()" and is an input into the "when" statement.
@@ -22,7 +23,7 @@ describe("When Query Builder", () => {
     //
     //
     //
-    var queryBuilder = new QueryBuilder(fieldProvideName).ifIsTrue();
+    var queryBuilder = new QueryBuilderBoolean(fieldProvideName).ifIsTrue();
     //
     // ASSERT
     //
@@ -45,7 +46,7 @@ describe("When Query Builder", () => {
     //
     // test condition, if populated, or greater > 100 chars, or ifContains between 1 and 99 upper case chars
     //
-    var queryBuilder = new QueryBuilder(fieldName).ifIsPopulated().ifLengthGreaterOrEqual(100).ifContainsUpperCase(1, 99);
+    var queryBuilder = new QueryBuilderString(fieldName).ifIsPopulated().ifLengthGreaterOrEqual(100).ifContainsUpperCase(1, 99);
     //
     // ASSERT
     //

@@ -2,12 +2,12 @@ import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
 import Condition from "../../models/Condition";
 import Conditions from "../../models/Conditions";
 import enumFieldType from "../../enums/EnumFieldType";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("Create Basic Condition Collection", () => {
   test("Basic Constructor", () => {
     // these are tested elsewhere
-    var fieldDataType = SchemaField.create("dataType", "Data Type", enumFieldType.string);
+    var fieldDataType = SchemaFieldString.create("dataType", "Data Type", enumFieldType.string);
 
     const conditionIsString = Condition.create(fieldDataType, new AssertIsEqualTo("string", true));
     const conditionIsInteger = Condition.create(fieldDataType, new AssertIsEqualTo("integer", true));

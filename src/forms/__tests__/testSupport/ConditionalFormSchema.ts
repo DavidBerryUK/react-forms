@@ -9,7 +9,7 @@ import enumFieldType from "../../enums/EnumFieldType";
 import FormSchemaBase from "../../models/FormSchemaBase";
 import IFormSchema from "../../interfaces/form/IFormSchema";
 import RuleGroup from "../../models/RuleGroup";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 //
 // Define fields on the form.
@@ -17,8 +17,8 @@ import SchemaField from "../../models/SchemaField";
 // caption  = name used on UI Captions and validation messages
 //
 class Fields {
-  dataType = SchemaField.create("dataType", "Data Type", enumFieldType.string);
-  value = SchemaField.create("value", "Data Value", enumFieldType.string);
+  dataType = SchemaFieldString.create("dataType", "Data Type", enumFieldType.string);
+  value = SchemaFieldString.create("value", "Data Value", enumFieldType.string);
 }
 
 export default class ConditionalFormSchema extends FormSchemaBase implements IFormSchema {

@@ -1,10 +1,10 @@
 import EnumFieldType from "../../enums/EnumFieldType";
 import FormSchemaBase from "../../models/FormSchemaBase";
 import IFormSchema from "../../interfaces/form/IFormSchema";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 class Fields {
-  dummyField = SchemaField.create("dummy", "Dummy Field", EnumFieldType.string);
+  dummyField = SchemaFieldString.create("dummy", "Dummy Field", EnumFieldType.string);
 }
 
 export default class DummySchema extends FormSchemaBase implements IFormSchema {

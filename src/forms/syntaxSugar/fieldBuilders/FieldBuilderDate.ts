@@ -7,6 +7,7 @@ import AssertValueIsDateLocal from "../../assertions/AssertValueIsDateLocal";
 import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLocal";
 import AssertValueIsTime from "../../assertions/AssertValueIsTime";
 import EnumFieldType from "../../enums/EnumFieldType";
+import SchemaFieldDate from "../../schemaField/SchemaFieldDate";
 import FieldBuilderBase from "./FieldBuilderBase";
 
 export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate> {
@@ -55,5 +56,9 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
   mandatory(customMessage?: string): FieldBuilderDate {
     this.add(new AssertIsMandatory(customMessage));
     return this;
+  }
+
+  build(): SchemaFieldDate {
+    return SchemaFieldDate.createWithRules(this._id, this._caption, this._fieldType, this._rules);
   }
 }
