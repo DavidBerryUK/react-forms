@@ -8,7 +8,6 @@ import AssertValueIsPositive from "../../assertions/AssertValueIsPositive";
 import AssertValueIsZero from "../../assertions/AssertValueIsZero";
 import AssertValueMax from "../../assertions/AssertValueMax";
 import AssertValueMin from "../../assertions/AssertValueMin";
-import ISchemaField from "../../interfaces/schemaField/ISchemaField";
 import QueryBuilderBase from "./QueryBuilderBase";
 import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 
@@ -25,10 +24,6 @@ import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
  *
  */
 export default class QueryBuilderNumber extends QueryBuilderBase<QueryBuilderNumber> {
-  constructor(schemaField: ISchemaField) {
-    super(schemaField);
-  }
-
   /****************************/
   /* rules                    */
   /****************************/

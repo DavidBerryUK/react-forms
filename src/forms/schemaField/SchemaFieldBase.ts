@@ -1,12 +1,9 @@
+import { QueryBuilderTypes } from "../syntaxSugar/queryBuilders/QueryBuilderTypes";
 import ConditionalValidationBuilder from "../syntaxSugar/ConditionalValidationBuilder";
 import EnumFieldType from "../enums/EnumFieldType";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import IRuleGroups from "../interfaces/rules/IRuleGroups";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
-import QueryBuilderBoolean from "../syntaxSugar/queryBuilders/QueryBuilderBoolean";
-import QueryBuilderDate from "../syntaxSugar/queryBuilders/QueryBuilderDate";
-import QueryBuilderNumber from "../syntaxSugar/queryBuilders/QueryBuilderNumber";
-import QueryBuilderString from "../syntaxSugar/queryBuilders/QueryBuilderString";
 import RuleGroups from "../models/RuleGroups";
 import SchemaFieldRelationships from "../models/SchemaFieldRelationships";
 //
@@ -96,11 +93,11 @@ export default abstract class SchemaFieldBase implements ISchemaField {
   //
   // the conditional rules are not applied until the first conditional validation is provided, this is done
   // by the conditionalValidationBuilder
-  when(state: QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber): ConditionalValidationBuilder {
+  when(state: QueryBuilderTypes): ConditionalValidationBuilder {
     return new ConditionalValidationBuilder(this, state);
   }
 
-  abstract state(): QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber;
+  abstract state(): QueryBuilderTypes;
 
   clone(deep?: boolean): ISchemaField {
     throw new Error("Method not implemented.");

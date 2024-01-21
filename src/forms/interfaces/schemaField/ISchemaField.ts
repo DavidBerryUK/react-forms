@@ -1,12 +1,9 @@
+import { QueryBuilderTypes } from "../../syntaxSugar/queryBuilders/QueryBuilderTypes";
 import ConditionalValidationBuilder from "../../syntaxSugar/ConditionalValidationBuilder";
 import EnumFieldType from "../../enums/EnumFieldType";
 import IRuleGroup from "../rules/IRuleGroup";
 import IRuleGroups from "../rules/IRuleGroups";
 import ISchemaFieldRelationships from "../schema/ISchemaFieldRelationships";
-import QueryBuilderString from "../../syntaxSugar/queryBuilders/QueryBuilderString";
-import QueryBuilderBoolean from "../../syntaxSugar/queryBuilders/QueryBuilderBoolean";
-import QueryBuilderDate from "../../syntaxSugar/queryBuilders/QueryBuilderDate";
-import QueryBuilderNumber from "../../syntaxSugar/queryBuilders/QueryBuilderNumber";
 
 export default interface ISchemaField {
   readonly type: string;
@@ -26,10 +23,10 @@ export default interface ISchemaField {
   //
   // specify conditional validation / cross valdation
   //
-  when(state: QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber): ConditionalValidationBuilder;
+  when(state: QueryBuilderTypes): ConditionalValidationBuilder;
 
   //
   // used to specify conditions related to realtime state
   //
-  state(): QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber;
+  state(): QueryBuilderTypes;
 }

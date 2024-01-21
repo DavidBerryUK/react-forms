@@ -1,7 +1,7 @@
+import Condition from "../../models/Condition";
 import ICondition from "../../interfaces/condition/ICondition";
 import IRule from "../../interfaces/rules/IRule";
 import ISchemaField from "../../interfaces/schemaField/ISchemaField";
-import Condition from "../../models/Condition";
 
 export default class QueryBuilderBase<T extends QueryBuilderBase<T>> {
   protected _schemaField: ISchemaField;

@@ -1,8 +1,6 @@
 import AssertIsEmpty from "../../assertions/AssertIsEmpty";
 import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
-import IRule from "../../interfaces/rules/IRule";
-import ISchemaField from "../../interfaces/schemaField/ISchemaField";
 import QueryBuilderBase from "./QueryBuilderBase";
 import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 
@@ -19,10 +17,6 @@ import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
  *
  */
 export default class QueryBuilderBoolean extends QueryBuilderBase<QueryBuilderBoolean> {
-  constructor(schemaField: ISchemaField) {
-    super(schemaField);
-  }
-
   /****************************/
   /* rules                    */
   /****************************/
@@ -45,19 +39,6 @@ export default class QueryBuilderBoolean extends QueryBuilderBase<QueryBuilderBo
   ifIsFalse(customMessage?: string): QueryBuilderBoolean {
     this.newAssertion(new AssertValueIsFalse(customMessage));
 
-    return this;
-  }
-
-  /****************************/
-  /* Add Rules                */
-  /****************************/
-  addAssert(rule: IRule): QueryBuilderBoolean {
-    this.newAssertion(rule);
-    return this;
-  }
-
-  addAssertions(rules: Array<IRule>): QueryBuilderBoolean {
-    rules.forEach((rule) => this.newAssertion(rule));
     return this;
   }
 }
