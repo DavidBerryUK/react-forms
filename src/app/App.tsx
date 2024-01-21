@@ -2,11 +2,12 @@
 // import UIDemoLogin from "./demoLogin/UIDemoLogin";
 
 import UIDemoFormPerson from "./demoFormPerson/UIDemoFormPerson";
+import UIDemoFormScoring from "./demoFormScoring/UIDemoFormScoring";
 
 const App = () => {
   return (
     <div>
-      <UIDemoFormPerson />
+      <UIDemoFormScoring />
     </div>
   );
 };
