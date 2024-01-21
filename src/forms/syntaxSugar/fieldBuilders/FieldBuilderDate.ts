@@ -59,6 +59,6 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
   }
 
   build(): SchemaFieldDate {
-    return SchemaFieldDate.createWithRules(this._id, this._caption, this._fieldType, this._rules);
+    return SchemaFieldDate.createWithRules(this._id, this._caption, this._rules);
   }
 }

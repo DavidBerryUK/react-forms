@@ -1,5 +1,5 @@
 import EnumFieldType from "../../enums/EnumFieldType";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 //
 // tests for linking fields together
@@ -9,8 +9,8 @@ import SchemaField from "../../models/SchemaField";
 describe("SchemaFieldsJoin.spec", () => {
   test("join 2 fields", () => {
     // Arrange
-    const fieldA = SchemaField.create("FieldA", "Field A", EnumFieldType.string);
-    const fieldB = SchemaField.create("FieldB", "Field B", EnumFieldType.string);
+    const fieldA = SchemaFieldString.create("FieldA", "Field A", EnumFieldType.string);
+    const fieldB = SchemaFieldString.create("FieldB", "Field B", EnumFieldType.string);
 
     // Act
     fieldA.relatedFields.join(fieldB);
@@ -22,8 +22,8 @@ describe("SchemaFieldsJoin.spec", () => {
 
   test("disconnect 2 fields", () => {
     // Arrange
-    const fieldA = SchemaField.create("FieldA", "Field A", EnumFieldType.string);
-    const fieldB = SchemaField.create("FieldB", "Field B", EnumFieldType.string);
+    const fieldA = SchemaFieldString.create("FieldA", "Field A", EnumFieldType.string);
+    const fieldB = SchemaFieldString.create("FieldB", "Field B", EnumFieldType.string);
 
     // Act
     fieldA.relatedFields.join(fieldB);
@@ -43,8 +43,8 @@ describe("SchemaFieldsJoin.spec", () => {
   //
   test("join 2 fields - join multiple times", () => {
     // Arrange
-    const fieldA = SchemaField.create("FieldA", "Field A", EnumFieldType.string);
-    const fieldB = SchemaField.create("FieldB", "Field B", EnumFieldType.string);
+    const fieldA = SchemaFieldString.create("FieldA", "Field A", EnumFieldType.string);
+    const fieldB = SchemaFieldString.create("FieldB", "Field B", EnumFieldType.string);
 
     // Act
     fieldA.relatedFields.join(fieldB);
@@ -59,8 +59,8 @@ describe("SchemaFieldsJoin.spec", () => {
 
   test("join 2 fields - removing multiple times", () => {
     // Arrange
-    const fieldA = SchemaField.create("FieldA", "Field A", EnumFieldType.string);
-    const fieldB = SchemaField.create("FieldB", "Field B", EnumFieldType.string);
+    const fieldA = SchemaFieldString.create("FieldA", "Field A", EnumFieldType.string);
+    const fieldB = SchemaFieldString.create("FieldB", "Field B", EnumFieldType.string);
 
     // Act
     fieldA.relatedFields.join(fieldB);
@@ -79,10 +79,10 @@ describe("SchemaFieldsJoin.spec", () => {
 
   test("connect chain", () => {
     // Arrange
-    const fieldA = SchemaField.create("FieldA", "Field A", EnumFieldType.string);
-    const fieldB = SchemaField.create("FieldB", "Field B", EnumFieldType.string);
-    const fieldC = SchemaField.create("FieldC", "Field C", EnumFieldType.string);
-    const fieldD = SchemaField.create("FieldD", "Field D", EnumFieldType.string);
+    const fieldA = SchemaFieldString.create("FieldA", "Field A", EnumFieldType.string);
+    const fieldB = SchemaFieldString.create("FieldB", "Field B", EnumFieldType.string);
+    const fieldC = SchemaFieldString.create("FieldC", "Field C", EnumFieldType.string);
+    const fieldD = SchemaFieldString.create("FieldD", "Field D", EnumFieldType.string);
 
     // Act
     fieldA.relatedFields.join(fieldB);

@@ -18,6 +18,7 @@ export default class FormSchemaBase implements IFormSchema {
     const keys = Object.keys(fields);
     keys.forEach((key) => {
       const property = Reflect.get(fields, key);
+
       if (SchemaFieldBase.isSchemaField(property)) {
         if (!property.hasId()) {
           property.id = key;

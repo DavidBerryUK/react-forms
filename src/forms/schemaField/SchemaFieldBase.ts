@@ -107,17 +107,22 @@ export default abstract class SchemaFieldBase implements ISchemaField {
   }
 
   static isSchemaField(obj: any): boolean {
+    // Check if the object is undefined or null
     if (obj === undefined || obj === null) {
       return false;
     }
 
+    // Check if the object is of type 'object'
     if (typeof obj !== "object") {
       return false;
     }
 
-    if ("type" in obj === false) {
+    // Check if the object has a property named 'type'
+    if (!("type" in obj)) {
       return false;
     }
-    return obj.type === "SchemaField";
+
+    // Check if the value of the 'type' property starts with 'SchemaField'
+    return obj.type.startsWith("SchemaField");
   }
 }

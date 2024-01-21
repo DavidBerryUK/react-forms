@@ -1,33 +1,33 @@
 import EnumFieldType from "../../enums/EnumFieldType";
-import SchemaField from "../../models/SchemaField";
+import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("IsSchemaField", () => {
   test("pass - valid field", () => {
     // ACT
-    const field = SchemaField.create("field", "Field", EnumFieldType.string);
+    const field = SchemaFieldString.create("field", "Field", EnumFieldType.string);
 
     // ASSERT
-    expect(SchemaField.isSchemaField(field)).toBeTruthy();
+    expect(SchemaFieldString.isSchemaField(field)).toBeTruthy();
   });
 
   test("fail - undefined", () => {
     // ASSERT
-    expect(SchemaField.isSchemaField(undefined)).toBeFalsy();
+    expect(SchemaFieldString.isSchemaField(undefined)).toBeFalsy();
   });
 
   test("fail - null", () => {
     // ASSERT
-    expect(SchemaField.isSchemaField(null)).toBeFalsy();
+    expect(SchemaFieldString.isSchemaField(null)).toBeFalsy();
   });
 
   test("fail - number", () => {
     // ASSERT
-    expect(SchemaField.isSchemaField(123)).toBeFalsy();
+    expect(SchemaFieldString.isSchemaField(123)).toBeFalsy();
   });
 
   test("fail - string", () => {
     // ASSERT
-    expect(SchemaField.isSchemaField("hello")).toBeFalsy();
+    expect(SchemaFieldString.isSchemaField("hello")).toBeFalsy();
   });
 
   test("fail - simple object", () => {
@@ -38,7 +38,7 @@ describe("IsSchemaField", () => {
     };
 
     // ASSERT
-    expect(SchemaField.isSchemaField(obj)).toBeFalsy();
+    expect(SchemaFieldString.isSchemaField(obj)).toBeFalsy();
   });
 
   test("fail - object with similar structure", () => {
@@ -50,6 +50,6 @@ describe("IsSchemaField", () => {
     };
 
     // ASSERT
-    expect(SchemaField.isSchemaField(obj)).toBeFalsy();
+    expect(SchemaFieldString.isSchemaField(obj)).toBeFalsy();
   });
 });

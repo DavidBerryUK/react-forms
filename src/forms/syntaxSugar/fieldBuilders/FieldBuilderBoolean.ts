@@ -48,6 +48,6 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
   }
 
   build(): SchemaFieldBoolean {
-    return SchemaFieldBoolean.createWithRules(this._id, this._caption, this._fieldType, this._rules);
+    return SchemaFieldBoolean.createWithRules(this._id, this._caption, this._rules);
   }
 }

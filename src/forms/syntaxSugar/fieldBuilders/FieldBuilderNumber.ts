@@ -83,6 +83,6 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
   }
 
   build(): SchemaFieldNumber {
-    return SchemaFieldNumber.createWithRules(this._id, this._caption, this._fieldType, this._rules);
+    return SchemaFieldNumber.createWithRules(this._id, this._caption, this._rules);
   }
 }

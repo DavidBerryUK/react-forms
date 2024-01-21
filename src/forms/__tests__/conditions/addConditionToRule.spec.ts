@@ -12,7 +12,7 @@ import SchemaFieldString from "../../schemaField/SchemaFieldString";
 describe("Add Condition to Rule", () => {
   test("Basic Constructor", () => {
     // these are tested elsewhere
-    var fieldDataType = SchemaFieldString.create("dataType", "Data Type", EnumFieldType.string);
+    var fieldDataType = SchemaFieldString.create("dataType", "Data Type");
 
     // Create conditions for validation
     //
@@ -33,7 +33,7 @@ describe("Add Condition to Rule", () => {
     //
     // assign all the validation and rules to the schema field
     //
-    var fieldValue = SchemaFieldString.createWithRuleGroups("value", "Data Value", EnumFieldType.string, [
+    var fieldValue = SchemaFieldString.createWithRuleGroups("value", "Data Value", [
       stringValidationRules,
       integerValidationRules,
       decimalValidationRules,

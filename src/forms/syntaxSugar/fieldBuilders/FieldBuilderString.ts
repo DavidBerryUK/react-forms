@@ -107,6 +107,6 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
   }
 
   build(): SchemaFieldString {
-    return SchemaFieldString.createWithRules(this._id, this._caption, this._fieldType, this._rules);
+    return SchemaFieldString.createWithRules(this._id, this._caption, this._rules);
   }
 }

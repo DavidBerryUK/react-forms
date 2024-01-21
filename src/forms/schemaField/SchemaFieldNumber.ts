@@ -11,73 +11,50 @@ import SchemaFieldBase from "./SchemaFieldBase";
 //
 export default class SchemaFieldNumber extends SchemaFieldBase implements ISchemaField {
   readonly type: string = "SchemaFieldNumber";
+  private static readonly fieldType = EnumFieldType.number;
 
   //
   // convenience creators for different combinations
   // of fields with single or multiple validation rules
   // in combination with none, single or multiple conditions
   //
-  public static create(id: string, caption: string, fieldType: EnumFieldType): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, fieldType);
+  public static create(id: string, caption: string): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType);
   }
 
-  public static createWithRule(id: string, caption: string, fieldType: EnumFieldType, rule: IRule): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, fieldType, RuleGroup.create(rule));
+  public static createWithRule(id: string, caption: string, rule: IRule): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.create(rule));
   }
 
-  public static createWithRuleGroup(id: string, caption: string, fieldType: EnumFieldType, ruleGroup: IRuleGroup): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, fieldType, ruleGroup);
+  public static createWithRuleGroup(id: string, caption: string, ruleGroup: IRuleGroup): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, ruleGroup);
   }
 
-  public static createWithRuleAndCondition(
-    id: string,
-    caption: string,
-    fieldType: EnumFieldType,
-    rule: IRule,
-    condition: ICondition
-  ): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, fieldType, RuleGroup.createRuleAndCondition(rule, condition));
+  public static createWithRuleAndCondition(id: string, caption: string, rule: IRule, condition: ICondition): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRuleAndCondition(rule, condition));
   }
 
-  public static createWithRuleAndConditions(
-    id: string,
-    caption: string,
-    fieldType: EnumFieldType,
-    rule: IRule,
-    condition: Array<ICondition>
-  ): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, fieldType, RuleGroup.createRuleAndConditions(rule, condition));
+  public static createWithRuleAndConditions(id: string, caption: string, rule: IRule, condition: Array<ICondition>): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRuleAndConditions(rule, condition));
   }
 
-  public static createWithRulesAndCondition(
-    id: string,
-    caption: string,
-    fieldType: EnumFieldType,
-    rules: Array<IRule>,
-    condition: ICondition
-  ): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, fieldType, RuleGroup.createRulesAndCondition(rules, condition));
+  public static createWithRulesAndCondition(id: string, caption: string, rules: Array<IRule>, condition: ICondition): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRulesAndCondition(rules, condition));
   }
 
-  public static createWithRulesAndConditions(
-    id: string,
-    caption: string,
-    fieldType: EnumFieldType,
-    rules: Array<IRule>,
-    conditions: Array<ICondition>
-  ): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, fieldType, RuleGroup.createRulesAndConditions(rules, conditions));
+  public static createWithRulesAndConditions(id: string, caption: string, rules: Array<IRule>, conditions: Array<ICondition>): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRulesAndConditions(rules, conditions));
   }
 
-  public static createWithRules(id: string, caption: string, fieldType: EnumFieldType, rules: Array<IRule>): SchemaFieldNumber {
+  public static createWithRules(id: string, caption: string, rules: Array<IRule>): SchemaFieldNumber {
     if (rules.length === 0) {
-      return new SchemaFieldNumber(id, caption, fieldType);
+      return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType);
     }
-    return new SchemaFieldNumber(id, caption, fieldType, RuleGroup.createRules(rules));
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRules(rules));
   }
 
-  public static createWithRuleGroups(id: string, caption: string, fieldType: EnumFieldType, ruleGroups: Array<IRuleGroup>) {
-    const field = new SchemaFieldNumber(id, caption, fieldType);
+  public static createWithRuleGroups(id: string, caption: string, ruleGroups: Array<IRuleGroup>) {
+    const field = new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType);
     ruleGroups.forEach((group) => {
       field.appendRules(group);
     });
