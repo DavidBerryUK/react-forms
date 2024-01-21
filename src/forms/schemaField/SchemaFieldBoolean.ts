@@ -1,3 +1,5 @@
+import { QueryBuilderTypes } from "../types/BuilderTypes";
+import ConditionalValidationBuilderBoolean from "../syntaxSugar/conditionalValidationBuilders/ConditionalValidationBuilderBoolean";
 import EnumFieldType from "../enums/EnumFieldType";
 import ICondition from "../interfaces/condition/ICondition";
 import IRule from "../interfaces/rules/IRule";
@@ -59,6 +61,16 @@ export default class SchemaFieldBoolean extends SchemaFieldBase implements ISche
       field.appendRules(group);
     });
     return field;
+  }
+
+  //
+  // used to build up conditional validation in the following format
+  // this.fields.dietryRequirementsNotes.when(this.fields.dietryRequirementsFlag.state().ifIsTrue()).shouldHaveLengthBetween(10, 1000).mandatory();
+  //
+  // the conditional rules are not applied until the first conditional validation is provided, this is done
+  // by the conditionalValidationBuilder
+  when(state: QueryBuilderTypes): ConditionalValidationBuilderBoolean {
+    return new ConditionalValidationBuilderBoolean(this, state);
   }
 
   state(): QueryBuilderBoolean {

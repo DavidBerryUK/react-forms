@@ -1,11 +1,11 @@
-import { QueryBuilderTypes } from "../syntaxSugar/queryBuilders/QueryBuilderTypes";
-import ConditionalValidationBuilder from "../syntaxSugar/ConditionalValidationBuilder";
+import { ConditionalBuilderTypes, QueryBuilderTypes } from "../types/BuilderTypes";
 import EnumFieldType from "../enums/EnumFieldType";
 import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import IRuleGroups from "../interfaces/rules/IRuleGroups";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import RuleGroups from "../models/RuleGroups";
 import SchemaFieldRelationships from "../models/SchemaFieldRelationships";
+
 //
 // define a field in the form dataset
 //
@@ -87,16 +87,7 @@ export default abstract class SchemaFieldBase implements ISchemaField {
     return true;
   }
 
-  //
-  // used to build up conditional validation in the following format
-  // this.fields.dietryRequirementsNotes.when(this.fields.dietryRequirementsFlag.state().ifIsTrue()).shouldHaveLengthBetween(10, 1000).mandatory();
-  //
-  // the conditional rules are not applied until the first conditional validation is provided, this is done
-  // by the conditionalValidationBuilder
-  when(state: QueryBuilderTypes): ConditionalValidationBuilder {
-    return new ConditionalValidationBuilder(this, state);
-  }
-
+  abstract when(state: QueryBuilderTypes): ConditionalBuilderTypes;
   abstract state(): QueryBuilderTypes;
 
   clone(deep?: boolean): ISchemaField {

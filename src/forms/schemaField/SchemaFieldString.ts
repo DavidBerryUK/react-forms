@@ -1,3 +1,5 @@
+import { QueryBuilderTypes } from "../types/BuilderTypes";
+import ConditionalValidationBuilderString from "../syntaxSugar/conditionalValidationBuilders/ConditionalValidationBuilderString";
 import EnumFieldType from "../enums/EnumFieldType";
 import ICondition from "../interfaces/condition/ICondition";
 import IRule from "../interfaces/rules/IRule";
@@ -59,6 +61,10 @@ export default class SchemaFieldString extends SchemaFieldBase implements ISchem
       field.appendRules(group);
     });
     return field;
+  }
+
+  when(state: QueryBuilderTypes): ConditionalValidationBuilderString {
+    return new ConditionalValidationBuilderString(this, state);
   }
 
   state(): QueryBuilderString {

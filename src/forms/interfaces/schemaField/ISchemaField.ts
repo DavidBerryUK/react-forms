@@ -1,5 +1,4 @@
-import { QueryBuilderTypes } from "../../syntaxSugar/queryBuilders/QueryBuilderTypes";
-import ConditionalValidationBuilder from "../../syntaxSugar/ConditionalValidationBuilder";
+import { ConditionalBuilderTypes, QueryBuilderTypes } from "../../types/BuilderTypes";
 import EnumFieldType from "../../enums/EnumFieldType";
 import IRuleGroup from "../rules/IRuleGroup";
 import IRuleGroups from "../rules/IRuleGroups";
@@ -23,7 +22,7 @@ export default interface ISchemaField {
   //
   // specify conditional validation / cross valdation
   //
-  when(state: QueryBuilderTypes): ConditionalValidationBuilder;
+  when(state: QueryBuilderTypes): ConditionalBuilderTypes;
 
   //
   // used to specify conditions related to realtime state

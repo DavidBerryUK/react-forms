@@ -7,7 +7,7 @@ export default class QueryBuilderBase<T extends QueryBuilderBase<T>> {
   protected _schemaField: ISchemaField;
   protected _condition: ICondition | undefined;
 
-  conditions: Array<ICondition>;
+  protected conditions: Array<ICondition>;
 
   constructor(schemaField: ISchemaField) {
     this._schemaField = schemaField;

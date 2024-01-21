@@ -1,3 +1,5 @@
+import { QueryBuilderTypes } from "../types/BuilderTypes";
+import ConditionalValidationBuilderDate from "../syntaxSugar/conditionalValidationBuilders/ConditionalValidationBuilderDate";
 import EnumFieldType from "../enums/EnumFieldType";
 import ICondition from "../interfaces/condition/ICondition";
 import IRule from "../interfaces/rules/IRule";
@@ -59,6 +61,10 @@ export default class SchemaFieldDate extends SchemaFieldBase implements ISchemaF
       field.appendRules(group);
     });
     return field;
+  }
+
+  when(state: QueryBuilderTypes): ConditionalValidationBuilderDate {
+    return new ConditionalValidationBuilderDate(this, state);
   }
 
   state(): QueryBuilderDate {
