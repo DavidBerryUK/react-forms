@@ -8,10 +8,8 @@ import AssertValueIsPositive from "../../assertions/AssertValueIsPositive";
 import AssertValueIsZero from "../../assertions/AssertValueIsZero";
 import AssertValueMax from "../../assertions/AssertValueMax";
 import AssertValueMin from "../../assertions/AssertValueMin";
-import Condition from "../../models/Condition";
-import ICondition from "../../interfaces/condition/ICondition";
-import IRule from "../../interfaces/rules/IRule";
 import ISchemaField from "../../interfaces/schemaField/ISchemaField";
+import QueryBuilderBase from "./QueryBuilderBase";
 import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 
 /**
@@ -26,25 +24,9 @@ import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
  * this.fields.fullName.when(this.fields.supplyNameFlag.state().ifIsTrue()).mandatory();
  *
  */
-export default class QueryBuilderNumber {
-  private _schemaField: ISchemaField;
-  private _condition: ICondition | undefined;
-
-  conditions: Array<ICondition>;
-
+export default class QueryBuilderNumber extends QueryBuilderBase<QueryBuilderNumber> {
   constructor(schemaField: ISchemaField) {
-    this._schemaField = schemaField;
-    this.conditions = new Array<ICondition>();
-  }
-
-  private newAssertion(assertion: IRule) {
-    if (this._condition === undefined) {
-      this._condition = Condition.create(this._schemaField, assertion);
-      this.conditions.push(this._condition);
-      return;
-    }
-
-    this._condition.addRule(assertion);
+    super(schemaField);
   }
 
   /****************************/
@@ -115,34 +97,5 @@ export default class QueryBuilderNumber {
     //TODO: sort this out, should be number specific assertion with option for variance
     this.newAssertion(new AssertIsEqualTo(`${constant}`, false, customMessage));
     return this;
-  }
-
-  /****************************/
-  /* Add Rules                */
-  /****************************/
-  addAssert(rule: IRule): QueryBuilderNumber {
-    this.newAssertion(rule);
-    return this;
-  }
-
-  addAssertions(rules: Array<IRule>): QueryBuilderNumber {
-    rules.forEach((rule) => this.newAssertion(rule));
-    return this;
-  }
-
-  /**
-   * ensure a new condition
-   * note that each condition is a field and a rule group
-   *
-   * @param assertion a new assertion rule to be added to the field
-   */
-  private newAssertionCallback(assertion: IRule): void {
-    if (this._condition === undefined) {
-      this._condition = Condition.create(this._schemaField, assertion);
-      this.conditions.push(this._condition);
-      return;
-    }
-
-    this._condition.addRule(assertion);
   }
 }
