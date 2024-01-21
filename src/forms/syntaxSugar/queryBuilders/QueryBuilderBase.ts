@@ -7,14 +7,14 @@ export default class QueryBuilderBase<T extends QueryBuilderBase<T>> {
   protected _schemaField: ISchemaField;
   protected _condition: ICondition | undefined;
 
-  protected conditions: Array<ICondition>;
+  public conditions: Array<ICondition>;
 
   constructor(schemaField: ISchemaField) {
     this._schemaField = schemaField;
     this.conditions = new Array<ICondition>();
   }
 
-  protected newAssertion(assertion: IRule) {
+  protected add(assertion: IRule) {
     if (this._condition === undefined) {
       this._condition = Condition.create(this._schemaField, assertion);
       this.conditions.push(this._condition);
@@ -28,12 +28,12 @@ export default class QueryBuilderBase<T extends QueryBuilderBase<T>> {
   /* Add Rules                */
   /****************************/
   public addAssert(rule: IRule): T {
-    this.newAssertion(rule);
+    this.add(rule);
     return this as any as T;
   }
 
   public addAssertions(rules: Array<IRule>): T {
-    rules.forEach((rule) => this.newAssertion(rule));
+    rules.forEach((rule) => this.add(rule));
     return this as any as T;
   }
 }

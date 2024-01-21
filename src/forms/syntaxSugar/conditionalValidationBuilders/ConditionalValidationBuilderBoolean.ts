@@ -22,32 +22,32 @@ export default class ConditionalValidationBuilderBoolean extends ConditionalVali
   /****************************/
 
   shouldBeEmpty(customMessage?: string): ConditionalValidationBuilderBoolean {
-    this._newAssertionCallback(new AssertIsEmpty(customMessage));
+    this.add(new AssertIsEmpty(customMessage));
     return this;
   }
 
   shouldBePopulated(customMessage?: string): ConditionalValidationBuilderBoolean {
-    this._newAssertionCallback(new AssertIsPopulated(customMessage));
+    this.add(new AssertIsPopulated(customMessage));
     return this;
   }
 
   shouldBeTrue(customMessage?: string): ConditionalValidationBuilderBoolean {
-    this._newAssertionCallback(new AssertValueIsTrue(customMessage));
+    this.add(new AssertValueIsTrue(customMessage));
     return this;
   }
 
   shouldBeFalse(customMessage?: string): ConditionalValidationBuilderBoolean {
-    this._newAssertionCallback(new AssertValueIsFalse(customMessage));
+    this.add(new AssertValueIsFalse(customMessage));
     return this;
   }
 
   shouldEqual(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderBoolean {
-    this._newAssertionCallback(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
+    this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
     return this;
   }
 
   mandatory(customMessage?: string): ConditionalValidationBuilderBoolean {
-    this._newAssertionCallback(new AssertIsMandatory(customMessage));
+    this.add(new AssertIsMandatory(customMessage));
     return this;
   }
 }

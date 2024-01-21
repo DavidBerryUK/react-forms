@@ -28,7 +28,7 @@ export default class ConditionalValidationBuilderBase<T extends ConditionalValid
     this._ruleGroup = undefined;
   }
 
-  protected _newAssertionCallback(assertion: IRule): void {
+  protected add(assertion: IRule): void {
     //
     // create new rule group if required
     //
@@ -53,12 +53,12 @@ export default class ConditionalValidationBuilderBase<T extends ConditionalValid
   /* Add Rules                */
   /****************************/
   addAssert(rule: IRule): T {
-    this._newAssertionCallback(rule);
+    this.add(rule);
     return this as any as T;
   }
 
   addAssertions(rules: Array<IRule>): T {
-    rules.forEach((rule) => this._newAssertionCallback(rule));
+    rules.forEach((rule) => this.add(rule));
     return this as any as T;
   }
 }

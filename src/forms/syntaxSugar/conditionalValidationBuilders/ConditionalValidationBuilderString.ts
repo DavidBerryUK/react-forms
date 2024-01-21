@@ -30,67 +30,67 @@ export default class ConditionalValidationBuilderString extends ConditionalValid
   /****************************/
 
   shouldBeEmpty(customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertIsEmpty(customMessage));
+    this.add(new AssertIsEmpty(customMessage));
     return this;
   }
 
   shouldBePopulated(customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertIsPopulated(customMessage));
+    this.add(new AssertIsPopulated(customMessage));
     return this;
   }
 
   shouldBePostCodeUK(customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertPostCodeUK(customMessage));
+    this.add(new AssertPostCodeUK(customMessage));
     return this;
   }
 
   shouldContainDigits(minCount: number, maxCount: number, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertContainsDigits(minCount, maxCount, customMessage));
+    this.add(new AssertContainsDigits(minCount, maxCount, customMessage));
     return this;
   }
 
   shouldContainLowerCase(minCount: number, maxCount: number, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertContainsLowerCase(minCount, maxCount, customMessage));
+    this.add(new AssertContainsLowerCase(minCount, maxCount, customMessage));
     return this;
   }
 
   shouldContainSymbols(minCount: number, maxCount: number, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertContainsSymbols(minCount, maxCount, customMessage));
+    this.add(new AssertContainsSymbols(minCount, maxCount, customMessage));
     return this;
   }
 
   shouldContainUpperCase(minCount: number, maxCount: number, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertContainsUpperCase(minCount, maxCount, customMessage));
+    this.add(new AssertContainsUpperCase(minCount, maxCount, customMessage));
     return this;
   }
 
   shouldEqual(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
+    this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
     return this;
   }
 
   shouldHaveLengthBetween(minLength: number, maxLength: number, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertLengthIsBetween(minLength, maxLength, customMessage));
+    this.add(new AssertLengthIsBetween(minLength, maxLength, customMessage));
     return this;
   }
 
   shouldHaveLengthMax(maxLength: number, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertLengthMax(maxLength, customMessage));
+    this.add(new AssertLengthMax(maxLength, customMessage));
     return this;
   }
 
   shouldHaveLengthMin(minLength: number, customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertLengthMin(minLength, customMessage));
+    this.add(new AssertLengthMin(minLength, customMessage));
     return this;
   }
 
   shouldHaveNoWhiteSpaces(customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertContainsNoWhiteSpaces(customMessage));
+    this.add(new AssertContainsNoWhiteSpaces(customMessage));
     return this;
   }
 
   mandatory(customMessage?: string): ConditionalValidationBuilderString {
-    this._newAssertionCallback(new AssertIsMandatory(customMessage));
+    this.add(new AssertIsMandatory(customMessage));
     return this;
   }
 }

@@ -26,37 +26,37 @@ export default class QueryBuilderDate extends QueryBuilderBase<QueryBuilderDate>
   /* rules                    */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
+    this.add(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsDateLocal(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertValueIsDateLocal(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertValueIsDateLocal(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsDateTimeLocal(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertValueIsDateTimeLocal(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertValueIsDateTimeLocal(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsTimeLocal(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertValueIsTime(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertValueIsTime(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsEmpty(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertIsEmpty(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertIsEmpty(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifHaveDateMin(minDate: string, customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertDateMin(minDate, customMessage, EnumValidationStatus.fail));
+    this.add(new AssertDateMin(minDate, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifHaveDateMax(maxDate: string, customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertDateMax(maxDate, customMessage, EnumValidationStatus.fail));
+    this.add(new AssertDateMax(maxDate, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
@@ -69,7 +69,7 @@ export default class QueryBuilderDate extends QueryBuilderBase<QueryBuilderDate>
   // }
 
   ifIsEqual(constant: string, customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertIsEqualTo(constant, false, customMessage, EnumValidationStatus.fail));
+    this.add(new AssertIsEqualTo(constant, false, customMessage, EnumValidationStatus.fail));
     return this;
   }
 }
