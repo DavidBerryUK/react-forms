@@ -1,18 +1,19 @@
 import { enGB } from "date-fns/locale";
 import { isValid, parse } from "date-fns";
-import DateParseResponse from "./DateParseResponse";
-import IFormField from "../interfaces/form/IFormField";
-import IFormInstance from "../interfaces/form/IFormInstance";
-import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleResponse from "../interfaces/rules/IRuleResponse";
+import DateParseResponse from "../../models/DateParseResponse";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
+import IFormField from "../../interfaces/form/IFormField";
+import IFormInstance from "../../interfaces/form/IFormInstance";
+import IFormSchema from "../../interfaces/form/IFormSchema";
+import IRule from "../../interfaces/rules/IRule";
+import IRuleResponse from "../../interfaces/rules/IRuleResponse";
 import RuleBase from "./RuleBase";
 
 export default class RuleBaseDateTime extends RuleBase implements IRule {
   formats: string[];
 
-  constructor(formats: string[], customMessage?: string) {
-    super(customMessage);
+  constructor(formats: string[], customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
+    super(customMessage, defaultValidationStatus);
     this.formats = formats;
   }
 

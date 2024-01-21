@@ -1,8 +1,9 @@
-import IFormField from "../interfaces/form/IFormField";
-import IFormInstance from "../interfaces/form/IFormInstance";
-import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleResponse from "../interfaces/rules/IRuleResponse";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
+import IFormField from "../../interfaces/form/IFormField";
+import IFormInstance from "../../interfaces/form/IFormInstance";
+import IFormSchema from "../../interfaces/form/IFormSchema";
+import IRule from "../../interfaces/rules/IRule";
+import IRuleResponse from "../../interfaces/rules/IRuleResponse";
 import RuleBase from "./RuleBase";
 
 //
@@ -15,8 +16,16 @@ export default class RuleBaseContain extends RuleBase implements IRule {
   private readonly plural: string;
   private readonly singular: string;
 
-  constructor(minCount: number, maxCount: number, singular: string, plural: string, validChars: string, customMessage?: string) {
-    super(customMessage);
+  constructor(
+    minCount: number,
+    maxCount: number,
+    singular: string,
+    plural: string,
+    validChars: string,
+    customMessage?: string,
+    defaultValidationStatus?: EnumValidationStatus
+  ) {
+    super(customMessage, defaultValidationStatus);
     this.minCount = minCount;
     this.maxCount = maxCount;
     this.validChars = validChars;
@@ -26,7 +35,7 @@ export default class RuleBaseContain extends RuleBase implements IRule {
 
   isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
     if (this.isValueEmpty(value)) {
-      return this.pass();
+      return this.default();
     }
 
     const count = value.split("").filter((c) => this.validChars.indexOf(c) >= 0).length;

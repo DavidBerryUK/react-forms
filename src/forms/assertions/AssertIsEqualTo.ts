@@ -1,16 +1,17 @@
+import EnumValidationStatus from "../enums/EnumValidationStatus";
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
 import IRule from "../interfaces/rules/IRule";
 import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBase from "../models/RuleBase";
+import RuleBase from "./base/RuleBase";
 
 export default class AssertIsEqualTo extends RuleBase implements IRule {
   private readonly constant: string;
   private readonly caseInsensitive: boolean;
 
-  constructor(constant: string, caseInsensitive: boolean, customMessage?: string) {
-    super(customMessage);
+  constructor(constant: string, caseInsensitive: boolean, customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
+    super(customMessage, defaultValidationStatus);
     this.constant = constant;
     this.caseInsensitive = caseInsensitive;
 
@@ -21,7 +22,7 @@ export default class AssertIsEqualTo extends RuleBase implements IRule {
 
   isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
     if (this.isValueEmpty(value)) {
-      return this.pass();
+      return this.default();
     }
 
     if (this.caseInsensitive === true) {

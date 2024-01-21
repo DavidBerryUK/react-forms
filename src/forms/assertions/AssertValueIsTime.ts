@@ -1,7 +1,8 @@
-import RuleBaseDateTime from "../models/RuleBaseDateTime";
+import EnumValidationStatus from "../enums/EnumValidationStatus";
+import RuleBaseDateTime from "./base/RuleBaseDateTime";
 
 export default class AssertValueIsTime extends RuleBaseDateTime {
-  constructor(customMessage?: string) {
-    super(["HH:mm"], customMessage);
+  constructor(customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
+    super(["HH:mm"], customMessage, defaultValidationStatus);
   }
 }

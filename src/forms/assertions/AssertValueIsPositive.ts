@@ -1,15 +1,16 @@
+import EnumValidationStatus from "../enums/EnumValidationStatus";
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
 import IRule from "../interfaces/rules/IRule";
 import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBase from "../models/RuleBase";
+import RuleBase from "./base/RuleBase";
 
 export default class AssertValueIsPositive extends RuleBase implements IRule {
   private readonly allowZero: boolean;
 
-  constructor(allowZero: boolean, customMessage?: string) {
-    super(customMessage);
+  constructor(allowZero: boolean, customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
+    super(customMessage, defaultValidationStatus);
     this.allowZero = allowZero;
   }
 

@@ -5,6 +5,7 @@ import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
 import AssertValueIsDateLocal from "../../assertions/AssertValueIsDateLocal";
 import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLocal";
 import AssertValueIsTime from "../../assertions/AssertValueIsTime";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
 import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 
@@ -25,50 +26,50 @@ export default class QueryBuilderDate extends QueryBuilderBase<QueryBuilderDate>
   /* rules                    */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new RuleAssertIsPopulated(customMessage));
+    this.newAssertion(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsDateLocal(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertValueIsDateLocal(customMessage));
+    this.newAssertion(new AssertValueIsDateLocal(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsDateTimeLocal(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertValueIsDateTimeLocal(customMessage));
+    this.newAssertion(new AssertValueIsDateTimeLocal(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsTimeLocal(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertValueIsTime(customMessage));
+    this.newAssertion(new AssertValueIsTime(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsEmpty(customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertIsEmpty(customMessage));
+    this.newAssertion(new AssertIsEmpty(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifHaveDateMin(minDate: string, customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertDateMin(minDate, customMessage));
+    this.newAssertion(new AssertDateMin(minDate, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifHaveDateMax(maxDate: string, customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertDateMax(maxDate, customMessage));
+    this.newAssertion(new AssertDateMax(maxDate, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   // dateBetween(minDate: string,maxDate: string, customMessage?: string): SchemaBaseAssertBuilder {
 
   //
-  //     this._updateCallback(//     new RuleDateBetween(minDate,maxDate, customMessage));
+  //     this._updateCallback(//     new RuleDateBetween(minDate,maxDate, customMessage,EnumValidationStatus.fail));
   //  }
   //     return this;
   // }
 
   ifIsEqual(constant: string, customMessage?: string): QueryBuilderDate {
-    this.newAssertion(new AssertIsEqualTo(constant, false, customMessage));
+    this.newAssertion(new AssertIsEqualTo(constant, false, customMessage, EnumValidationStatus.fail));
     return this;
   }
 }

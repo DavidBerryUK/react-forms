@@ -1,6 +1,7 @@
 import AssertIsEmpty from "../../assertions/AssertIsEmpty";
 import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
 import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 
@@ -21,23 +22,23 @@ export default class QueryBuilderBoolean extends QueryBuilderBase<QueryBuilderBo
   /* rules                    */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderBoolean {
-    this.newAssertion(new RuleAssertIsPopulated(customMessage));
+    this.newAssertion(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsEmpty(customMessage?: string): QueryBuilderBoolean {
-    this.newAssertion(new AssertIsEmpty(customMessage));
+    this.newAssertion(new AssertIsEmpty(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsTrue(customMessage?: string): QueryBuilderBoolean {
-    this.newAssertion(new AssertValueIsTrue(customMessage));
+    this.newAssertion(new AssertValueIsTrue(customMessage, EnumValidationStatus.fail));
 
     return this;
   }
 
   ifIsFalse(customMessage?: string): QueryBuilderBoolean {
-    this.newAssertion(new AssertValueIsFalse(customMessage));
+    this.newAssertion(new AssertValueIsFalse(customMessage, EnumValidationStatus.fail));
 
     return this;
   }

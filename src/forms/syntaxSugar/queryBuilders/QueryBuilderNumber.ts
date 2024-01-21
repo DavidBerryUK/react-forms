@@ -8,6 +8,7 @@ import AssertValueIsPositive from "../../assertions/AssertValueIsPositive";
 import AssertValueIsZero from "../../assertions/AssertValueIsZero";
 import AssertValueMax from "../../assertions/AssertValueMax";
 import AssertValueMin from "../../assertions/AssertValueMin";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
 import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 
@@ -28,37 +29,37 @@ export default class QueryBuilderNumber extends QueryBuilderBase<QueryBuilderNum
   /* rules                    */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new RuleAssertIsPopulated(customMessage));
+    this.newAssertion(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsDecimal(customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueIsDecimal(customMessage));
+    this.newAssertion(new AssertValueIsDecimal(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsInteger(customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueIsInteger(customMessage));
+    this.newAssertion(new AssertValueIsInteger(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsEmpty(customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertIsEmpty(customMessage));
+    this.newAssertion(new AssertIsEmpty(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsNoneZero(customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueIsNonZero(customMessage));
+    this.newAssertion(new AssertValueIsNonZero(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsZero(customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueIsZero(customMessage));
+    this.newAssertion(new AssertValueIsZero(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsPositive(allowZero: boolean, customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueIsPositive(allowZero, customMessage));
+    this.newAssertion(new AssertValueIsPositive(allowZero, customMessage, EnumValidationStatus.fail));
 
     return this;
   }
@@ -72,25 +73,25 @@ export default class QueryBuilderNumber extends QueryBuilderBase<QueryBuilderNum
   // }
 
   ifHaveValueMin(minValue: number, customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueMin(minValue, customMessage));
+    this.newAssertion(new AssertValueMin(minValue, customMessage, EnumValidationStatus.fail));
 
     return this;
   }
 
   ifHaveValueMax(maxValue: number, customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueMax(maxValue, customMessage));
+    this.newAssertion(new AssertValueMax(maxValue, customMessage, EnumValidationStatus.fail));
 
     return this;
   }
 
   ifHaveValueBetween(minValue: number, maxValue: number, customMessage?: string): QueryBuilderNumber {
-    this.newAssertion(new AssertValueIsBetween(minValue, maxValue, customMessage));
+    this.newAssertion(new AssertValueIsBetween(minValue, maxValue, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsEqual(constant: number, customMessage?: string): QueryBuilderNumber {
     //TODO: sort this out, should be number specific assertion with option for variance
-    this.newAssertion(new AssertIsEqualTo(`${constant}`, false, customMessage));
+    this.newAssertion(new AssertIsEqualTo(`${constant}`, false, customMessage, EnumValidationStatus.fail));
     return this;
   }
 }

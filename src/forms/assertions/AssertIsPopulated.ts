@@ -3,7 +3,7 @@ import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
 import IRule from "../interfaces/rules/IRule";
 import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBase from "../models/RuleBase";
+import RuleBase from "./base/RuleBase";
 
 //
 // similar to Mandatory, but is used when creating conditional validation.

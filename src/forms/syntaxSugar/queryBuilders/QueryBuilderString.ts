@@ -15,6 +15,7 @@ import AssertValueIsNonZero from "../../assertions/AssertValueIsNonZero";
 import AssertValueIsZero from "../../assertions/AssertValueIsZero";
 import QueryBuilderBase from "./QueryBuilderBase";
 import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.
@@ -33,88 +34,84 @@ export default class QueryBuilderString extends QueryBuilderBase<QueryBuilderStr
   /* rules                    */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new RuleAssertIsPopulated(customMessage));
+    this.newAssertion(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifContainsDigits(minCount: number, maxCount: number, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertContainsDigits(minCount, maxCount, customMessage));
+    this.newAssertion(new AssertContainsDigits(minCount, maxCount, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifContainsLowerCase(minCount: number, maxCount: number, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertContainsLowerCase(minCount, maxCount, customMessage));
+    this.newAssertion(new AssertContainsLowerCase(minCount, maxCount, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifContainsSymbols(minCount: number, maxCount: number, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertContainsSymbols(minCount, maxCount, customMessage));
+    this.newAssertion(new AssertContainsSymbols(minCount, maxCount, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifContainsUpperCase(minCount: number, maxCount: number, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertContainsUpperCase(minCount, maxCount, customMessage));
+    this.newAssertion(new AssertContainsUpperCase(minCount, maxCount, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsEmpty(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertIsEmpty(customMessage));
+    this.newAssertion(new AssertIsEmpty(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifUkPostCode(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertPostCodeUK(customMessage));
-
+    this.newAssertion(new AssertPostCodeUK(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifHaveLengthLessOrEqual(minLength: number, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertLengthMin(minLength, customMessage));
-
+    this.newAssertion(new AssertLengthMin(minLength, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifLengthGreaterOrEqual(maxLength: number, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertLengthMax(maxLength, customMessage));
-
+    this.newAssertion(new AssertLengthMax(maxLength, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifHaveLengthBetween(minLength: number, maxLength: number, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertLengthIsBetween(minLength, maxLength, customMessage));
-
+    this.newAssertion(new AssertLengthIsBetween(minLength, maxLength, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsHaveNoWhiteSpaces(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertContainsNoWhiteSpaces(customMessage));
+    this.newAssertion(new AssertContainsNoWhiteSpaces(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsEqual(constant: string, caseInsensitive: boolean, customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
+    this.newAssertion(new AssertIsEqualTo(constant, caseInsensitive, customMessage, EnumValidationStatus.fail));
     return this;
   }
   //
   // numeric type functions
   //
   ifIsNoneZero(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertValueIsNonZero(customMessage));
+    this.newAssertion(new AssertValueIsNonZero(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsZero(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertValueIsZero(customMessage));
+    this.newAssertion(new AssertValueIsZero(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsDecimal(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertValueIsDecimal(customMessage));
+    this.newAssertion(new AssertValueIsDecimal(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
   ifIsInteger(customMessage?: string): QueryBuilderString {
-    this.newAssertion(new AssertValueIsInteger(customMessage));
+    this.newAssertion(new AssertValueIsInteger(customMessage, EnumValidationStatus.fail));
     return this;
   }
 }
