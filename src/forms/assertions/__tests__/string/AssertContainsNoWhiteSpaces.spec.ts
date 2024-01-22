@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertContainsNoWhiteSpaces from "../string/AssertContainsNoWhiteSpaces";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertContainsNoWhiteSpaces from "../../string/AssertContainsNoWhiteSpaces";
 
 describe("Assert Contains No White Spaces", () => {
   test.each([

@@ -1,6 +1,6 @@
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import IAssert from "../../interfaces/assertions/IAssert";
-import AssertBaseDateTime from "../base/AssertBaseDateTime";
+import AssertBaseDateTime from "./AssertBaseDateTime";
 
 export default class AssertValueIsDateTimeLocal extends AssertBaseDateTime implements IAssert {
   constructor(customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {

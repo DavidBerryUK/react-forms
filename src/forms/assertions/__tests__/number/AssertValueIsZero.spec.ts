@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueIsZero from "../number/AssertValueIsZero";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertValueIsZero from "../../number/AssertValueIsZero";
 
 describe("Assert Value Is Zero", () => {
   test("Expect Pass - empty string", () => {

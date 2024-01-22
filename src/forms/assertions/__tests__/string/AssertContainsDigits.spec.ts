@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertContainsDigits from "../string/AssertContainsDigits";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertContainsDigits from "../../string/AssertContainsDigits";
 
 describe("Assert Contains Digits", () => {
   test("Pass - empty", () => {

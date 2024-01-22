@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueIsDecimal from "../number/AssertValueIsDecimal";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertValueIsDecimal from "../../number/AssertValueIsDecimal";
 
 describe("Assert Value Is Decimal", () => {
   test("text - fail", () => {

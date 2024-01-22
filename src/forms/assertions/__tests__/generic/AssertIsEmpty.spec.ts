@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertIsEmpty from "../generic/AssertIsEmpty";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertIsEmpty from "../../generic/AssertIsEmpty";
 
 describe("Assert Is Empty", () => {
   test("pass - assert is empty", () => {

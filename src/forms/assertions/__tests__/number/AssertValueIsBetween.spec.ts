@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueIsBetween from "../number/AssertValueIsBetween";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertValueIsBetween from "../../number/AssertValueIsBetween";
 
 describe("Assert Value Is Between", () => {
   test("Invalid Number", () => {

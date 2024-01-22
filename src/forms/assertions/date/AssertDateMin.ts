@@ -1,5 +1,5 @@
 import { format, isAfter } from "date-fns";
-import AssertBaseDateTime from "../base/AssertBaseDateTime";
+import AssertBaseDateTime from "./AssertBaseDateTime";
 import DateParseResponse from "../../models/DateParseResponse";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import IAssert from "../../interfaces/assertions/IAssert";

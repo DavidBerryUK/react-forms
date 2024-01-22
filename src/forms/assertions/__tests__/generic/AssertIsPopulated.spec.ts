@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertIsPopulated from "../generic/AssertIsPopulated";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertIsPopulated from "../../generic/AssertIsPopulated";
 
 describe("Assert Is Populated", () => {
   test("empty string", () => {

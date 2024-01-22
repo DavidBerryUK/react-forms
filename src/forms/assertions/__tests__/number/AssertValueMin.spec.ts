@@ -1,11 +1,11 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueMax from "../number/AssertValueMax";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertValueMin from "../../number/AssertValueMin";
 
-describe("Assert Value Max", () => {
+describe("Assert Value Min", () => {
   test("Invalid Number", () => {
     // Arrange
+    const assertion = new AssertValueMin(10);
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const assertion = new AssertValueMax(10);
 
     // Act
     const result = assertion.isValid(dummyForm, dummyField, "ancd");
@@ -15,29 +15,29 @@ describe("Assert Value Max", () => {
     expect(result.message).toEqual("must be a valid number");
   });
 
-  test("Valid Integer Number below range", () => {
+  test("Valid Integer Number above range", () => {
     // Arrange
+    const assertion = new AssertValueMin(10);
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const assertion = new AssertValueMax(10);
 
     // Act
-    const result = assertion.isValid(dummyForm, dummyField, "8");
+    const result = assertion.isValid(dummyForm, dummyField, "15");
 
     // Assert
     expect(result.pass).toBeTruthy();
     expect(result.message).toEqual("");
   });
 
-  test("Invalid Number above range", () => {
+  test("Invalid Number below range", () => {
     // Arrange
+    const assertion = new AssertValueMin(10);
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const assertion = new AssertValueMax(10);
 
     // Act
-    const result = assertion.isValid(dummyForm, dummyField, "100");
+    const result = assertion.isValid(dummyForm, dummyField, "9.5");
 
     // Assert
     expect(result.pass).toBeFalsy();
-    expect(result.message).toEqual("must be equal or less than 10");
+    expect(result.message).toEqual("must be equal or greater than 10");
   });
 });

@@ -1,4 +1,4 @@
-import AssertBaseDateTime from "../base/AssertBaseDateTime";
+import AssertBaseDateTime from "./AssertBaseDateTime";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import IAssert from "../../interfaces/assertions/IAssert";
 

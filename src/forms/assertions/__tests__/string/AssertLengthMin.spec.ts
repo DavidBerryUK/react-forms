@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertLengthMin from "../string/AssertLengthMin";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertLengthMin from "../../string/AssertLengthMin";
 
 describe("Assert Length Min", () => {
   test("under min length - fail", () => {

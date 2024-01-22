@@ -1,5 +1,5 @@
-import AssertValueIsTrue from "../boolean/AssertValueIsTrue";
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
+import AssertValueIsTrue from "../../boolean/AssertValueIsTrue";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
 
 describe("Assert Value Is True", () => {
   test("Expect Pass: value = Empty", () => {

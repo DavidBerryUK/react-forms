@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertPostCodeUk from "../string/AssertPostCodeUk";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertPostCodeUk from "../../string/AssertPostCodeUk";
 
 describe("Assert Post Code Uk", () => {
   test("pass - empty", () => {

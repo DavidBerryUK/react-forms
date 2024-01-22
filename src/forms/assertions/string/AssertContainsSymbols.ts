@@ -1,4 +1,4 @@
-import AssertBaseContain from "../base/AssertBaseContain";
+import AssertBaseContain from "./AssertBaseContain";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import IAssert from "../../interfaces/assertions/IAssert";
 

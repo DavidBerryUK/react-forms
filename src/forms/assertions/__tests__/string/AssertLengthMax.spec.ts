@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertLengthMax from "../string/AssertLengthMax";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertLengthMax from "../../string/AssertLengthMax";
 
 describe("Assert Length Max", () => {
   test("over max length - fail", () => {

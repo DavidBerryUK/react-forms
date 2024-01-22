@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertContainsUpperCase from "../string/AssertContainsUpperCase";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
+import AssertContainsUpperCase from "../../string/AssertContainsUpperCase";
 
 describe("Assert Contains uppercase characters", () => {
   test("Pass - empty", () => {

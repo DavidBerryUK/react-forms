@@ -1,10 +1,10 @@
+import AssertBase from "../base/AssertBase";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
+import IAssert from "../../interfaces/assertions/IAssert";
+import IAssertResponse from "../../interfaces/assertions/IAssertResponse";
 import IFormField from "../../interfaces/form/IFormField";
 import IFormInstance from "../../interfaces/form/IFormInstance";
 import IFormSchema from "../../interfaces/form/IFormSchema";
-import IAssert from "../../interfaces/assertions/IAssert";
-import IAssertResponse from "../../interfaces/assertions/IAssertResponse";
-import AssertBase from "./AssertBase";
 
 //
 // this is tested extensively by the AssertContainsDigits.spec.ts test suite
