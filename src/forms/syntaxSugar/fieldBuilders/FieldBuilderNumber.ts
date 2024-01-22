@@ -1,5 +1,4 @@
 import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
-import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
 import AssertIsEqualToNumber from "../../assertions/string/AssertIsEqualToNumber";
 import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
 import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
@@ -68,13 +67,13 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     return this;
   }
 
-  max(maxValue: number, customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueMax(maxValue, customMessage));
+  max(constant: number, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueMax(constant, customMessage));
     return this;
   }
 
-  min(minValue: number, customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueMin(minValue, customMessage));
+  min(constant: number, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueMin(constant, customMessage));
     return this;
   }
 
