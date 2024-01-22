@@ -3,7 +3,7 @@ import IFormInstance from "../form/IFormInstance";
 import IFormSchema from "../form/IFormSchema";
 
 //
-// class provides option of making rule evaluation for a field
+// class provides option of making assertion evaluation for a field
 //  dependent upon specific conditions being met.
 //
 export default interface IConditions {

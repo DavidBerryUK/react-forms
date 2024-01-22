@@ -7,7 +7,7 @@ import IFormSchema from "../interfaces/form/IFormSchema";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
 
 //
-// class provides option of making rule evaluation for a field
+// class provides option of making assertions evaluation for a field
 //  dependent upon specific conditions being met.
 //
 

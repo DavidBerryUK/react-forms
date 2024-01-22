@@ -30,21 +30,17 @@ export default class ConditionalValidationBuilderBase<T extends ConditionalValid
 
   protected add(assertion: IAssert): void {
     //
-    // create new rule group if required
+    // create new assertion group if required
     //
     if (this._assertionGroup === undefined) {
       this._assertionGroup = AssertGroup.createAssertionAndConditions(assertion, this._queryBuilder.conditions);
       this._assertionGroup.schemaField = this._schemaField;
       this._schemaField.appendAssertionGroup(this._assertionGroup);
-
-      // console.log(this._ruleGroup);
-      // console.log(this._schemaField);
-
       return;
     }
 
     //
-    // or just add to the existing rule group
+    // or just add to the existing assertion group
     //
     this._assertionGroup.addAssertion(assertion);
   }

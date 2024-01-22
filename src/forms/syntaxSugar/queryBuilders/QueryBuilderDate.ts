@@ -7,15 +7,15 @@ import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLo
 import AssertValueIsTime from "../../assertions/AssertValueIsTime";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
-import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
+import AssertIsPopulated from "../../assertions/AssertIsPopulated";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.
  *
  * This builds up a single conditions instance for the field specified inside the when statement
- * along with all the rules appended to it.
+ * along with all the assertions appended to it.
  *
- * in the instance below, the field will be supplyNameFlag and the rules will be 'IfIsTrue' and 'Mandatory'
+ * in the instance below, the field will be supplyNameFlag and the assertions will be 'IfIsTrue' and 'Mandatory'
  * this instance of QueryBuilder is then passed into the "when" statement for further processing
  *
  * this.fields.fullName.when(this.fields.supplyNameFlag.state().ifIsTrue()).mandatory();
@@ -26,7 +26,7 @@ export default class QueryBuilderDate extends QueryBuilderBase<QueryBuilderDate>
   /* Assertions               */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderDate {
-    this.add(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
@@ -63,7 +63,7 @@ export default class QueryBuilderDate extends QueryBuilderBase<QueryBuilderDate>
   // dateBetween(minDate: string,maxDate: string, customMessage?: string): SchemaBaseAssertBuilder {
 
   //
-  //     this._updateCallback(//     new RuleDateBetween(minDate,maxDate, customMessage,EnumValidationStatus.fail));
+  //     this._updateCallback(//     new AssertDateBetween(minDate,maxDate, customMessage,EnumValidationStatus.fail));
   //  }
   //     return this;
   // }

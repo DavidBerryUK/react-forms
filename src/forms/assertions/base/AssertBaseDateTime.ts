@@ -58,7 +58,7 @@ export default class AssertBaseDateTime extends AssertBase implements IAssert {
     }
 
     if (this.formats.length === 0) {
-      return "No valid formatters specified on the rule";
+      return "No valid formatters specified on the assertion";
     }
 
     if (this.formats.length === 1) {

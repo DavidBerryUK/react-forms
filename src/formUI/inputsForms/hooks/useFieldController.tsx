@@ -31,7 +31,7 @@ const useFieldController = (props: IInputProperties) => {
   // 	field.value = item.id;
 
   // 	// run validation
-  // 	//field.rules.evaluateRules(field);
+  // 	//field.assertions.evaluateAssertions(field);
 
   // 	// publish a change has taken place
   // 	if ( props.onUpdate) {

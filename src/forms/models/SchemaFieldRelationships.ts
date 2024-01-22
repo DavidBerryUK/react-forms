@@ -41,7 +41,7 @@ export default class SchemaFieldRelationships {
     }
   }
 
-  // examine rule groups to see if fields should be linked
+  // examine assertion groups to see if fields should be linked
   processAssertionGroupsForRelatedFields() {
     this.field.assertGroups.items.forEach((group) => {
       group.conditions.items.forEach((condition) => {

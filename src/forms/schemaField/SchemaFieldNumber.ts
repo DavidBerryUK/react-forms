@@ -17,7 +17,7 @@ export default class SchemaFieldNumber extends SchemaFieldBase implements ISchem
 
   //
   // convenience creators for different combinations
-  // of fields with single or multiple validation rules
+  // of fields with single or multiple validation assertions
   // in combination with none, single or multiple conditions
   //
   public static create(id: string, caption: string): SchemaFieldNumber {

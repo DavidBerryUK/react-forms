@@ -9,9 +9,9 @@ import AssertIsPopulated from "../../assertions/AssertIsPopulated";
  * allow a query to be built, used as a parameter for the [when] statement.
  *
  * This builds up a single conditions instance for the field specified inside the when statement
- * along with all the rules appended to it.
+ * along with all the assertions appended to it.
  *
- * in the instance below, the field will be supplyNameFlag and the rules will be 'IfIsTrue' and 'Mandatory'
+ * in the instance below, the field will be supplyNameFlag and the assertions will be 'IfIsTrue' and 'Mandatory'
  * this instance of QueryBuilder is then passed into the "when" statement for further processing
  *
  * this.fields.fullName.when(this.fields.supplyNameFlag.state().ifIsTrue()).mandatory();
