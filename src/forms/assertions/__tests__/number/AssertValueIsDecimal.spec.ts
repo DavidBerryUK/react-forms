@@ -12,7 +12,7 @@ describe("Assert Value Is Decimal", () => {
 
     // Assert
     expect(result.pass).toBeFalsy();
-    expect(result.message).toEqual("must be a decimal");
+    expect(result.message).toEqual("must be a valid number");
   });
 
   test("fraction", () => {

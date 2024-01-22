@@ -246,7 +246,7 @@ describe("Add Condition to Assertion", () => {
     // field validation for Data Value
     var fieldValue = form.getField(schema.fields.value);
     expect(fieldValue?.validation.isValid).toBeFalsy();
-    expect(fieldValue?.validation.validationMessage).toBe("Data Value must be a decimal");
+    expect(fieldValue?.validation.validationMessage).toBe("Data Value must be a valid number");
   });
 
   test("data type=decimal test:expect no error when decimal entered", () => {

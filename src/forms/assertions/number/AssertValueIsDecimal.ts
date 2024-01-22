@@ -13,7 +13,7 @@ export default class AssertValueIsDecimal extends AssertBase implements IAssert 
 
     const number = Number(value);
     if (isNaN(number)) {
-      return this.fail("must be a decimal");
+      return this.fail("must be a valid number");
     }
 
     return this.pass();
