@@ -11,10 +11,10 @@ describe("Assert Contains No White Spaces", () => {
   ])("invalid string of $name should fail", ({ value, name }) => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsNoWhiteSpaces();
+    const assertion = new AssertContainsNoWhiteSpaces();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, value as string);
+    const result = assertion.isValid(dummyForm, dummyField, value as string);
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -24,11 +24,11 @@ describe("Assert Contains No White Spaces", () => {
   test("string without space should pass", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsNoWhiteSpaces();
+    const assertion = new AssertContainsNoWhiteSpaces();
     const value = "test-string-no-space";
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, value);
+    const result = assertion.isValid(dummyForm, dummyField, value);
 
     // Assert
     expect(result.pass).toBeTruthy();

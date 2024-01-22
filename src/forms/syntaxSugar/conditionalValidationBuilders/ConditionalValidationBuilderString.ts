@@ -26,7 +26,7 @@ import ConditionalValidationBuilderNumber from "./ConditionalValidationBuilderNu
 //
 export default class ConditionalValidationBuilderString extends ConditionalValidationBuilderBase<ConditionalValidationBuilderNumber> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
 
   shouldBeEmpty(customMessage?: string): ConditionalValidationBuilderString {

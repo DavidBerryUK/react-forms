@@ -5,10 +5,10 @@ describe("Assert Value Is Decimal", () => {
   test("text - fail", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsDecimal();
+    const assertion = new AssertValueIsDecimal();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "one two three");
+    const result = assertion.isValid(dummyForm, dummyField, "one two three");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -18,10 +18,10 @@ describe("Assert Value Is Decimal", () => {
   test("fraction", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsDecimal();
+    const assertion = new AssertValueIsDecimal();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "1.5");
+    const result = assertion.isValid(dummyForm, dummyField, "1.5");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -30,10 +30,10 @@ describe("Assert Value Is Decimal", () => {
   test("empty string - valid", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsDecimal();
+    const assertion = new AssertValueIsDecimal();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -42,10 +42,10 @@ describe("Assert Value Is Decimal", () => {
   test("0 - valid", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsDecimal();
+    const assertion = new AssertValueIsDecimal();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "0");
+    const result = assertion.isValid(dummyForm, dummyField, "0");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -54,10 +54,10 @@ describe("Assert Value Is Decimal", () => {
   test("5 - valid", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsDecimal();
+    const assertion = new AssertValueIsDecimal();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "5");
+    const result = assertion.isValid(dummyForm, dummyField, "5");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -66,10 +66,10 @@ describe("Assert Value Is Decimal", () => {
   test("900 - valid", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsDecimal();
+    const assertion = new AssertValueIsDecimal();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "900");
+    const result = assertion.isValid(dummyForm, dummyField, "900");
 
     // Assert
     expect(result.pass).toBeTruthy();

@@ -2,11 +2,11 @@ import EnumValidationStatus from "../enums/EnumValidationStatus";
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBase from "./base/RuleBase";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertResponse from "../interfaces/assertions/IAssertResponse";
+import AssertBase from "./base/AssertBase";
 
-export default class AssertLengthIsBetween extends RuleBase implements IRule {
+export default class AssertLengthIsBetween extends AssertBase implements IAssert {
   private readonly minLength: number;
   private readonly maxLength: number;
 
@@ -16,7 +16,7 @@ export default class AssertLengthIsBetween extends RuleBase implements IRule {
     this.maxLength = maxLength;
   }
 
-  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
+  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IAssertResponse {
     if (this.isValueEmpty(value)) {
       return this.pass();
     }

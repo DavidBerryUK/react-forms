@@ -4,11 +4,11 @@ import AssertPostCodeUk from "../AssertPostCodeUk";
 describe("Assert Post Code Uk", () => {
   test("pass - empty", () => {
     // Arrange
-    const rule = new AssertPostCodeUk();
+    const assertion = new AssertPostCodeUk();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -17,11 +17,11 @@ describe("Assert Post Code Uk", () => {
 
   test("pass - BBC - W1A 1AA", () => {
     // Arrange
-    const rule = new AssertPostCodeUk();
+    const assertion = new AssertPostCodeUk();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "W1A 1AA");
+    const result = assertion.isValid(dummyForm, dummyField, "W1A 1AA");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -30,11 +30,11 @@ describe("Assert Post Code Uk", () => {
 
   test("fail - random", () => {
     // Arrange
-    const rule = new AssertPostCodeUk();
+    const assertion = new AssertPostCodeUk();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "W1X4A 1A3A");
+    const result = assertion.isValid(dummyForm, dummyField, "W1X4A 1A3A");
 
     // Assert
     expect(result.pass).toBeFalsy();

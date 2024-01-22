@@ -4,11 +4,11 @@ import AssertIsPopulated from "../AssertIsPopulated";
 describe("Assert Is Populated", () => {
   test("empty string", () => {
     // Arrange
-    const rule = new AssertIsPopulated();
+    const assertion = new AssertIsPopulated();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -17,11 +17,11 @@ describe("Assert Is Populated", () => {
 
   test("single character", () => {
     // Arrange
-    const rule = new AssertIsPopulated();
+    const rulassertion = new AssertIsPopulated();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "a");
+    const result = rulassertion.isValid(dummyForm, dummyField, "a");
 
     // Assert
     expect(result.pass).toBeTruthy();

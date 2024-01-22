@@ -7,5 +7,5 @@ export default interface ISchemaFieldRelationships {
   isJoinedTo(field: ISchemaField): boolean;
   join(relatedField: ISchemaField): void;
   disconnect(relatedField: ISchemaField): void;
-  processRuleGroupsForRelatedFields(): void;
+  processAssertionGroupsForRelatedFields(): void;
 }

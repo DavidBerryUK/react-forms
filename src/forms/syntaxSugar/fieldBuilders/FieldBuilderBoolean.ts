@@ -15,7 +15,7 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
   }
 
   /****************************/
-  /* Rules                    */
+  /* Assertions               */
   /****************************/
   shouldBeEmpty(customMessage?: string): FieldBuilderBoolean {
     this.add(new AssertIsEmpty(customMessage));
@@ -48,6 +48,6 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
   }
 
   build(): SchemaFieldBoolean {
-    return SchemaFieldBoolean.createWithRules(this._id, this._caption, this._rules);
+    return SchemaFieldBoolean.createWithAssertions(this._id, this._caption, this._assertions);
   }
 }

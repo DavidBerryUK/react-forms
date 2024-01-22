@@ -1,6 +1,6 @@
 import Condition from "../../models/Condition";
 import ICondition from "../../interfaces/condition/ICondition";
-import IRule from "../../interfaces/rules/IRule";
+import IAssert from "../../interfaces/assertions/IAssert";
 import ISchemaField from "../../interfaces/schemaField/ISchemaField";
 
 export default class QueryBuilderBase<T extends QueryBuilderBase<T>> {
@@ -14,26 +14,26 @@ export default class QueryBuilderBase<T extends QueryBuilderBase<T>> {
     this.conditions = new Array<ICondition>();
   }
 
-  protected add(assertion: IRule) {
+  protected add(assertion: IAssert) {
     if (this._condition === undefined) {
       this._condition = Condition.create(this._schemaField, assertion);
       this.conditions.push(this._condition);
       return;
     }
 
-    this._condition.addRule(assertion);
+    this._condition.addAssert(assertion);
   }
 
   /****************************/
-  /* Add Rules                */
+  /* Assertions               */
   /****************************/
-  public addAssert(rule: IRule): T {
-    this.add(rule);
+  public addAssert(assertion: IAssert): T {
+    this.add(assertion);
     return this as any as T;
   }
 
-  public addAssertions(rules: Array<IRule>): T {
-    rules.forEach((rule) => this.add(rule));
+  public addAssertions(assertions: Array<IAssert>): T {
+    assertions.forEach((assertion) => this.add(assertion));
     return this as any as T;
   }
 }

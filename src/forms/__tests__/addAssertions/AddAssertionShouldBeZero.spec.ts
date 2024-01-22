@@ -10,7 +10,7 @@ describe("Field Builder - Add Assertion - shouldBeZero", () => {
     //
     // ASSERT
     //
-    const item = field.ruleGroups.items[0].items[0];
+    const item = field.assertGroups.items[0].items[0];
     expect(item).toBeInstanceOf(AssertValueIsZero);
   });
 });

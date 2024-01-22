@@ -1,7 +1,7 @@
 import { ConditionalBuilderTypes, QueryBuilderTypes } from "../../types/BuilderTypes";
 import EnumFieldType from "../../enums/EnumFieldType";
-import IRuleGroup from "../rules/IRuleGroup";
-import IRuleGroups from "../rules/IRuleGroups";
+import IAssertGroup from "../assertions/IAssertGroup";
+import IAssertGroups from "../assertions/IAssertGroups";
 import ISchemaFieldRelationships from "../schema/ISchemaFieldRelationships";
 
 export default interface ISchemaField {
@@ -11,12 +11,12 @@ export default interface ISchemaField {
   readonly readOnly: boolean;
   readonly fieldType: EnumFieldType;
   readonly relatedFields: ISchemaFieldRelationships;
-  ruleGroups: IRuleGroups;
-  appendRules(rules: IRuleGroup): void;
-  clearRules(): void;
+  assertGroups: IAssertGroups;
+  appendAssertionGroup(assertionGroup: IAssertGroup): void;
+  clearAssertions(): void;
   clone(deep?: boolean): ISchemaField;
   keyEquals(field: ISchemaField): boolean;
-  setRules(rules: IRuleGroup): void;
+  setAssertions(assertions: IAssertGroup): void;
   setDisabled(isDisabled: boolean): void;
   hasId(): boolean;
   //

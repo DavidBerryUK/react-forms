@@ -1,9 +1,9 @@
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBase from "./base/RuleBase";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertResponse from "../interfaces/assertions/IAssertResponse";
+import AssertBase from "./base/AssertBase";
 
 // https://stackoverflow.com/questions/164979/regex-for-matching-uk-postcodes
 // Can accept the following formats:
@@ -23,12 +23,12 @@ import RuleBase from "./base/RuleBase";
 // D can be any letter except for I, J or Z.
 // E can be any of A, B, E, H, M, N, P, R, V, W, X or Y.
 // Z can be any letter except for C, I, K, M, O or V.
-export default class AssertPostCodeUK extends RuleBase implements IRule {
+export default class AssertPostCodeUK extends AssertBase implements IAssert {
   private readonly regex =
     /^(([gG][iI][rR] {0,}0[aA]{2})|((([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y]?[0-9][0-9]?)|(([a-pr-uwyzA-PR-UWYZ][0-9][a-hjkstuwA-HJKSTUW])|([a-pr-uwyzA-PR-UWYZ][a-hk-yA-HK-Y][0-9][abehmnprv-yABEHMNPRV-Y]))) {0,}[0-9][abd-hjlnp-uw-zABD-HJLNP-UW-Z]{2}))$/;
 
   ///
-  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
+  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IAssertResponse {
     if (this.isValueEmpty(value)) {
       return this.pass();
     }

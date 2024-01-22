@@ -1,8 +1,8 @@
 import EnumValidationStatus from "../enums/EnumValidationStatus";
-import IRule from "../interfaces/rules/IRule";
-import RuleBaseContain from "./base/RuleBaseContain";
+import IAssert from "../interfaces/assertions/IAssert";
+import AssertBaseContain from "./base/AssertBaseContain";
 
-export default class AssertContainsLowerCase extends RuleBaseContain implements IRule {
+export default class AssertContainsLowerCase extends AssertBaseContain implements IAssert {
   static readonly validChars = "abcdefghijklmnopqrstuvwxyx";
   static readonly plural = "lowercase characters";
   static readonly singular = "lowercase character";

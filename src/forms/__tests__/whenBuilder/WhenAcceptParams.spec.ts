@@ -22,10 +22,10 @@ describe("When parameter hander", () => {
     //
     fieldName.when(fieldName.state().ifIsPopulated().ifLengthGreaterOrEqual(100).ifContainsUpperCase(1, 99)).shouldHaveLengthMin(10);
 
-    expect(fieldName.ruleGroups.count()).toBe(1);
+    expect(fieldName.assertGroups.count()).toBe(1);
 
-    const group = fieldName.ruleGroups.items[0];
-    const conditionRules = group.conditions.items[0].ruleGroup.items;
+    const group = fieldName.assertGroups.items[0];
+    const conditionAssertions = group.conditions.items[0].assertionGroup.items;
 
     //
     // test assigned to correct field
@@ -39,11 +39,11 @@ describe("When parameter hander", () => {
     expect(group.items[0]).toBeInstanceOf(AssertLengthMin);
 
     //
-    // test condition rules
+    // test condition assertions
     //
-    expect(conditionRules.length).toBe(3);
-    expect(conditionRules[0]).toBeInstanceOf(AssertIsPopulated);
-    expect(conditionRules[1]).toBeInstanceOf(AssertLengthMax);
-    expect(conditionRules[2]).toBeInstanceOf(AssertContainsUpperCase);
+    expect(conditionAssertions.length).toBe(3);
+    expect(conditionAssertions[0]).toBeInstanceOf(AssertIsPopulated);
+    expect(conditionAssertions[1]).toBeInstanceOf(AssertLengthMax);
+    expect(conditionAssertions[2]).toBeInstanceOf(AssertContainsUpperCase);
   });
 });

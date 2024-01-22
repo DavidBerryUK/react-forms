@@ -20,7 +20,7 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
   }
 
   /****************************/
-  /* Rules                    */
+  /* Assertions               */
   /****************************/
   shouldBeDecimal(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsDecimal(customMessage));
@@ -83,6 +83,6 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
   }
 
   build(): SchemaFieldNumber {
-    return SchemaFieldNumber.createWithRules(this._id, this._caption, this._rules);
+    return SchemaFieldNumber.createWithAssertions(this._id, this._caption, this._assertions);
   }
 }

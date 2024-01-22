@@ -5,10 +5,10 @@ describe("Assert Value Is Non Zero", () => {
   test("Expect Pass - empty string", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsNonZero();
+    const assertion = new AssertValueIsNonZero();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -18,10 +18,10 @@ describe("Assert Value Is Non Zero", () => {
   test("Expect False - 0", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsNonZero();
+    const assertion = new AssertValueIsNonZero();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "0");
+    const result = assertion.isValid(dummyForm, dummyField, "0");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -31,10 +31,10 @@ describe("Assert Value Is Non Zero", () => {
   test("Expect Pass - 1", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsNonZero();
+    const assertion = new AssertValueIsNonZero();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "1");
+    const result = assertion.isValid(dummyForm, dummyField, "1");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -44,10 +44,10 @@ describe("Assert Value Is Non Zero", () => {
   test("Expect Pass - -1", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsNonZero();
+    const assertion = new AssertValueIsNonZero();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "-1");
+    const result = assertion.isValid(dummyForm, dummyField, "-1");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -57,10 +57,10 @@ describe("Assert Value Is Non Zero", () => {
   test("Expect Pass - invalid number", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsNonZero();
+    const assertion = new AssertValueIsNonZero();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "0.0.1");
+    const result = assertion.isValid(dummyForm, dummyField, "0.0.1");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -70,10 +70,10 @@ describe("Assert Value Is Non Zero", () => {
   test("Expect Pass - Random Word", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsNonZero();
+    const assertion = new AssertValueIsNonZero();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "Purple");
+    const result = assertion.isValid(dummyForm, dummyField, "Purple");
 
     // Assert
     expect(result.pass).toBeTruthy();

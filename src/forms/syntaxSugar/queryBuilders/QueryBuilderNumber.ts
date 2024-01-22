@@ -1,5 +1,6 @@
 import AssertIsEmpty from "../../assertions/AssertIsEmpty";
 import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
+import AssertIsPopulated from "../../assertions/AssertIsPopulated";
 import AssertValueIsBetween from "../../assertions/AssertValueIsBetween";
 import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
 import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
@@ -10,7 +11,6 @@ import AssertValueMax from "../../assertions/AssertValueMax";
 import AssertValueMin from "../../assertions/AssertValueMin";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
-import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.
@@ -26,10 +26,10 @@ import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
  */
 export default class QueryBuilderNumber extends QueryBuilderBase<QueryBuilderNumber> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderNumber {
-    this.add(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 

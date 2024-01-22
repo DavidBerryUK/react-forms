@@ -24,7 +24,7 @@ import ConditionalValidationBuilderBase from "./ConditionalValidationBuilderBase
 //
 export default class ConditionalValidationBuilderNumber extends ConditionalValidationBuilderBase<ConditionalValidationBuilderNumber> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
 
   shouldBeDecimal(customMessage?: string): ConditionalValidationBuilderNumber {

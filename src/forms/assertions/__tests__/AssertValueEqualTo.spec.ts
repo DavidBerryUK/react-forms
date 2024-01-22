@@ -6,10 +6,10 @@ describe("Assert Is Equal To", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsEqualTo("Orange", false);
+    const assertion = new AssertIsEqualTo("Orange", false);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "Orange");
+    const result = assertion.isValid(dummyForm, dummyField, "Orange");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -19,10 +19,10 @@ describe("Assert Is Equal To", () => {
   test("Fail - Case Sensitive", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsEqualTo("Orange", false);
+    const assertion = new AssertIsEqualTo("Orange", false);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "orange");
+    const result = assertion.isValid(dummyForm, dummyField, "orange");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -32,10 +32,10 @@ describe("Assert Is Equal To", () => {
   test("Pass - Case Insensitive - same case", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsEqualTo("Orange", true);
+    const assertion = new AssertIsEqualTo("Orange", true);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "Orange");
+    const result = assertion.isValid(dummyForm, dummyField, "Orange");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -45,10 +45,10 @@ describe("Assert Is Equal To", () => {
   test("Pass - Case Insensitive - diff case", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsEqualTo("Orange", true);
+    const assertion = new AssertIsEqualTo("Orange", true);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "orange");
+    const result = assertion.isValid(dummyForm, dummyField, "orange");
 
     // Assert
     expect(result.pass).toBeTruthy();

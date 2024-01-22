@@ -5,10 +5,10 @@ describe("Assert Value Is Between", () => {
   test("Invalid Number", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsBetween(10, 20);
+    const assertion = new AssertValueIsBetween(10, 20);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "ancd");
+    const result = assertion.isValid(dummyForm, dummyField, "ancd");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -18,10 +18,10 @@ describe("Assert Value Is Between", () => {
   test("Valid Integer Number in range", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsBetween(10, 20);
+    const assertion = new AssertValueIsBetween(10, 20);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "15");
+    const result = assertion.isValid(dummyForm, dummyField, "15");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -31,10 +31,10 @@ describe("Assert Value Is Between", () => {
   test("Valid Decimal Number in range", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsBetween(10, 20);
+    const assertion = new AssertValueIsBetween(10, 20);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "15.5");
+    const result = assertion.isValid(dummyForm, dummyField, "15.5");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -44,10 +44,10 @@ describe("Assert Value Is Between", () => {
   test("Valid Decimal Number below range", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsBetween(10, 20);
+    const assertion = new AssertValueIsBetween(10, 20);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "9.5");
+    const result = assertion.isValid(dummyForm, dummyField, "9.5");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -57,10 +57,10 @@ describe("Assert Value Is Between", () => {
   test("Valid Decimal Number above range", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsBetween(10, 20);
+    const assertion = new AssertValueIsBetween(10, 20);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "20.1");
+    const result = assertion.isValid(dummyForm, dummyField, "20.1");
 
     // Assert
     expect(result.pass).toBeFalsy();

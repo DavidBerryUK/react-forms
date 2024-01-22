@@ -1,12 +1,12 @@
 import { QueryBuilderTypes } from "../types/BuilderTypes";
+import AssertGroup from "../assert/AssertGroup";
 import ConditionalValidationBuilderNumber from "../syntaxSugar/conditionalValidationBuilders/ConditionalValidationBuilderNumber";
 import EnumFieldType from "../enums/EnumFieldType";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertGroup from "../interfaces/assertions/IAssertGroup";
 import ICondition from "../interfaces/condition/ICondition";
-import IRule from "../interfaces/rules/IRule";
-import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import QueryBuilderNumber from "../syntaxSugar/queryBuilders/QueryBuilderNumber";
-import RuleGroup from "../models/RuleGroup";
 import SchemaFieldBase from "./SchemaFieldBase";
 //
 // define a field in the form dataset
@@ -24,41 +24,46 @@ export default class SchemaFieldNumber extends SchemaFieldBase implements ISchem
     return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType);
   }
 
-  public static createWithRule(id: string, caption: string, rule: IRule): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.create(rule));
+  public static createWithAssertion(id: string, caption: string, assertion: IAssert): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, AssertGroup.create(assertion));
   }
 
-  public static createWithRuleGroup(id: string, caption: string, ruleGroup: IRuleGroup): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, ruleGroup);
+  public static createWithAssertionGroup(id: string, caption: string, assertionGroup: IAssertGroup): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, assertionGroup);
   }
 
-  public static createWithRuleAndCondition(id: string, caption: string, rule: IRule, condition: ICondition): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRuleAndCondition(rule, condition));
+  public static createWithAssertionAndCondition(id: string, caption: string, assertion: IAssert, condition: ICondition): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, AssertGroup.createAssertionAndCondition(assertion, condition));
   }
 
-  public static createWithRuleAndConditions(id: string, caption: string, rule: IRule, condition: Array<ICondition>): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRuleAndConditions(rule, condition));
+  public static createWithAssertionAndConditions(id: string, caption: string, assertion: IAssert, condition: Array<ICondition>): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, AssertGroup.createAssertionAndConditions(assertion, condition));
   }
 
-  public static createWithRulesAndCondition(id: string, caption: string, rules: Array<IRule>, condition: ICondition): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRulesAndCondition(rules, condition));
+  public static createWithAssertionsAndCondition(id: string, caption: string, assertions: Array<IAssert>, condition: ICondition): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, AssertGroup.createAssertionsAndCondition(assertions, condition));
   }
 
-  public static createWithRulesAndConditions(id: string, caption: string, rules: Array<IRule>, conditions: Array<ICondition>): SchemaFieldNumber {
-    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRulesAndConditions(rules, conditions));
+  public static createWithAssertionsAndConditions(
+    id: string,
+    caption: string,
+    assertions: Array<IAssert>,
+    conditions: Array<ICondition>
+  ): SchemaFieldNumber {
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, AssertGroup.createAssertionsAndConditions(assertions, conditions));
   }
 
-  public static createWithRules(id: string, caption: string, rules: Array<IRule>): SchemaFieldNumber {
-    if (rules.length === 0) {
+  public static createWithAssertions(id: string, caption: string, assertions: Array<IAssert>): SchemaFieldNumber {
+    if (assertions.length === 0) {
       return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType);
     }
-    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, RuleGroup.createRules(rules));
+    return new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType, AssertGroup.createAssertions(assertions));
   }
 
-  public static createWithRuleGroups(id: string, caption: string, ruleGroups: Array<IRuleGroup>) {
+  public static createWithAssertionGroups(id: string, caption: string, assertionGroups: Array<IAssertGroup>) {
     const field = new SchemaFieldNumber(id, caption, SchemaFieldNumber.fieldType);
-    ruleGroups.forEach((group) => {
-      field.appendRules(group);
+    assertionGroups.forEach((group) => {
+      field.appendAssertionGroup(group);
     });
     return field;
   }

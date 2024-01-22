@@ -23,7 +23,7 @@ import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
  */
 export default class QueryBuilderDate extends QueryBuilderBase<QueryBuilderDate> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderDate {
     this.add(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));

@@ -1,8 +1,8 @@
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
-import IRuleResponse from "../../interfaces/rules/IRuleResponse";
-import RuleResponse from "../../models/RuleResponse";
+import IAssertResponse from "../../interfaces/assertions/IAssertResponse";
+import AssertResponse from "../../assert/AssertResponse";
 
-export default class RuleBase {
+export default class AssertBase {
   public readonly customMessage?: string;
   private readonly defaultValidationStatus: EnumValidationStatus;
 
@@ -28,11 +28,11 @@ export default class RuleBase {
     return this.fail("No Value Provided");
   }
 
-  fail(message: string): IRuleResponse {
-    return RuleResponse.fail(this.customMessage || message);
+  fail(message: string): IAssertResponse {
+    return AssertResponse.fail(this.customMessage || message);
   }
 
-  pass(): IRuleResponse {
-    return RuleResponse.pass();
+  pass(): IAssertResponse {
+    return AssertResponse.pass();
   }
 }

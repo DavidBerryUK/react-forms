@@ -7,7 +7,7 @@ describe("Field Collection Add", () => {
     // Assign
     //
     const collection = new FormFieldCollection();
-    const fieldTitle1 = SchemaFieldString.create("Name#1", "Name One", EnumFieldType.string);
+    const fieldTitle1 = SchemaFieldString.create("Name#1", "Name One");
 
     // Act
     //
@@ -29,9 +29,9 @@ describe("Field Collection Add", () => {
     //
     const collection = new FormFieldCollection();
 
-    const fieldTitle1 = SchemaFieldString.create("Name#1", "Name One", EnumFieldType.string);
-    const fieldTitle2 = SchemaFieldString.create("Name#2", "Name Two", EnumFieldType.string);
-    const fieldTitle3 = SchemaFieldString.create("Name#3", "Name Three", EnumFieldType.string);
+    const fieldTitle1 = SchemaFieldString.create("Name#1", "Name One");
+    const fieldTitle2 = SchemaFieldString.create("Name#2", "Name Two");
+    const fieldTitle3 = SchemaFieldString.create("Name#3", "Name Three");
 
     // Act
     //

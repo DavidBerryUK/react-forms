@@ -5,10 +5,10 @@ describe("Assert Value Is Positive", () => {
   test("Fail - Invalid Number", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsPositive(false);
+    const assertion = new AssertValueIsPositive(false);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "ancd");
+    const result = assertion.isValid(dummyForm, dummyField, "ancd");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -18,10 +18,10 @@ describe("Assert Value Is Positive", () => {
   test("Pass - (allow zero = false ) positive number : 10", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsPositive(false);
+    const assertion = new AssertValueIsPositive(false);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "10");
+    const result = assertion.isValid(dummyForm, dummyField, "10");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -31,10 +31,10 @@ describe("Assert Value Is Positive", () => {
   test("Pass - (allow zero = true ) positive number : 10", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsPositive(true);
+    const assertion = new AssertValueIsPositive(true);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "10");
+    const result = assertion.isValid(dummyForm, dummyField, "10");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -44,10 +44,10 @@ describe("Assert Value Is Positive", () => {
   test("Fail - (allow zero = false ) positive number : -20", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsPositive(false);
+    const assertion = new AssertValueIsPositive(false);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "-20");
+    const result = assertion.isValid(dummyForm, dummyField, "-20");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -57,10 +57,10 @@ describe("Assert Value Is Positive", () => {
   test("Fail - (allow zero = true ) positive number : -20", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsPositive(true);
+    const assertion = new AssertValueIsPositive(true);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "-20");
+    const result = assertion.isValid(dummyForm, dummyField, "-20");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -70,10 +70,10 @@ describe("Assert Value Is Positive", () => {
   test("Fail - (allow zero = false ) positive number : 0", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsPositive(false);
+    const assertion = new AssertValueIsPositive(false);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "0");
+    const result = assertion.isValid(dummyForm, dummyField, "0");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -83,10 +83,10 @@ describe("Assert Value Is Positive", () => {
   test("Pass - (allow zero = true ) positive number : 0", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueIsPositive(true);
+    const assertion = new AssertValueIsPositive(true);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "0");
+    const result = assertion.isValid(dummyForm, dummyField, "0");
 
     // Assert
     expect(result.pass).toBeTruthy();

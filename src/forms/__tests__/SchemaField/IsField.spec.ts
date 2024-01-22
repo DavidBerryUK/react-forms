@@ -1,10 +1,9 @@
-import EnumFieldType from "../../enums/EnumFieldType";
 import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("IsSchemaField", () => {
   test("pass - valid field", () => {
     // ACT
-    const field = SchemaFieldString.create("field", "Field", EnumFieldType.string);
+    const field = SchemaFieldString.create("field", "Field");
 
     // ASSERT
     expect(SchemaFieldString.isSchemaField(field)).toBeTruthy();

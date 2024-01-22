@@ -5,10 +5,10 @@ describe("Assert Is Mandatory", () => {
   test("empty string", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsMandatory();
+    const assertion = new AssertIsMandatory();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -18,10 +18,10 @@ describe("Assert Is Mandatory", () => {
   test("single character", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsMandatory();
+    const assertion = new AssertIsMandatory();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "a");
+    const result = assertion.isValid(dummyForm, dummyField, "a");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -30,10 +30,10 @@ describe("Assert Is Mandatory", () => {
   test("full string", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsMandatory();
+    const assertion = new AssertIsMandatory();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "one two three");
+    const result = assertion.isValid(dummyForm, dummyField, "one two three");
 
     // Assert
     expect(result.pass).toBeTruthy();

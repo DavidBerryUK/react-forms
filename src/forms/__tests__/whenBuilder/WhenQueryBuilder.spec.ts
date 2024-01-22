@@ -33,8 +33,8 @@ describe("When Query Builder", () => {
     const condition = queryBuilder.conditions[0];
 
     expect(condition?.schemaField).toBe(fieldProvideName);
-    expect(condition?.ruleGroup.items.length).toBe(1);
-    expect(condition?.ruleGroup.items[0]).toBeInstanceOf(AssertValueIsTrue);
+    expect(condition?.assertionGroup.items.length).toBe(1);
+    expect(condition?.assertionGroup.items[0]).toBeInstanceOf(AssertValueIsTrue);
   });
 
   test("test adding multiple assertion", () => {
@@ -56,11 +56,11 @@ describe("When Query Builder", () => {
     expect(condition?.schemaField).toBe(fieldName);
 
     //
-    // expect 3 rules
+    // expect 3 assertions
     //
-    expect(condition?.ruleGroup.items.length).toBe(3);
-    expect(condition?.ruleGroup.items[0]).toBeInstanceOf(AssertIsPopulated);
-    expect(condition?.ruleGroup.items[1]).toBeInstanceOf(AssertLengthMax);
-    expect(condition?.ruleGroup.items[2]).toBeInstanceOf(AssertContainsUpperCase);
+    expect(condition?.assertionGroup.items.length).toBe(3);
+    expect(condition?.assertionGroup.items[0]).toBeInstanceOf(AssertIsPopulated);
+    expect(condition?.assertionGroup.items[1]).toBeInstanceOf(AssertLengthMax);
+    expect(condition?.assertionGroup.items[2]).toBeInstanceOf(AssertContainsUpperCase);
   });
 });

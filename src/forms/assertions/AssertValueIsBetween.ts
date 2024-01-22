@@ -2,16 +2,16 @@ import EnumValidationStatus from "../enums/EnumValidationStatus";
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBase from "./base/RuleBase";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertResponse from "../interfaces/assertions/IAssertResponse";
+import AssertBase from "./base/AssertBase";
 
 //
 // will validate either integers or decimal, if you require
-// further checks on types, then include RuleDecimal or RuleInteger
-// in the rules collection
+// further checks on types, then include AssertDecimal or AssertInteger
+// in the assertions collection
 //
-export default class AssertValueIsBetween extends RuleBase implements IRule {
+export default class AssertValueIsBetween extends AssertBase implements IAssert {
   private readonly minValue: number;
   private readonly maxValue: number;
 
@@ -21,7 +21,7 @@ export default class AssertValueIsBetween extends RuleBase implements IRule {
     this.maxValue = maxValue;
   }
 
-  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
+  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IAssertResponse {
     if (this.isValueEmpty(value)) {
       return this.pass();
     }

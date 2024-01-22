@@ -27,7 +27,7 @@ describe("Form Instances - Cross Validation", () => {
     //
     // this shold validate both mobile and home
     //
-    mobile.ruleGroups.evaluateRules(form, mobileRuntime!);
+    mobile.assertGroups.evaluateAssertions(form, mobileRuntime!);
 
     // console.log(homeRuntime);
     // console.log(mobileRuntime);
@@ -89,7 +89,7 @@ describe("Form Instances - Cross Validation", () => {
     form.setValue(mobile, "");
     form.setValue(home, "");
 
-    mobile.ruleGroups.evaluateRules(form, form.getField(mobile)!);
+    mobile.assertGroups.evaluateAssertions(form, form.getField(mobile)!);
 
     expect(form.getField(mobile)?.validation.isValid).toBeTruthy();
     expect(form.getField(home)?.validation.isValid).toBeTruthy();
@@ -100,7 +100,7 @@ describe("Form Instances - Cross Validation", () => {
     form.setValue(mobile, "0789 192929229");
     form.setValue(home, "");
 
-    mobile.ruleGroups.evaluateRules(form, form.getField(mobile)!);
+    mobile.assertGroups.evaluateAssertions(form, form.getField(mobile)!);
 
     expect(form.getField(mobile)?.validation.isValid).toBeTruthy();
     expect(form.getField(home)?.validation.isValid).toBeTruthy();
@@ -111,7 +111,7 @@ describe("Form Instances - Cross Validation", () => {
     form.setValue(mobile, "");
     form.setValue(home, "0113 393939393");
 
-    mobile.ruleGroups.evaluateRules(form, form.getField(mobile)!);
+    mobile.assertGroups.evaluateAssertions(form, form.getField(mobile)!);
     expect(form.getField(mobile)?.validation.isValid).toBeTruthy();
     expect(form.getField(home)?.validation.isValid).toBeTruthy();
 
@@ -120,7 +120,7 @@ describe("Form Instances - Cross Validation", () => {
     //
     form.setValue(mobile, "0789 192929229");
     form.setValue(home, "0113 393939393");
-    mobile.ruleGroups.evaluateRules(form, form.getField(mobile)!);
+    mobile.assertGroups.evaluateAssertions(form, form.getField(mobile)!);
 
     expect(form.getField(home)?.validation.isValid).toBeFalsy();
     expect(form.getField(mobile)?.validation.isValid).toBeFalsy();

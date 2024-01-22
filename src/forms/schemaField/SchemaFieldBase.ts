@@ -1,9 +1,9 @@
 import { ConditionalBuilderTypes, QueryBuilderTypes } from "../types/BuilderTypes";
+import AssertGroups from "../assert/AssertGroups";
 import EnumFieldType from "../enums/EnumFieldType";
-import IRuleGroup from "../interfaces/rules/IRuleGroup";
-import IRuleGroups from "../interfaces/rules/IRuleGroups";
+import IAssertGroup from "../interfaces/assertions/IAssertGroup";
+import IAssertGroups from "../interfaces/assertions/IAssertGroups";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
-import RuleGroups from "../models/RuleGroups";
 import SchemaFieldRelationships from "../models/SchemaFieldRelationships";
 
 //
@@ -22,28 +22,28 @@ export default abstract class SchemaFieldBase implements ISchemaField {
   //  for readonly views or where only sub-set of fields are editable
   readOnly: boolean;
 
-  // Validation Rules
-  ruleGroups: IRuleGroups;
+  // Validation assertions
+  assertGroups: IAssertGroups;
   readonly fieldType: EnumFieldType;
   readonly relatedFields: SchemaFieldRelationships;
 
-  // clear all rules
-  clearRules() {
-    this.ruleGroups = new RuleGroups();
+  // clear all assertions
+  clearAssertions() {
+    this.assertGroups = new AssertGroups();
   }
 
-  // set rules, clears existing rules
-  setRules(rules: IRuleGroup) {
-    rules.schemaField = this;
-    this.ruleGroups = new RuleGroups();
-    this.ruleGroups.add(rules);
+  // set asserts, clears existing assertions
+  setAssertions(assertionGroup: IAssertGroup) {
+    assertionGroup.schemaField = this;
+    this.assertGroups = new AssertGroups();
+    this.assertGroups.add(assertionGroup);
   }
 
-  // append to existing rules
-  appendRules(rules: IRuleGroup) {
-    rules.schemaField = this;
-    this.ruleGroups.add(rules);
-    this.relatedFields.processRuleGroupsForRelatedFields();
+  // append to existing assertions
+  appendAssertionGroup(assertionGroup: IAssertGroup) {
+    assertionGroup.schemaField = this;
+    this.assertGroups.add(assertionGroup);
+    this.relatedFields.processAssertionGroupsForRelatedFields();
   }
 
   // update readonly state
@@ -63,21 +63,21 @@ export default abstract class SchemaFieldBase implements ISchemaField {
     id: string,
     caption: string,
     fieldType: EnumFieldType,
-    ruleGroup?: IRuleGroup | undefined | null,
-    ruleGroups?: IRuleGroups | undefined | null
+    assertionGroup?: IAssertGroup | undefined | null,
+    assertionGroups?: IAssertGroups | undefined | null
   ) {
     this.id = id;
     this.caption = caption;
     this.readOnly = false;
     this.fieldType = fieldType;
-    this.ruleGroups = ruleGroups || new RuleGroups();
-    this.ruleGroups.setSchemaField(this);
+    this.assertGroups = assertionGroups || new AssertGroups();
+    this.assertGroups.setSchemaField(this);
     this.relatedFields = new SchemaFieldRelationships(this);
-    if (ruleGroup !== undefined && ruleGroup !== null) {
-      this.ruleGroups.add(ruleGroup);
+    if (assertionGroup !== undefined && assertionGroup !== null) {
+      this.assertGroups.add(assertionGroup);
     }
 
-    this.relatedFields.processRuleGroupsForRelatedFields();
+    this.relatedFields.processAssertionGroupsForRelatedFields();
   }
 
   hasId(): boolean {

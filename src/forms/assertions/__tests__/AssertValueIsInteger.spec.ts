@@ -4,11 +4,11 @@ import AssertValueIsInteger from "../AssertValueIsInteger";
 describe("Assert Value Is Integer", () => {
   test("text - fail", () => {
     // Arrange
-    const rule = new AssertValueIsInteger();
+    const assertion = new AssertValueIsInteger();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "one two three");
+    const result = assertion.isValid(dummyForm, dummyField, "one two three");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -17,11 +17,11 @@ describe("Assert Value Is Integer", () => {
 
   test("fraction", () => {
     // Arrange
-    const rule = new AssertValueIsInteger();
+    const assertion = new AssertValueIsInteger();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "1.5");
+    const result = assertion.isValid(dummyForm, dummyField, "1.5");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -29,11 +29,11 @@ describe("Assert Value Is Integer", () => {
 
   test("empty string - valid", () => {
     // Arrange
-    const rule = new AssertValueIsInteger();
+    const assertion = new AssertValueIsInteger();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -41,11 +41,11 @@ describe("Assert Value Is Integer", () => {
 
   test("0 - valid", () => {
     // Arrange
-    const rule = new AssertValueIsInteger();
+    const assertion = new AssertValueIsInteger();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "0");
+    const result = assertion.isValid(dummyForm, dummyField, "0");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -53,11 +53,11 @@ describe("Assert Value Is Integer", () => {
 
   test("5 - valid", () => {
     // Arrange
-    const rule = new AssertValueIsInteger();
+    const assertion = new AssertValueIsInteger();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "5");
+    const result = assertion.isValid(dummyForm, dummyField, "5");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -65,11 +65,11 @@ describe("Assert Value Is Integer", () => {
 
   test("900 - valid", () => {
     // Arrange
-    const rule = new AssertValueIsInteger();
+    const assertion = new AssertValueIsInteger();
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "900");
+    const result = assertion.isValid(dummyForm, dummyField, "900");
 
     // Assert
     expect(result.pass).toBeTruthy();

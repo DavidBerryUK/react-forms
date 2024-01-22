@@ -4,11 +4,11 @@ import AssertValueMin from "../AssertValueMin";
 describe("Assert Value Min", () => {
   test("Invalid Number", () => {
     // Arrange
-    const rule = new AssertValueMin(10);
+    const assertion = new AssertValueMin(10);
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "ancd");
+    const result = assertion.isValid(dummyForm, dummyField, "ancd");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -17,11 +17,11 @@ describe("Assert Value Min", () => {
 
   test("Valid Integer Number above range", () => {
     // Arrange
-    const rule = new AssertValueMin(10);
+    const assertion = new AssertValueMin(10);
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "15");
+    const result = assertion.isValid(dummyForm, dummyField, "15");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -30,11 +30,11 @@ describe("Assert Value Min", () => {
 
   test("Invalid Number below range", () => {
     // Arrange
-    const rule = new AssertValueMin(10);
+    const assertion = new AssertValueMin(10);
     const { dummyForm, dummyField } = DummyFormSetup.get();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "9.5");
+    const result = assertion.isValid(dummyForm, dummyField, "9.5");
 
     // Assert
     expect(result.pass).toBeFalsy();

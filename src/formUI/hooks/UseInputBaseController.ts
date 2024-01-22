@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
-import IRule from "../../forms/interfaces/rules/IRule";
+import IAssert from "../../forms/interfaces/assertions/IAssert";
 
-const useInputBaseController = (rules: Array<IRule>, onChange?: (value: string, isValid: boolean, validationMessages: Array<string>) => void) => {
-  const [validationRules, setValidationRules] = useState<Array<IRule>>(new Array<IRule>());
+const useInputBaseController = (
+  assertions: Array<IAssert>,
+  onChange?: (value: string, isValid: boolean, validationMessages: Array<string>) => void
+) => {
+  const [validationRules, setValidationRules] = useState<Array<IAssert>>(new Array<IAssert>());
 
   useEffect(() => {
-    setValidationRules(rules);
-  }, [rules]);
+    setValidationRules(assertions);
+  }, [assertions]);
 
   const handleOnChangeEvent = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (onChange) {
       const value = event.target.value;
 
       //
-      // evaluate rules
+      // evaluate assertions
       //
       var validationMessages = new Array<string>();
       var validationValue = value.trim();
       var isValid = true;
-      validationRules.forEach((rule) => {
-        var result = rule.isValid(null, null, validationValue);
+      validationRules.forEach((assertion) => {
+        var result = assertion.isValid(null, null, validationValue);
         if (result.pass === false) {
           isValid = false;
           validationMessages.push(result.message);

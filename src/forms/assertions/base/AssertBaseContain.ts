@@ -2,14 +2,14 @@ import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import IFormField from "../../interfaces/form/IFormField";
 import IFormInstance from "../../interfaces/form/IFormInstance";
 import IFormSchema from "../../interfaces/form/IFormSchema";
-import IRule from "../../interfaces/rules/IRule";
-import IRuleResponse from "../../interfaces/rules/IRuleResponse";
-import RuleBase from "./RuleBase";
+import IAssert from "../../interfaces/assertions/IAssert";
+import IAssertResponse from "../../interfaces/assertions/IAssertResponse";
+import AssertBase from "./AssertBase";
 
 //
-// this is tested extensively by the RuleContainsDigits.spec.ts test suite
+// this is tested extensively by the AssertContainsDigits.spec.ts test suite
 //
-export default class RuleBaseContain extends RuleBase implements IRule {
+export default class AssertBaseContain extends AssertBase implements IAssert {
   private readonly minCount: number;
   private readonly maxCount: number;
   private readonly validChars: string;
@@ -33,7 +33,7 @@ export default class RuleBaseContain extends RuleBase implements IRule {
     this.plural = plural;
   }
 
-  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
+  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IAssertResponse {
     if (this.isValueEmpty(value)) {
       return this.default();
     }

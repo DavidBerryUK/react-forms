@@ -1,10 +1,10 @@
+import AssertGroup from "../assert/AssertGroup";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertGroup from "../interfaces/assertions/IAssertGroup";
 import ICondition from "../interfaces/condition/ICondition";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
-import RuleGroup from "./RuleGroup";
 
 //
 // class provides option of making rule evaluation for a field
@@ -13,28 +13,28 @@ import RuleGroup from "./RuleGroup";
 
 export default class Condition implements ICondition {
   readonly schemaField: ISchemaField;
-  readonly ruleGroup: IRuleGroup;
+  readonly assertionGroup: IAssertGroup;
 
-  static create(schemaField: ISchemaField, rule: IRule) {
-    return new Condition(schemaField, RuleGroup.create(rule));
+  static create(schemaField: ISchemaField, assert: IAssert) {
+    return new Condition(schemaField, AssertGroup.create(assert));
   }
 
-  static createWithRules(schemaField: ISchemaField, rules: Array<IRule>) {
-    return new Condition(schemaField, RuleGroup.createRules(rules));
+  static createWithAssertions(schemaField: ISchemaField, assertions: Array<IAssert>) {
+    return new Condition(schemaField, AssertGroup.createAssertions(assertions));
   }
 
-  static createWithRuleGroup(schemaField: ISchemaField, ruleGroup: RuleGroup) {
-    return new Condition(schemaField, ruleGroup);
+  static createWithAssertionGroup(schemaField: ISchemaField, assertGroup: AssertGroup) {
+    return new Condition(schemaField, assertGroup);
   }
 
-  private constructor(schemaField: ISchemaField, rules: IRuleGroup) {
-    rules.schemaField = schemaField;
+  private constructor(schemaField: ISchemaField, assertions: IAssertGroup) {
+    assertions.schemaField = schemaField;
     this.schemaField = schemaField;
-    this.ruleGroup = rules;
+    this.assertionGroup = assertions;
   }
 
-  addRule(rule: IRule) {
-    this.ruleGroup.addRule(rule);
+  addAssert(assertion: IAssert) {
+    this.assertionGroup.addAssertion(assertion);
   }
 
   //
@@ -47,7 +47,7 @@ export default class Condition implements ICondition {
       return false;
     }
 
-    const isValid = this.ruleGroup.evaluate(form, field, transactionId, false);
+    const isValid = this.assertionGroup.evaluate(form, field, transactionId, false);
     return isValid;
   }
 }

@@ -16,7 +16,7 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
   }
 
   /****************************/
-  /* Rules                    */
+  /* Assertions               */
   /****************************/
   shouldBeDateLocal(customMessage?: string): FieldBuilderDate {
     this.add(new AssertValueIsDateLocal(customMessage));
@@ -59,6 +59,6 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
   }
 
   build(): SchemaFieldDate {
-    return SchemaFieldDate.createWithRules(this._id, this._caption, this._rules);
+    return SchemaFieldDate.createWithAssertions(this._id, this._caption, this._assertions);
   }
 }

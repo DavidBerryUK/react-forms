@@ -1,12 +1,12 @@
 import { QueryBuilderTypes } from "../types/BuilderTypes";
+import AssertGroup from "../assert/AssertGroup";
 import ConditionalValidationBuilderDate from "../syntaxSugar/conditionalValidationBuilders/ConditionalValidationBuilderDate";
 import EnumFieldType from "../enums/EnumFieldType";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertGroup from "../interfaces/assertions/IAssertGroup";
 import ICondition from "../interfaces/condition/ICondition";
-import IRule from "../interfaces/rules/IRule";
-import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import QueryBuilderDate from "../syntaxSugar/queryBuilders/QueryBuilderDate";
-import RuleGroup from "../models/RuleGroup";
 import SchemaFieldBase from "./SchemaFieldBase";
 //
 // define a field in the form dataset
@@ -17,48 +17,53 @@ export default class SchemaFieldDate extends SchemaFieldBase implements ISchemaF
 
   //
   // convenience creators for different combinations
-  // of fields with single or multiple validation rules
+  // of fields with single or multiple validation assertions
   // in combination with none, single or multiple conditions
   //
   public static create(id: string, caption: string, fieldType: EnumFieldType): SchemaFieldDate {
     return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType);
   }
 
-  public static createWithRule(id: string, caption: string, rule: IRule): SchemaFieldDate {
-    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, RuleGroup.create(rule));
+  public static createWithAssertion(id: string, caption: string, assertion: IAssert): SchemaFieldDate {
+    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, AssertGroup.create(assertion));
   }
 
-  public static createWithRuleGroup(id: string, caption: string, ruleGroup: IRuleGroup): SchemaFieldDate {
-    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, ruleGroup);
+  public static createWithAssertionGroup(id: string, caption: string, assertionGroup: IAssertGroup): SchemaFieldDate {
+    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, assertionGroup);
   }
 
-  public static createWithRuleAndCondition(id: string, caption: string, rule: IRule, condition: ICondition): SchemaFieldDate {
-    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, RuleGroup.createRuleAndCondition(rule, condition));
+  public static createWithAssertionAndCondition(id: string, caption: string, assertion: IAssert, condition: ICondition): SchemaFieldDate {
+    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, AssertGroup.createAssertionAndCondition(assertion, condition));
   }
 
-  public static createWithRuleAndConditions(id: string, caption: string, rule: IRule, condition: Array<ICondition>): SchemaFieldDate {
-    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, RuleGroup.createRuleAndConditions(rule, condition));
+  public static createWithAssertionAndConditions(id: string, caption: string, assertion: IAssert, condition: Array<ICondition>): SchemaFieldDate {
+    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, AssertGroup.createAssertionAndConditions(assertion, condition));
   }
 
-  public static createWithRulesAndCondition(id: string, caption: string, rules: Array<IRule>, condition: ICondition): SchemaFieldDate {
-    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, RuleGroup.createRulesAndCondition(rules, condition));
+  public static createWithAssertionsAndCondition(id: string, caption: string, assertions: Array<IAssert>, condition: ICondition): SchemaFieldDate {
+    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, AssertGroup.createAssertionsAndCondition(assertions, condition));
   }
 
-  public static createWithRulesAndConditions(id: string, caption: string, rules: Array<IRule>, conditions: Array<ICondition>): SchemaFieldDate {
-    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, RuleGroup.createRulesAndConditions(rules, conditions));
+  public static createWithAssertionsAndConditions(
+    id: string,
+    caption: string,
+    assertions: Array<IAssert>,
+    conditions: Array<ICondition>
+  ): SchemaFieldDate {
+    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, AssertGroup.createAssertionsAndConditions(assertions, conditions));
   }
 
-  public static createWithRules(id: string, caption: string, rules: Array<IRule>): SchemaFieldDate {
-    if (rules.length === 0) {
+  public static createWithAssertions(id: string, caption: string, assertions: Array<IAssert>): SchemaFieldDate {
+    if (assertions.length === 0) {
       return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType);
     }
-    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, RuleGroup.createRules(rules));
+    return new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType, AssertGroup.createAssertions(assertions));
   }
 
-  public static createWithRuleGroups(id: string, caption: string, ruleGroups: Array<IRuleGroup>) {
+  public static createWithAssertionGroups(id: string, caption: string, assertionGroups: Array<IAssertGroup>) {
     const field = new SchemaFieldDate(id, caption, SchemaFieldDate.fieldType);
-    ruleGroups.forEach((group) => {
-      field.appendRules(group);
+    assertionGroups.forEach((group) => {
+      field.appendAssertionGroup(group);
     });
     return field;
   }

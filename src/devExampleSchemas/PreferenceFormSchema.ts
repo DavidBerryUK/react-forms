@@ -8,7 +8,7 @@ import Condition from "../forms/models/Condition";
 import FieldBuilder from "../forms/syntaxSugar/fieldBuilders/FieldBuilder";
 import FormSchemaBase from "../forms/models/FormSchemaBase";
 import IFormSchema from "../forms/interfaces/form/IFormSchema";
-import RuleGroup from "../forms/models/RuleGroup";
+import AssertGroup from "../forms/assert/AssertGroup";
 
 //
 // Define fields on the form.
@@ -32,7 +32,7 @@ export default class PreferenceFormSchema extends FormSchemaBase implements IFor
   private addConditionalValidationToValueField() {
     const valueField = this.fields.value;
 
-    // define conditions which must be met before rules will be evaluated
+    // define conditions which must be met before assertions will be evaluated
     // (clrType contains the data type of the value field)
     const isDataTypeString = Condition.create(this.fields.clrType, new AssertIsEqualTo("string", true));
     const isDataTypeInteger = Condition.create(this.fields.clrType, new AssertIsEqualTo("integer", true));
@@ -40,24 +40,24 @@ export default class PreferenceFormSchema extends FormSchemaBase implements IFor
 
     const isActive = Condition.create(this.fields.isActive, new AssertValueIsTrue());
 
-    // create rules with above conditions
+    // create assertions with above conditions
     //  and apply to value field
-    valueField.clearRules();
-    valueField.appendRules(RuleGroup.createRuleAndCondition(new AssertLengthMax(200), isDataTypeString));
-    valueField.appendRules(RuleGroup.createRuleAndCondition(new AssertValueIsInteger(), isDataTypeInteger));
-    valueField.appendRules(RuleGroup.createRuleAndCondition(new AssertValueIsDecimal(), isDataTypeDecimal));
+    valueField.clearAssertions();
+    valueField.appendAssertionGroup(AssertGroup.createAssertionAndCondition(new AssertLengthMax(200), isDataTypeString));
+    valueField.appendAssertionGroup(AssertGroup.createAssertionAndCondition(new AssertValueIsInteger(), isDataTypeInteger));
+    valueField.appendAssertionGroup(AssertGroup.createAssertionAndCondition(new AssertValueIsDecimal(), isDataTypeDecimal));
 
     //
     // when active and field is a string or a number then field is mandatory
     //
-    valueField.appendRules(
-      RuleGroup.createRuleAndConditions(new AssertIsMandatory("is mandatory when preference is Active"), [isActive, isDataTypeString])
+    valueField.appendAssertionGroup(
+      AssertGroup.createAssertionAndConditions(new AssertIsMandatory("is mandatory when preference is Active"), [isActive, isDataTypeString])
     );
-    valueField.appendRules(
-      RuleGroup.createRuleAndConditions(new AssertIsMandatory("is mandatory when preference is Active"), [isActive, isDataTypeInteger])
+    valueField.appendAssertionGroup(
+      AssertGroup.createAssertionAndConditions(new AssertIsMandatory("is mandatory when preference is Active"), [isActive, isDataTypeInteger])
     );
-    valueField.appendRules(
-      RuleGroup.createRuleAndConditions(new AssertIsMandatory("is mandatory when preference is Active"), [isActive, isDataTypeDecimal])
+    valueField.appendAssertionGroup(
+      AssertGroup.createAssertionAndConditions(new AssertIsMandatory("is mandatory when preference is Active"), [isActive, isDataTypeDecimal])
     );
   }
 }

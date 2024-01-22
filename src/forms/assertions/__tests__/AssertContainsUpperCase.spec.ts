@@ -6,10 +6,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(0, 100);
+    const assertion = new AssertContainsUpperCase(0, 100);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -20,10 +20,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(2, 4);
+    const assertion = new AssertContainsUpperCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "aAaaaa2222");
+    const result = assertion.isValid(dummyForm, dummyField, "aAaaaa2222");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -34,10 +34,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(2, 4);
+    const assertion = new AssertContainsUpperCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "absbsABabcd");
+    const result = assertion.isValid(dummyForm, dummyField, "absbsABabcd");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -48,10 +48,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(2, 4);
+    const assertion = new AssertContainsUpperCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "123ABC12922929one two three four");
+    const result = assertion.isValid(dummyForm, dummyField, "123ABC12922929one two three four");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -62,10 +62,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(2, 4);
+    const assertion = new AssertContainsUpperCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "1234ABCDababab29292");
+    const result = assertion.isValid(dummyForm, dummyField, "1234ABCDababab29292");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -76,10 +76,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(2, 4);
+    const assertion = new AssertContainsUpperCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "One Two Three Four Five");
+    const result = assertion.isValid(dummyForm, dummyField, "One Two Three Four Five");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -90,10 +90,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(1, 1);
+    const assertion = new AssertContainsUpperCase(1, 1);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "abc");
+    const result = assertion.isValid(dummyForm, dummyField, "abc");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -104,10 +104,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(1, 10);
+    const assertion = new AssertContainsUpperCase(1, 10);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "abc");
+    const result = assertion.isValid(dummyForm, dummyField, "abc");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -118,10 +118,10 @@ describe("Assert Contains uppercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsUpperCase(0, 1);
+    const assertion = new AssertContainsUpperCase(0, 1);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "abc12345bdbd One Two Three Four Five");
+    const result = assertion.isValid(dummyForm, dummyField, "abc12345bdbd One Two Three Four Five");
 
     // Assert
     expect(result.pass).toBeFalsy();

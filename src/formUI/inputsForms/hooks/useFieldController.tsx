@@ -46,7 +46,7 @@ const useFieldController = (props: IInputProperties) => {
     field.value = event.target.value;
 
     // run validation
-    field.schemaField.ruleGroups.evaluateRules(props.form, field);
+    field.schemaField.assertGroups.evaluateAssertions(props.form, field);
 
     // publish a change has taken place
     if (props.onUpdate) {

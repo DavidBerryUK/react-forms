@@ -21,8 +21,9 @@ import ConditionalValidationBuilderBase from "./ConditionalValidationBuilderBase
 //
 export default class ConditionalValidationBuilderDate extends ConditionalValidationBuilderBase<ConditionalValidationBuilderDate> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
+
   shouldBeDateLocal(customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertValueIsDateLocal(customMessage));
     return this;

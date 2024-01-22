@@ -1,32 +1,32 @@
 import { nanoid } from "nanoid";
-import FormFieldValidationState from "./FormFieldValidationState";
+import FormFieldValidationState from "../models/FormFieldValidationState";
+import IAssertGroup from "../interfaces/assertions/IAssertGroup";
+import IAssertGroups from "../interfaces/assertions/IAssertGroups";
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import IRuleGroup from "../interfaces/rules/IRuleGroup";
-import IRuleGroups from "../interfaces/rules/IRuleGroups";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
 
-export default class RuleGroups implements IRuleGroups {
-  items: Array<IRuleGroup>;
+export default class AssertGroups implements IAssertGroups {
+  items: Array<IAssertGroup>;
 
-  constructor(groups?: Array<IRuleGroup>) {
-    this.items = groups || new Array<IRuleGroup>();
+  constructor(groups?: Array<IAssertGroup>) {
+    this.items = groups || new Array<IAssertGroup>();
   }
 
   count(): number {
     return this.items.length;
   }
 
-  clone(deep?: boolean): IRuleGroups {
+  clone(deep?: boolean): IAssertGroups {
     throw new Error("Method not implemented.");
   }
 
-  add(rules: IRuleGroup) {
-    if (rules === null || rules === undefined) {
-      console.error("RuleGroup::Attempting to add null/undefined rule to rule groups");
+  add(assertions: IAssertGroup) {
+    if (assertions === null || assertions === undefined) {
+      console.error("AssertionGroup::Attempting to add null/undefined assertion to assertion groups");
     }
-    this.items.push(rules);
+    this.items.push(assertions);
   }
 
   setSchemaField(schemaField: ISchemaField) {
@@ -35,9 +35,7 @@ export default class RuleGroups implements IRuleGroups {
     });
   }
 
-  evaluateRules(form: IFormInstance<IFormSchema>, field: IFormField, transactionId?: string) {
-    // console.log(`RuleGroups::evaluateRules - for:${field.schemaField.id}-${field.schemaField.caption}`);
-
+  evaluateAssertions(form: IFormInstance<IFormSchema>, field: IFormField, transactionId?: string) {
     if (transactionId === undefined || transactionId === null || transactionId === "") {
       transactionId = nanoid();
     }
@@ -61,7 +59,7 @@ export default class RuleGroups implements IRuleGroups {
       field.schemaField.relatedFields.items.forEach((relatedField) => {
         const relatedFormField = form.getField(relatedField, field.rowId);
         if (relatedFormField !== undefined && relatedFormField !== null && relatedFormField.validation.transactionId !== transactionId) {
-          relatedField.ruleGroups.evaluateRules(form, relatedFormField, transactionId);
+          relatedField.assertGroups.evaluateAssertions(form, relatedFormField, transactionId);
         }
       });
     }

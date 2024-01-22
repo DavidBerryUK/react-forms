@@ -5,10 +5,10 @@ describe("Assert Contains Digits", () => {
   test("Pass - empty", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(0, 100);
+    const assertion = new AssertContainsDigits(0, 100);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -18,10 +18,10 @@ describe("Assert Contains Digits", () => {
   test("Fail - must contain 2-4 digits - actual 1", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(2, 4);
+    const assertion = new AssertContainsDigits(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "1");
+    const result = assertion.isValid(dummyForm, dummyField, "1");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -31,10 +31,10 @@ describe("Assert Contains Digits", () => {
   test("Pass - must contain 2-4 digits - actual 2", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(2, 4);
+    const assertion = new AssertContainsDigits(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "12");
+    const result = assertion.isValid(dummyForm, dummyField, "12");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -44,10 +44,10 @@ describe("Assert Contains Digits", () => {
   test("Pass - must contain 2-4 digits - actual 3", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(2, 4);
+    const assertion = new AssertContainsDigits(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "123");
+    const result = assertion.isValid(dummyForm, dummyField, "123");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -57,10 +57,10 @@ describe("Assert Contains Digits", () => {
   test("Pass - must contain 2-4 digits - actual 4", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(2, 4);
+    const assertion = new AssertContainsDigits(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "1234");
+    const result = assertion.isValid(dummyForm, dummyField, "1234");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -70,10 +70,10 @@ describe("Assert Contains Digits", () => {
   test("Fail - must contain 2-4 digits - actual 5", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(2, 4);
+    const assertion = new AssertContainsDigits(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "12345");
+    const result = assertion.isValid(dummyForm, dummyField, "12345");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -83,10 +83,10 @@ describe("Assert Contains Digits", () => {
   test("Fail - must contain 1 digits - actual - none", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(1, 1);
+    const assertion = new AssertContainsDigits(1, 1);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "abc");
+    const result = assertion.isValid(dummyForm, dummyField, "abc");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -96,10 +96,10 @@ describe("Assert Contains Digits", () => {
   test("Fail - must contain 1-10 digits - actual - none", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(1, 10);
+    const assertion = new AssertContainsDigits(1, 10);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "abc");
+    const result = assertion.isValid(dummyForm, dummyField, "abc");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -109,10 +109,10 @@ describe("Assert Contains Digits", () => {
   test("Fail - must contain 0-1 digits - actual - 5", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsDigits(0, 1);
+    const assertion = new AssertContainsDigits(0, 1);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "abc12345bdbd");
+    const result = assertion.isValid(dummyForm, dummyField, "abc12345bdbd");
 
     // Assert
     expect(result.pass).toBeFalsy();

@@ -3,7 +3,7 @@ import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
 import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
-import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
+import AssertIsPopulated from "../../assertions/AssertIsPopulated";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.
@@ -19,10 +19,10 @@ import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
  */
 export default class QueryBuilderBoolean extends QueryBuilderBase<QueryBuilderBoolean> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderBoolean {
-    this.add(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 

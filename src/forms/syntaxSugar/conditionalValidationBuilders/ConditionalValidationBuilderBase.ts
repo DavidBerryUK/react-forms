@@ -1,11 +1,11 @@
-import IRule from "../../interfaces/rules/IRule";
-import IRuleGroup from "../../interfaces/rules/IRuleGroup";
+import AssertGroup from "../../assert/AssertGroup";
+import IAssert from "../../interfaces/assertions/IAssert";
+import IAssertGroup from "../../interfaces/assertions/IAssertGroup";
 import ISchemaField from "../../interfaces/schemaField/ISchemaField";
 import QueryBuilderBoolean from "../queryBuilders/QueryBuilderBoolean";
 import QueryBuilderDate from "../queryBuilders/QueryBuilderDate";
 import QueryBuilderNumber from "../queryBuilders/QueryBuilderNumber";
 import QueryBuilderString from "../queryBuilders/QueryBuilderString";
-import RuleGroup from "../../models/RuleGroup";
 
 //
 // used to build up conditional validation in the following format
@@ -20,22 +20,22 @@ import RuleGroup from "../../models/RuleGroup";
 export default class ConditionalValidationBuilderBase<T extends ConditionalValidationBuilderBase<T>> {
   private _schemaField: ISchemaField;
   private _queryBuilder: QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber;
-  private _ruleGroup: IRuleGroup | undefined;
+  private _assertionGroup: IAssertGroup | undefined;
 
   constructor(schemaField: ISchemaField, queryBuilder: QueryBuilderString | QueryBuilderBoolean | QueryBuilderDate | QueryBuilderNumber) {
     this._schemaField = schemaField;
     this._queryBuilder = queryBuilder;
-    this._ruleGroup = undefined;
+    this._assertionGroup = undefined;
   }
 
-  protected add(assertion: IRule): void {
+  protected add(assertion: IAssert): void {
     //
     // create new rule group if required
     //
-    if (this._ruleGroup === undefined) {
-      this._ruleGroup = RuleGroup.createRuleAndConditions(assertion, this._queryBuilder.conditions);
-      this._ruleGroup.schemaField = this._schemaField;
-      this._schemaField.appendRules(this._ruleGroup);
+    if (this._assertionGroup === undefined) {
+      this._assertionGroup = AssertGroup.createAssertionAndConditions(assertion, this._queryBuilder.conditions);
+      this._assertionGroup.schemaField = this._schemaField;
+      this._schemaField.appendAssertionGroup(this._assertionGroup);
 
       // console.log(this._ruleGroup);
       // console.log(this._schemaField);
@@ -46,19 +46,19 @@ export default class ConditionalValidationBuilderBase<T extends ConditionalValid
     //
     // or just add to the existing rule group
     //
-    this._ruleGroup.addRule(assertion);
+    this._assertionGroup.addAssertion(assertion);
   }
 
   /****************************/
-  /* Add Rules                */
+  /* Assertions               */
   /****************************/
-  addAssert(rule: IRule): T {
-    this.add(rule);
+  addAssert(assertion: IAssert): T {
+    this.add(assertion);
     return this as any as T;
   }
 
-  addAssertions(rules: Array<IRule>): T {
-    rules.forEach((rule) => this.add(rule));
+  addAssertions(assertions: Array<IAssert>): T {
+    assertions.forEach((assertion) => this.add(assertion));
     return this as any as T;
   }
 }

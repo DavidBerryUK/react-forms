@@ -1,8 +1,7 @@
+import AssertGroup from "../../assert/AssertGroup";
 import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
 import AssertIsMandatory from "../../assertions/AssertIsMandatory";
 import Condition from "../../models/Condition";
-import enumFieldType from "../../enums/EnumFieldType";
-import RuleGroup from "../../models/RuleGroup";
 import SchemaFieldString from "../../schemaField/SchemaFieldString";
 
 describe("Test conditions automatically adds relationships", () => {
@@ -11,10 +10,10 @@ describe("Test conditions automatically adds relationships", () => {
     // Setup simple cross validation.
     //  - if data type is string, then value field is mandatory
     //
-    var fieldDataType = SchemaFieldString.create("dataType", "Data Type", enumFieldType.string);
-    var fieldValue = SchemaFieldString.create("value", "Data Value", enumFieldType.string);
+    var fieldDataType = SchemaFieldString.create("dataType", "Data Type");
+    var fieldValue = SchemaFieldString.create("value", "Data Value");
     const conditionIsDataTypeString = Condition.create(fieldDataType, new AssertIsEqualTo("string", true));
-    fieldValue.appendRules(RuleGroup.createRuleAndCondition(new AssertIsMandatory(), conditionIsDataTypeString));
+    fieldValue.appendAssertionGroup(AssertGroup.createAssertionAndCondition(new AssertIsMandatory(), conditionIsDataTypeString));
 
     //
     // Assert all is setup as expected

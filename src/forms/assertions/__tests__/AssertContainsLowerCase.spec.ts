@@ -6,10 +6,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(0, 100);
+    const assertion = new AssertContainsLowerCase(0, 100);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -20,10 +20,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(2, 4);
+    const assertion = new AssertContainsLowerCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "a");
+    const result = assertion.isValid(dummyForm, dummyField, "a");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -34,10 +34,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(2, 4);
+    const assertion = new AssertContainsLowerCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "1234567890 abc 1234567890");
+    const result = assertion.isValid(dummyForm, dummyField, "1234567890 abc 1234567890");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -48,10 +48,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(2, 4);
+    const assertion = new AssertContainsLowerCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "12345  abcd 12345 ABCDEF");
+    const result = assertion.isValid(dummyForm, dummyField, "12345  abcd 12345 ABCDEF");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -62,10 +62,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(2, 4);
+    const assertion = new AssertContainsLowerCase(2, 4);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "ab cd e ONE TWO THREE FOUR FIVE 123456");
+    const result = assertion.isValid(dummyForm, dummyField, "ab cd e ONE TWO THREE FOUR FIVE 123456");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -76,10 +76,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(1, 1);
+    const assertion = new AssertContainsLowerCase(1, 1);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "ONE TWO THREE FOUR");
+    const result = assertion.isValid(dummyForm, dummyField, "ONE TWO THREE FOUR");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -90,10 +90,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(1, 10);
+    const assertion = new AssertContainsLowerCase(1, 10);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "ABCDEFG");
+    const result = assertion.isValid(dummyForm, dummyField, "ABCDEFG");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -104,10 +104,10 @@ describe("Contains lowercase characters", () => {
     // Arrange
 
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertContainsLowerCase(0, 1);
+    const assertion = new AssertContainsLowerCase(0, 1);
     // Act
 
-    const result = rule.isValid(dummyForm, dummyField, "ab cd e");
+    const result = assertion.isValid(dummyForm, dummyField, "ab cd e");
 
     // Assert
     expect(result.pass).toBeFalsy();

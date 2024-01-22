@@ -1,21 +1,21 @@
 import EnumFieldType from "../../enums/EnumFieldType";
-import IRule from "../../interfaces/rules/IRule";
+import IAssert from "../../interfaces/assertions/IAssert";
 
 export default abstract class FieldBuilderBase<T extends FieldBuilderBase<T>> {
   protected _fieldType: EnumFieldType;
   protected _caption: string;
   protected _id: string;
-  protected _rules: Array<IRule>;
+  protected _assertions: Array<IAssert>;
 
   constructor(fieldType: EnumFieldType) {
     this._id = "";
     this._caption = "";
-    this._rules = new Array<IRule>();
+    this._assertions = new Array<IAssert>();
     this._fieldType = fieldType;
   }
 
-  protected add(assertion: IRule): void {
-    this._rules.push(assertion);
+  protected add(assertion: IAssert): void {
+    this._assertions.push(assertion);
   }
 
   /****************************/
@@ -32,16 +32,16 @@ export default abstract class FieldBuilderBase<T extends FieldBuilderBase<T>> {
   }
 
   /****************************/
-  /* Rules                    */
+  /* Assertions               */
   /****************************/
 
-  addAssertion(rule: IRule): T {
-    this.add(rule);
+  addAssertion(assertion: IAssert): T {
+    this.add(assertion);
     return this as any as T;
   }
 
-  addAssertions(rules: Array<IRule>): T {
-    rules.forEach((rule) => this.add(rule));
+  addAssertions(assertions: Array<IAssert>): T {
+    assertions.forEach((assertion) => this.add(assertion));
     return this as any as T;
   }
 
@@ -49,7 +49,7 @@ export default abstract class FieldBuilderBase<T extends FieldBuilderBase<T>> {
   /* Finish Off               */
   /****************************/
 
-  toRules(): Array<IRule> {
-    return this._rules;
+  toAssertions(): Array<IAssert> {
+    return this._assertions;
   }
 }

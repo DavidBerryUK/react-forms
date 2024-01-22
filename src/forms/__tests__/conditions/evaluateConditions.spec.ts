@@ -1,7 +1,7 @@
 import ConditionalFormSchema from "../testSupport/ConditionalFormSchema";
 import FormInstance from "../../models/FormInstance";
 
-describe("Add Condition to Rule", () => {
+describe("Add Condition to Assertion", () => {
   test("data type=string test:expect error message that value is mandatory", () => {
     const schema = new ConditionalFormSchema();
     var form = new FormInstance(schema);

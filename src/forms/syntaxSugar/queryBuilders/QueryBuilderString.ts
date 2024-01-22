@@ -5,6 +5,7 @@ import AssertContainsSymbols from "../../assertions/AssertContainsSymbols";
 import AssertContainsUpperCase from "../../assertions/AssertContainsUpperCase";
 import AssertIsEmpty from "../../assertions/AssertIsEmpty";
 import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
+import AssertIsPopulated from "../../assertions/AssertIsPopulated";
 import AssertLengthIsBetween from "../../assertions/AssertLengthIsBetween";
 import AssertLengthMax from "../../assertions/AssertLengthMax";
 import AssertLengthMin from "../../assertions/AssertLengthMin";
@@ -13,9 +14,8 @@ import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
 import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
 import AssertValueIsNonZero from "../../assertions/AssertValueIsNonZero";
 import AssertValueIsZero from "../../assertions/AssertValueIsZero";
-import QueryBuilderBase from "./QueryBuilderBase";
-import RuleAssertIsPopulated from "../../assertions/AssertIsPopulated";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
+import QueryBuilderBase from "./QueryBuilderBase";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.
@@ -31,10 +31,10 @@ import EnumValidationStatus from "../../enums/EnumValidationStatus";
  */
 export default class QueryBuilderString extends QueryBuilderBase<QueryBuilderString> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
   ifIsPopulated(customMessage?: string): QueryBuilderString {
-    this.add(new RuleAssertIsPopulated(customMessage, EnumValidationStatus.fail));
+    this.add(new AssertIsPopulated(customMessage, EnumValidationStatus.fail));
     return this;
   }
 

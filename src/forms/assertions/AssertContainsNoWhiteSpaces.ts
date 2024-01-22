@@ -2,11 +2,11 @@ import EnumValidationStatus from "../enums/EnumValidationStatus";
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBase from "./base/RuleBase";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertResponse from "../interfaces/assertions/IAssertResponse";
+import AssertBase from "./base/AssertBase";
 
-export default class AssertContainsNoWhiteSpaces extends RuleBase implements IRule {
+export default class AssertContainsNoWhiteSpaces extends AssertBase implements IAssert {
   private message: string;
 
   constructor(customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
@@ -15,7 +15,7 @@ export default class AssertContainsNoWhiteSpaces extends RuleBase implements IRu
     this.message = this.customMessage ?? "cannot contain spaces";
   }
 
-  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
+  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IAssertResponse {
     if (this.isValueEmpty(value)) {
       return this.fail(this.message);
     }

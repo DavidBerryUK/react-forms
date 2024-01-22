@@ -1,12 +1,12 @@
 import { QueryBuilderTypes } from "../types/BuilderTypes";
+import AssertGroup from "../assert/AssertGroup";
 import ConditionalValidationBuilderBoolean from "../syntaxSugar/conditionalValidationBuilders/ConditionalValidationBuilderBoolean";
 import EnumFieldType from "../enums/EnumFieldType";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertGroup from "../interfaces/assertions/IAssertGroup";
 import ICondition from "../interfaces/condition/ICondition";
-import IRule from "../interfaces/rules/IRule";
-import IRuleGroup from "../interfaces/rules/IRuleGroup";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
 import QueryBuilderBoolean from "../syntaxSugar/queryBuilders/QueryBuilderBoolean";
-import RuleGroup from "../models/RuleGroup";
 import SchemaFieldBase from "./SchemaFieldBase";
 //
 // define a field in the form dataset
@@ -17,48 +17,53 @@ export default class SchemaFieldBoolean extends SchemaFieldBase implements ISche
 
   //
   // convenience creators for different combinations
-  // of fields with single or multiple validation rules
+  // of fields with single or multiple validation assertions
   // in combination with none, single or multiple conditions
   //
   public static create(id: string, caption: string): SchemaFieldBoolean {
     return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType);
   }
 
-  public static createWithRule(id: string, caption: string, rule: IRule): SchemaFieldBoolean {
-    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, RuleGroup.create(rule));
+  public static createWithAssertion(id: string, caption: string, assertion: IAssert): SchemaFieldBoolean {
+    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, AssertGroup.create(assertion));
   }
 
-  public static createWithRuleGroup(id: string, caption: string, ruleGroup: IRuleGroup): SchemaFieldBoolean {
-    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, ruleGroup);
+  public static createWithAssertionGroup(id: string, caption: string, assertionGroup: IAssertGroup): SchemaFieldBoolean {
+    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, assertionGroup);
   }
 
-  public static createWithRuleAndCondition(id: string, caption: string, rule: IRule, condition: ICondition): SchemaFieldBoolean {
-    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, RuleGroup.createRuleAndCondition(rule, condition));
+  public static createWithAssertionAndCondition(id: string, caption: string, assertion: IAssert, condition: ICondition): SchemaFieldBoolean {
+    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, AssertGroup.createAssertionAndCondition(assertion, condition));
   }
 
-  public static createWithRuleAndConditions(id: string, caption: string, rule: IRule, condition: Array<ICondition>): SchemaFieldBoolean {
-    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, RuleGroup.createRuleAndConditions(rule, condition));
+  public static createWithAssertionAndConditions(id: string, caption: string, assertion: IAssert, condition: Array<ICondition>): SchemaFieldBoolean {
+    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, AssertGroup.createAssertionAndConditions(assertion, condition));
   }
 
-  public static createWithRulesAndCondition(id: string, caption: string, rules: Array<IRule>, condition: ICondition): SchemaFieldBoolean {
-    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, RuleGroup.createRulesAndCondition(rules, condition));
+  public static createWithAssertionsAndCondition(id: string, caption: string, assertions: Array<IAssert>, condition: ICondition): SchemaFieldBoolean {
+    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, AssertGroup.createAssertionsAndCondition(assertions, condition));
   }
 
-  public static createWithRulesAndConditions(id: string, caption: string, rules: Array<IRule>, conditions: Array<ICondition>): SchemaFieldBoolean {
-    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, RuleGroup.createRulesAndConditions(rules, conditions));
+  public static createWithAssertionsAndConditions(
+    id: string,
+    caption: string,
+    assertions: Array<IAssert>,
+    conditions: Array<ICondition>
+  ): SchemaFieldBoolean {
+    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, AssertGroup.createAssertionsAndConditions(assertions, conditions));
   }
 
-  public static createWithRules(id: string, caption: string, rules: Array<IRule>): SchemaFieldBoolean {
-    if (rules.length === 0) {
+  public static createWithAssertions(id: string, caption: string, assertions: Array<IAssert>): SchemaFieldBoolean {
+    if (assertions.length === 0) {
       return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType);
     }
-    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, RuleGroup.createRules(rules));
+    return new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType, AssertGroup.createAssertions(assertions));
   }
 
-  public static createWithRuleGroups(id: string, caption: string, ruleGroups: Array<IRuleGroup>) {
+  public static createWithAssertionGroups(id: string, caption: string, assertionGroups: Array<IAssertGroup>) {
     const field = new SchemaFieldBoolean(id, caption, SchemaFieldBoolean.fieldType);
-    ruleGroups.forEach((group) => {
-      field.appendRules(group);
+    assertionGroups.forEach((group) => {
+      field.appendAssertionGroup(group);
     });
     return field;
   }
@@ -67,7 +72,7 @@ export default class SchemaFieldBoolean extends SchemaFieldBase implements ISche
   // used to build up conditional validation in the following format
   // this.fields.dietryRequirementsNotes.when(this.fields.dietryRequirementsFlag.state().ifIsTrue()).shouldHaveLengthBetween(10, 1000).mandatory();
   //
-  // the conditional rules are not applied until the first conditional validation is provided, this is done
+  // the conditional assertions are not applied until the first conditional validation is provided, this is done
   // by the conditionalValidationBuilder
   when(state: QueryBuilderTypes): ConditionalValidationBuilderBoolean {
     return new ConditionalValidationBuilderBoolean(this, state);

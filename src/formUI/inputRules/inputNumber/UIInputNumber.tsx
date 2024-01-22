@@ -1,15 +1,15 @@
 import React from "react";
-import IRule from "../../../forms/interfaces/rules/IRule";
+import IAssert from "../../../forms/interfaces/assertions/IAssert";
 import useInputBaseController from "../../hooks/UseInputBaseController";
 
 interface IProperties {
   value: string;
   onChange?: (value: string, isValid: boolean, validationMessages: Array<string>) => void;
-  rules: Array<IRule>;
+  assertions: Array<IAssert>;
 }
 
 const UIInputNumber: React.FC<IProperties> = (props) => {
-  const { handleOnChangeEvent } = useInputBaseController(props.rules, props.onChange);
+  const { handleOnChangeEvent } = useInputBaseController(props.assertions, props.onChange);
 
   return <input type="number" value={props.value} onChange={handleOnChangeEvent} />;
 };

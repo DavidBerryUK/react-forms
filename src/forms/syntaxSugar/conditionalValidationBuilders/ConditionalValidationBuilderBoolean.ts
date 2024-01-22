@@ -18,7 +18,7 @@ import ConditionalValidationBuilderBase from "./ConditionalValidationBuilderBase
 //
 export default class ConditionalValidationBuilderBoolean extends ConditionalValidationBuilderBase<ConditionalValidationBuilderBoolean> {
   /****************************/
-  /* rules                    */
+  /* Assertions               */
   /****************************/
 
   shouldBeEmpty(customMessage?: string): ConditionalValidationBuilderBoolean {

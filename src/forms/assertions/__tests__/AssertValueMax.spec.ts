@@ -5,10 +5,10 @@ describe("Assert Value Max", () => {
   test("Invalid Number", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueMax(10);
+    const assertion = new AssertValueMax(10);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "ancd");
+    const result = assertion.isValid(dummyForm, dummyField, "ancd");
 
     // Assert
     expect(result.pass).toBeFalsy();
@@ -18,10 +18,10 @@ describe("Assert Value Max", () => {
   test("Valid Integer Number below range", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueMax(10);
+    const assertion = new AssertValueMax(10);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "8");
+    const result = assertion.isValid(dummyForm, dummyField, "8");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -31,10 +31,10 @@ describe("Assert Value Max", () => {
   test("Invalid Number above range", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertValueMax(10);
+    const assertion = new AssertValueMax(10);
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "100");
+    const result = assertion.isValid(dummyForm, dummyField, "100");
 
     // Assert
     expect(result.pass).toBeFalsy();

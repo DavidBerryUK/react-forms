@@ -5,7 +5,7 @@ export default class DummyFormSetup {
   static get() {
     const dummySchema = new DummySchema();
     const dummyForm = new FormInstance(dummySchema);
-    const dummyField = dummyForm.getField(dummySchema.fields.dummyField, null)!;
+    const dummyField = dummyForm.getField(dummySchema.fields.dummyField)!;
     return {
       dummySchema,
       dummyForm,

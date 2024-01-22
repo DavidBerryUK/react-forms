@@ -2,13 +2,13 @@ import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
 import AssertIsEmpty from "../AssertIsEmpty";
 
 describe("Assert Is Empty", () => {
-  test("pass - rule is empty", () => {
+  test("pass - assert is empty", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsEmpty();
+    const assertion = new AssertIsEmpty();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "");
+    const result = assertion.isValid(dummyForm, dummyField, "");
 
     // Assert
     expect(result.pass).toBeTruthy();
@@ -18,10 +18,10 @@ describe("Assert Is Empty", () => {
   test("fail - characters exist", () => {
     // Arrange
     const { dummyForm, dummyField } = DummyFormSetup.get();
-    const rule = new AssertIsEmpty();
+    const assertion = new AssertIsEmpty();
 
     // Act
-    const result = rule.isValid(dummyForm, dummyField, "xxx");
+    const result = assertion.isValid(dummyForm, dummyField, "xxx");
 
     // Assert
     expect(result.pass).toBeFalsy();

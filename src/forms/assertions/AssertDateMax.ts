@@ -4,14 +4,14 @@ import EnumValidationStatus from "../enums/EnumValidationStatus";
 import IFormField from "../interfaces/form/IFormField";
 import IFormInstance from "../interfaces/form/IFormInstance";
 import IFormSchema from "../interfaces/form/IFormSchema";
-import IRule from "../interfaces/rules/IRule";
-import IRuleResponse from "../interfaces/rules/IRuleResponse";
-import RuleBaseDateTime from "./base/RuleBaseDateTime";
+import IAssert from "../interfaces/assertions/IAssert";
+import IAssertResponse from "../interfaces/assertions/IAssertResponse";
+import AssertBaseDateTime from "./base/AssertBaseDateTime";
 
 //
 // works with date or date time, or times
 //
-export default class AssertDateMax extends RuleBaseDateTime implements IRule {
+export default class AssertDateMax extends AssertBaseDateTime implements IAssert {
   private readonly minDate: DateParseResponse;
   private readonly constantMaxDate: string;
 
@@ -21,7 +21,7 @@ export default class AssertDateMax extends RuleBaseDateTime implements IRule {
     this.minDate = this.parseMultipleFormats(minDate);
   }
 
-  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IRuleResponse {
+  isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IAssertResponse {
     if (this.isValueEmpty(value)) {
       return this.pass();
     }
@@ -30,7 +30,7 @@ export default class AssertDateMax extends RuleBaseDateTime implements IRule {
     // validate constant min date,
     //
     if (!this.minDate.success) {
-      return this.fail(`MinDate validation rule has invalid constant date of ${this.constantMaxDate}`);
+      return this.fail(`MinDate validation assertion has invalid constant date of ${this.constantMaxDate}`);
     }
 
     //

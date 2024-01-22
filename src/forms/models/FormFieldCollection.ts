@@ -147,7 +147,7 @@ export default class FormFieldCollection implements IFormFieldCollection {
   validateAll(form: IFormInstance<IFormSchema>) {
     const transactionId = nanoid();
     this.fieldArray.forEach((field) => {
-      field.schemaField.ruleGroups.evaluateRules(form, field, transactionId);
+      field.schemaField.assertGroups.evaluateAssertions(form, field, transactionId);
       if (field.serverValidationMessage) {
         field.validation.addMessage(EnumMessageType.serverSide, field.serverValidationMessage);
       }
