@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - ", () => {
   test("Assertion - shouldBeNoneZero", () => {
     // ACT
     //
-    var field = FieldBuilder.number().noneZero().build();
+    var field = FieldBuilder.number().notZero().build();
 
     //
     // ASSERT

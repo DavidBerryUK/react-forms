@@ -16,15 +16,11 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
   }
 
   /****************************/
-  /* Assertions               */
+  /* Assertions - Generic     */
   /****************************/
-  shouldBeDateLocal(customMessage?: string): FieldBuilderDate {
-    this.add(new AssertValueIsDateLocal(customMessage));
-    return this;
-  }
 
-  shouldBeDateTimeLocal(customMessage?: string): FieldBuilderDate {
-    this.add(new AssertValueIsDateTimeLocal(customMessage));
+  mandatory(customMessage?: string): FieldBuilderDate {
+    this.add(new AssertIsMandatory(customMessage));
     return this;
   }
 
@@ -38,25 +34,35 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
     return this;
   }
 
+  /****************************/
+  /* Assertions               */
+  /****************************/
+  shouldBeDateLocal(customMessage?: string): FieldBuilderDate {
+    this.add(new AssertValueIsDateLocal(customMessage));
+    return this;
+  }
+
+  shouldBeDateTimeLocal(customMessage?: string): FieldBuilderDate {
+    this.add(new AssertValueIsDateTimeLocal(customMessage));
+    return this;
+  }
+
   shouldBeTimeLocal(customMessage?: string): FieldBuilderDate {
     this.add(new AssertValueIsTime(customMessage));
     return this;
   }
 
-  shouldHaveDateMax(maxDate: string, customMessage?: string): FieldBuilderDate {
+  max(maxDate: string, customMessage?: string): FieldBuilderDate {
     this.add(new AssertDateMax(maxDate, customMessage));
     return this;
   }
 
-  shouldHaveDateMin(minDate: string, customMessage?: string): FieldBuilderDate {
+  min(minDate: string, customMessage?: string): FieldBuilderDate {
     this.add(new AssertDateMin(minDate, customMessage));
     return this;
   }
 
-  mandatory(customMessage?: string): FieldBuilderDate {
-    this.add(new AssertIsMandatory(customMessage));
-    return this;
-  }
+  // BETWEEN
 
   build(): SchemaFieldDate {
     return SchemaFieldDate.createWithAssertions(this._id, this._caption, this._assertions);

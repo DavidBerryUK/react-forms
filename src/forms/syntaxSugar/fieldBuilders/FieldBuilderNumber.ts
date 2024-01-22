@@ -13,6 +13,7 @@ import AssertValueMin from "../../assertions/number/AssertValueMin";
 import EnumFieldType from "../../enums/EnumFieldType";
 import FieldBuilderBase from "./FieldBuilderBase";
 import SchemaFieldNumber from "../../schemaField/SchemaFieldNumber";
+import AssertValueIsNegative from "../../assertions/number/AssertValueIsNegative";
 
 export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNumber> {
   constructor() {
@@ -20,10 +21,10 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
   }
 
   /****************************/
-  /* Assertions               */
+  /* Assertions - Generic     */
   /****************************/
-  decimal(customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueIsDecimal(customMessage));
+  mandatory(customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertIsMandatory(customMessage));
     return this;
   }
 
@@ -32,23 +33,27 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     return this;
   }
 
-  integer(customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueIsInteger(customMessage));
-    return this;
-  }
-
-  noneZero(customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueIsNonZero(customMessage));
-    return this;
-  }
-
   populated(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
 
-  positive(allowZero: boolean, customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueIsPositive(allowZero, customMessage));
+  /****************************/
+  /* Assertions               */
+  /****************************/
+
+  decimal(customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueIsDecimal(customMessage));
+    return this;
+  }
+
+  integer(customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueIsInteger(customMessage));
+    return this;
+  }
+
+  equal(constant: number, tolerance?: number, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertIsEqualToNumber(constant, tolerance, customMessage));
     return this;
   }
 
@@ -57,8 +62,18 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     return this;
   }
 
-  equal(constant: number, tolerance?: number, customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertIsEqualToNumber(constant, tolerance, customMessage));
+  notZero(customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueIsNonZero(customMessage));
+    return this;
+  }
+
+  positive(allowZero: boolean, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueIsPositive(allowZero, customMessage));
+    return this;
+  }
+
+  negative(customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueIsNegative(customMessage));
     return this;
   }
 
@@ -74,11 +89,6 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
 
   min(constant: number, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueMin(constant, customMessage));
-    return this;
-  }
-
-  mandatory(customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertIsMandatory(customMessage));
     return this;
   }
 

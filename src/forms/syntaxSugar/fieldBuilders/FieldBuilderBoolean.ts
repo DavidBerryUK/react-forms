@@ -14,6 +14,24 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
   }
 
   /****************************/
+  /* Assertions - Generic     */
+  /****************************/
+  mandatory(customMessage?: string): FieldBuilderBoolean {
+    this.add(new AssertIsMandatory(customMessage));
+    return this;
+  }
+
+  empty(customMessage?: string): FieldBuilderBoolean {
+    this.add(new AssertIsEmpty(customMessage));
+    return this;
+  }
+
+  populated(customMessage?: string): FieldBuilderBoolean {
+    this.add(new AssertIsPopulated(customMessage));
+    return this;
+  }
+
+  /****************************/
   /* Assertions               */
   /****************************/
   shouldBeEmpty(customMessage?: string): FieldBuilderBoolean {
@@ -38,11 +56,6 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
 
   equals(constant: boolean, customMessage?: string): FieldBuilderBoolean {
     this.add(new AssertIsEqualToBoolean(constant, customMessage));
-    return this;
-  }
-
-  mandatory(customMessage?: string): FieldBuilderBoolean {
-    this.add(new AssertIsMandatory(customMessage));
     return this;
   }
 

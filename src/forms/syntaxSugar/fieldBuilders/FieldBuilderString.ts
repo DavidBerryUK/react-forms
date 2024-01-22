@@ -19,10 +19,14 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
   constructor() {
     super(EnumFieldType.string);
   }
+  /****************************/
+  /* Assertions - Generic     */
+  /****************************/
+  mandatory(customMessage?: string): FieldBuilderString {
+    this.add(new AssertIsMandatory(customMessage));
+    return this;
+  }
 
-  /****************************/
-  /* Assertions               */
-  /****************************/
   empty(customMessage?: string): FieldBuilderString {
     this.add(new AssertIsEmpty(customMessage));
     return this;
@@ -32,6 +36,9 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
+  /****************************/
+  /* Assertions               */
+  /****************************/
 
   postCodeUK(customMessage?: string): FieldBuilderString {
     this.add(new AssertPostCodeUK(customMessage));
@@ -80,11 +87,6 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
 
   noWhiteSpaces(customMessage?: string): FieldBuilderString {
     this.add(new AssertContainsNoWhiteSpaces(customMessage));
-    return this;
-  }
-
-  mandatory(customMessage?: string): FieldBuilderString {
-    this.add(new AssertIsMandatory(customMessage));
     return this;
   }
 
