@@ -1,4 +1,4 @@
-import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
+import AssertValueIsTrue from "../../assertions/boolean/AssertValueIsTrue";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeTrue", () => {

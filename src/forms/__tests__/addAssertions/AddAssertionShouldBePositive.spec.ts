@@ -1,4 +1,4 @@
-import AssertValueIsPositive from "../../assertions/AssertValueIsPositive";
+import AssertValueIsPositive from "../../assertions/number/AssertValueIsPositive";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBePositive", () => {

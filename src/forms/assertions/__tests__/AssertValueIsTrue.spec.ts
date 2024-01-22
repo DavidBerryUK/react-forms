@@ -1,4 +1,4 @@
-import AssertValueIsTrue from "../AssertValueIsTrue";
+import AssertValueIsTrue from "../boolean/AssertValueIsTrue";
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
 
 describe("Assert Value Is True", () => {

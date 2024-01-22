@@ -1,13 +1,13 @@
-import AssertDateMax from "../../assertions/AssertDateMax";
-import AssertDateMin from "../../assertions/AssertDateMin";
-import AssertIsEmpty from "../../assertions/AssertIsEmpty";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import AssertValueIsDateLocal from "../../assertions/AssertValueIsDateLocal";
-import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLocal";
-import AssertValueIsTime from "../../assertions/AssertValueIsTime";
+import AssertDateMax from "../../assertions/date/AssertDateMax";
+import AssertDateMin from "../../assertions/date/AssertDateMin";
+import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
+import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertValueIsDateLocal from "../../assertions/date/AssertValueIsDateLocal";
+import AssertValueIsDateTimeLocal from "../../assertions/date/AssertValueIsDateTimeLocal";
+import AssertValueIsTime from "../../assertions/date/AssertValueIsTime";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.

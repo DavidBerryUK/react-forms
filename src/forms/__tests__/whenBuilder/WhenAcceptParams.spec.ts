@@ -1,7 +1,7 @@
-import AssertContainsUpperCase from "../../assertions/AssertContainsUpperCase";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
-import AssertLengthMax from "../../assertions/AssertLengthMax";
-import AssertLengthMin from "../../assertions/AssertLengthMin";
+import AssertContainsUpperCase from "../../assertions/string/AssertContainsUpperCase";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
+import AssertLengthMax from "../../assertions/string/AssertLengthMax";
+import AssertLengthMin from "../../assertions/string/AssertLengthMin";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 // test then the when statement applies the condition to the ISchemeField correctly

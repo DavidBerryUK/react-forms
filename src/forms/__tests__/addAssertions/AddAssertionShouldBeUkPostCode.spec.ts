@@ -1,4 +1,4 @@
-import AssertPostCodeUK from "../../assertions/AssertPostCodeUk";
+import AssertPostCodeUK from "../../assertions/string/AssertPostCodeUk";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeUkPostCode", () => {

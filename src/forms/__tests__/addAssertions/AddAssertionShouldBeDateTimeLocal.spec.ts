@@ -1,4 +1,4 @@
-import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLocal";
+import AssertValueIsDateTimeLocal from "../../assertions/date/AssertValueIsDateTimeLocal";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeDateTimeLocal", () => {

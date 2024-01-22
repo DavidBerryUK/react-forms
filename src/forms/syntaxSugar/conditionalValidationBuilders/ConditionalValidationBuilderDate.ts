@@ -1,12 +1,12 @@
-import AssertIsMandatory from "../../assertions/AssertIsMandatory";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
-import AssertIsEmpty from "../../assertions/AssertIsEmpty";
-import AssertDateMin from "../../assertions/AssertDateMin";
-import AssertDateMax from "../../assertions/AssertDateMax";
-import AssertValueIsTime from "../../assertions/AssertValueIsTime";
-import AssertValueIsDateTimeLocal from "../../assertions/AssertValueIsDateTimeLocal";
-import AssertValueIsDateLocal from "../../assertions/AssertValueIsDateLocal";
+import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
+import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
+import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
+import AssertDateMin from "../../assertions/date/AssertDateMin";
+import AssertDateMax from "../../assertions/date/AssertDateMax";
+import AssertValueIsTime from "../../assertions/date/AssertValueIsTime";
+import AssertValueIsDateTimeLocal from "../../assertions/date/AssertValueIsDateTimeLocal";
+import AssertValueIsDateLocal from "../../assertions/date/AssertValueIsDateLocal";
 import ConditionalValidationBuilderBase from "./ConditionalValidationBuilderBase";
 
 //

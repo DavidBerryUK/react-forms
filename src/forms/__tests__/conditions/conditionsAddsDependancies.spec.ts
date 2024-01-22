@@ -1,6 +1,6 @@
 import AssertGroup from "../../assert/AssertGroup";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import AssertIsMandatory from "../../assertions/AssertIsMandatory";
+import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
 import Condition from "../../models/Condition";
 import SchemaFieldString from "../../schemaField/SchemaFieldString";
 

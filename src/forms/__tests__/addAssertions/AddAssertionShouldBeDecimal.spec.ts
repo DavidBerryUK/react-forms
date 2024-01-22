@@ -1,4 +1,4 @@
-import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
+import AssertValueIsDecimal from "../../assertions/number/AssertValueIsDecimal";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {

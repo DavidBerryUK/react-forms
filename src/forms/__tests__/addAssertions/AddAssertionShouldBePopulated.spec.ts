@@ -1,4 +1,4 @@
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {

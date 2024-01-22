@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertDateMin from "../AssertDateMin";
+import AssertDateMin from "../date/AssertDateMin";
 
 describe("Assert Date Min", () => {
   test("Invalid Constant", () => {

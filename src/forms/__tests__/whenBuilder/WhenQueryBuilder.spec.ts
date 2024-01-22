@@ -1,8 +1,8 @@
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
-import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
-import AssertLengthMax from "../../assertions/AssertLengthMax";
-import AssertContainsUpperCase from "../../assertions/AssertContainsUpperCase";
+import AssertValueIsTrue from "../../assertions/boolean/AssertValueIsTrue";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
+import AssertLengthMax from "../../assertions/string/AssertLengthMax";
+import AssertContainsUpperCase from "../../assertions/string/AssertContainsUpperCase";
 import QueryBuilderBoolean from "../../syntaxSugar/queryBuilders/QueryBuilderBoolean";
 import QueryBuilderString from "../../syntaxSugar/queryBuilders/QueryBuilderString";
 

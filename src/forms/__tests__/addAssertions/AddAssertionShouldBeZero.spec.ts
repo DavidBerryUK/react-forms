@@ -1,4 +1,4 @@
-import AssertValueIsZero from "../../assertions/AssertValueIsZero";
+import AssertValueIsZero from "../../assertions/number/AssertValueIsZero";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeZero", () => {

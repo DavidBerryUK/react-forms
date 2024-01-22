@@ -1,9 +1,9 @@
-import AssertIsMandatory from "../../assertions/AssertIsMandatory";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
-import AssertIsEmpty from "../../assertions/AssertIsEmpty";
-import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
-import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
+import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
+import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
+import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
+import AssertValueIsFalse from "../../assertions/boolean/AssertValueIsFalse";
+import AssertValueIsTrue from "../../assertions/boolean/AssertValueIsTrue";
 import ConditionalValidationBuilderBase from "./ConditionalValidationBuilderBase";
 
 //

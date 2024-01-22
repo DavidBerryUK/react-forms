@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueIsInteger from "../AssertValueIsInteger";
+import AssertValueIsInteger from "../number/AssertValueIsInteger";
 
 describe("Assert Value Is Integer", () => {
   test("text - fail", () => {

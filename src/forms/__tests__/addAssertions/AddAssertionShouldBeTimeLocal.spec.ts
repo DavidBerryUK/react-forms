@@ -1,4 +1,4 @@
-import AssertValueIsTime from "../../assertions/AssertValueIsTime";
+import AssertValueIsTime from "../../assertions/date/AssertValueIsTime";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {

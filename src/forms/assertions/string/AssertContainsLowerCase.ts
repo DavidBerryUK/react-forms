@@ -1,6 +1,6 @@
-import EnumValidationStatus from "../enums/EnumValidationStatus";
-import IAssert from "../interfaces/assertions/IAssert";
-import AssertBaseContain from "./base/AssertBaseContain";
+import AssertBaseContain from "../base/AssertBaseContain";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
+import IAssert from "../../interfaces/assertions/IAssert";
 
 export default class AssertContainsLowerCase extends AssertBaseContain implements IAssert {
   static readonly validChars = "abcdefghijklmnopqrstuvwxyx";

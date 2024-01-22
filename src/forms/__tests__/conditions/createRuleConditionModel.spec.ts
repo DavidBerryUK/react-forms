@@ -1,5 +1,5 @@
 import AssertGroup from "../../assert/AssertGroup";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
+import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
 import Condition from "../../models/Condition";
 import SchemaFieldString from "../../schemaField/SchemaFieldString";
 

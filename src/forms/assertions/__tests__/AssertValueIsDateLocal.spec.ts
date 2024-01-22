@@ -1,4 +1,4 @@
-import AssertValueIsDateLocal from "../AssertValueIsDateLocal";
+import AssertValueIsDateLocal from "../date/AssertValueIsDateLocal";
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
 
 describe("Assert Value Is Date Local", () => {

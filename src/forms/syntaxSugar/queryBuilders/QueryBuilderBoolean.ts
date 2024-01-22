@@ -1,9 +1,9 @@
-import AssertIsEmpty from "../../assertions/AssertIsEmpty";
-import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
-import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
+import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
+import AssertValueIsFalse from "../../assertions/boolean/AssertValueIsFalse";
+import AssertValueIsTrue from "../../assertions/boolean/AssertValueIsTrue";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import QueryBuilderBase from "./QueryBuilderBase";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 
 /**
  * allow a query to be built, used as a parameter for the [when] statement.

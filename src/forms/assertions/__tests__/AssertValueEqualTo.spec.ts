@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertIsEqualTo from "../AssertIsEqualTo";
+import AssertIsEqualTo from "../string/AssertIsEqualTo";
 
 describe("Assert Is Equal To", () => {
   test("Pass - Case Sensitive", () => {

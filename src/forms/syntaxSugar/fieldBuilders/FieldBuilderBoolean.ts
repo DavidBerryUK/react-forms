@@ -1,9 +1,9 @@
-import AssertIsEmpty from "../../assertions/AssertIsEmpty";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import AssertIsMandatory from "../../assertions/AssertIsMandatory";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
-import AssertValueIsFalse from "../../assertions/AssertValueIsFalse";
-import AssertValueIsTrue from "../../assertions/AssertValueIsTrue";
+import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
+import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
+import AssertValueIsFalse from "../../assertions/boolean/AssertValueIsFalse";
+import AssertValueIsTrue from "../../assertions/boolean/AssertValueIsTrue";
 import EnumFieldType from "../../enums/EnumFieldType";
 import SchemaFieldBoolean from "../../schemaField/SchemaFieldBoolean";
 

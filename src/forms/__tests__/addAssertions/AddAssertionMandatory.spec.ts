@@ -1,4 +1,4 @@
-import AssertIsMandatory from "../../assertions/AssertIsMandatory";
+import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - Mandatory", () => {

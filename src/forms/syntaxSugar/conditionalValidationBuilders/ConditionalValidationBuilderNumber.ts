@@ -1,15 +1,15 @@
-import AssertIsMandatory from "../../assertions/AssertIsMandatory";
-import AssertValueMin from "../../assertions/AssertValueMin";
-import AssertValueMax from "../../assertions/AssertValueMax";
-import AssertValueIsBetween from "../../assertions/AssertValueIsBetween";
-import AssertIsEqualTo from "../../assertions/AssertIsEqualTo";
-import AssertValueIsZero from "../../assertions/AssertValueIsZero";
-import AssertValueIsPositive from "../../assertions/AssertValueIsPositive";
-import AssertIsPopulated from "../../assertions/AssertIsPopulated";
-import AssertValueIsNonZero from "../../assertions/AssertValueIsNonZero";
-import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
-import AssertIsEmpty from "../../assertions/AssertIsEmpty";
-import AssertValueIsDecimal from "../../assertions/AssertValueIsDecimal";
+import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
+import AssertValueMin from "../../assertions/number/AssertValueMin";
+import AssertValueMax from "../../assertions/number/AssertValueMax";
+import AssertValueIsBetween from "../../assertions/number/AssertValueIsBetween";
+import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertValueIsZero from "../../assertions/number/AssertValueIsZero";
+import AssertValueIsPositive from "../../assertions/number/AssertValueIsPositive";
+import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
+import AssertValueIsNonZero from "../../assertions/number/AssertValueIsNonZero";
+import AssertValueIsInteger from "../../assertions/number/AssertValueIsInteger";
+import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
+import AssertValueIsDecimal from "../../assertions/number/AssertValueIsDecimal";
 import ConditionalValidationBuilderBase from "./ConditionalValidationBuilderBase";
 
 //

@@ -1,4 +1,4 @@
-import AssertValueIsNonZero from "../../assertions/AssertValueIsNonZero";
+import AssertValueIsNonZero from "../../assertions/number/AssertValueIsNonZero";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {

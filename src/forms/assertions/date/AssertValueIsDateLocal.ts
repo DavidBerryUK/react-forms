@@ -1,6 +1,6 @@
-import EnumValidationStatus from "../enums/EnumValidationStatus";
-import IAssert from "../interfaces/assertions/IAssert";
-import AssertBaseDateTime from "./base/AssertBaseDateTime";
+import AssertBaseDateTime from "../base/AssertBaseDateTime";
+import EnumValidationStatus from "../../enums/EnumValidationStatus";
+import IAssert from "../../interfaces/assertions/IAssert";
 
 //
 // Note, uses base class for IsValid()

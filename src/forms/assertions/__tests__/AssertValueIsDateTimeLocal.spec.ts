@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueIsDateTimeLocal from "../AssertValueIsDateTimeLocal";
+import AssertValueIsDateTimeLocal from "../date/AssertValueIsDateTimeLocal";
 
 describe("Assert Value Is DateTime Local", () => {
   test("valid date time dd/MM/yyyy HH:mm", () => {

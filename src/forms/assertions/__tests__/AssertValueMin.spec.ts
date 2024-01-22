@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueMin from "../AssertValueMin";
+import AssertValueMin from "../number/AssertValueMin";
 
 describe("Assert Value Min", () => {
   test("Invalid Number", () => {

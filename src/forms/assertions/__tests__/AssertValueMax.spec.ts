@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueMax from "../AssertValueMax";
+import AssertValueMax from "../number/AssertValueMax";
 
 describe("Assert Value Max", () => {
   test("Invalid Number", () => {

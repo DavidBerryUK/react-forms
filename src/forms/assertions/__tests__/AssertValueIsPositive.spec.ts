@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertValueIsPositive from "../AssertValueIsPositive";
+import AssertValueIsPositive from "../number/AssertValueIsPositive";
 
 describe("Assert Value Is Positive", () => {
   test("Fail - Invalid Number", () => {

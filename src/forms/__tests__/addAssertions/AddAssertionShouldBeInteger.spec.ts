@@ -1,4 +1,4 @@
-import AssertValueIsInteger from "../../assertions/AssertValueIsInteger";
+import AssertValueIsInteger from "../../assertions/number/AssertValueIsInteger";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - ", () => {

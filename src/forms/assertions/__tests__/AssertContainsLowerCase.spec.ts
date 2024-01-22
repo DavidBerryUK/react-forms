@@ -1,5 +1,5 @@
 import DummyFormSetup from "../../__tests__/testSupport/DummyFormSetup";
-import AssertContainsLowerCase from "../AssertContainsLowerCase";
+import AssertContainsLowerCase from "../string/AssertContainsLowerCase";
 
 describe("Contains lowercase characters", () => {
   test("Pass - empty", () => {

@@ -1,4 +1,4 @@
-import AssertContainsSymbols from "../../assertions/AssertContainsSymbols";
+import AssertContainsSymbols from "../../assertions/string/AssertContainsSymbols";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldContainSymbols", () => {
