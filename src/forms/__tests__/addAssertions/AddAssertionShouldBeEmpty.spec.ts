@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldBeEmpty", () => {
   test("Assertion - shouldBeEmpty", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldBeEmpty().build();
+    var field = FieldBuilder.string().empty().build();
 
     //
     // ASSERT

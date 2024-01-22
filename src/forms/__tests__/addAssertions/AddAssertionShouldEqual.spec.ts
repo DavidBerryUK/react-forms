@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldEqual", () => {
   test("Assertion - shouldEqual", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldEqual("23", false).build();
+    var field = FieldBuilder.string().equal("23", false).build();
 
     //
     // ASSERT

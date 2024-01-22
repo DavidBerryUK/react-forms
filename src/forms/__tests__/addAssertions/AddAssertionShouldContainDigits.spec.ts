@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldContainDigits", () => {
   test("Assertion - shouldContainDigits", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldContainDigits(1, 2).build();
+    var field = FieldBuilder.string().containDigits(1, 2).build();
 
     //
     // ASSERT

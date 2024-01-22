@@ -22,57 +22,57 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
   /****************************/
   /* Assertions               */
   /****************************/
-  shouldBeDecimal(customMessage?: string): FieldBuilderNumber {
+  decimal(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsDecimal(customMessage));
     return this;
   }
 
-  shouldBeEmpty(customMessage?: string): FieldBuilderNumber {
+  empty(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertIsEmpty(customMessage));
     return this;
   }
 
-  shouldBeInteger(customMessage?: string): FieldBuilderNumber {
+  integer(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsInteger(customMessage));
     return this;
   }
 
-  shouldBeNoneZero(customMessage?: string): FieldBuilderNumber {
+  noneZero(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsNonZero(customMessage));
     return this;
   }
 
-  shouldBePopulated(customMessage?: string): FieldBuilderNumber {
+  populated(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
 
-  shouldBePositive(allowZero: boolean, customMessage?: string): FieldBuilderNumber {
+  positive(allowZero: boolean, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsPositive(allowZero, customMessage));
     return this;
   }
 
-  shouldBeZero(customMessage?: string): FieldBuilderNumber {
+  zero(customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsZero(customMessage));
     return this;
   }
 
-  shouldEqual(constant: string, caseInsensitive: boolean, customMessage?: string): FieldBuilderNumber {
+  equal(constant: string, caseInsensitive: boolean, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
     return this;
   }
 
-  shouldHaveValueBetween(minValue: number, maxValue: number, customMessage?: string): FieldBuilderNumber {
+  valueBetween(minValue: number, maxValue: number, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsBetween(minValue, maxValue, customMessage));
     return this;
   }
 
-  shouldHaveValueMax(maxValue: number, customMessage?: string): FieldBuilderNumber {
+  max(maxValue: number, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueMax(maxValue, customMessage));
     return this;
   }
 
-  shouldHaveValueMin(minValue: number, customMessage?: string): FieldBuilderNumber {
+  min(minValue: number, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueMin(minValue, customMessage));
     return this;
   }

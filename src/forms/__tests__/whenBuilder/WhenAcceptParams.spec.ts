@@ -20,7 +20,7 @@ describe("When parameter hander", () => {
     //
     // act
     //
-    fieldName.when(fieldName.state().ifIsPopulated().ifLengthGreaterOrEqual(100).ifContainsUpperCase(1, 99)).shouldHaveLengthMin(10);
+    fieldName.when(fieldName.state().ifIsPopulated().ifGreaterOrEqual(100).ifContainsUpperCase(1, 99)).minLength(10);
 
     expect(fieldName.assertGroups.count()).toBe(1);
 

@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldContainSymbols", () => {
   test("Assertion - shouldContainSymbols", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldContainSymbols(1, 2).build();
+    var field = FieldBuilder.string().containSymbols(1, 2).build();
 
     //
     // ASSERT

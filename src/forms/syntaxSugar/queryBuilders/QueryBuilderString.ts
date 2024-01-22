@@ -73,22 +73,22 @@ export default class QueryBuilderString extends QueryBuilderBase<QueryBuilderStr
     return this;
   }
 
-  ifLengthGreaterOrEqual(maxLength: number, customMessage?: string): QueryBuilderString {
+  ifGreaterOrEqual(maxLength: number, customMessage?: string): QueryBuilderString {
     this.add(new AssertLengthMax(maxLength, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
-  ifHaveLengthBetween(minLength: number, maxLength: number, customMessage?: string): QueryBuilderString {
+  ifLengthBetween(minLength: number, maxLength: number, customMessage?: string): QueryBuilderString {
     this.add(new AssertLengthIsBetween(minLength, maxLength, customMessage, EnumValidationStatus.fail));
     return this;
   }
 
-  ifIsHaveNoWhiteSpaces(customMessage?: string): QueryBuilderString {
+  noWhiteSpaces(customMessage?: string): QueryBuilderString {
     this.add(new AssertContainsNoWhiteSpaces(customMessage, EnumValidationStatus.fail));
     return this;
   }
 
-  ifIsEqual(constant: string, caseInsensitive: boolean, customMessage?: string): QueryBuilderString {
+  equals(constant: string, caseInsensitive: boolean, customMessage?: string): QueryBuilderString {
     this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage, EnumValidationStatus.fail));
     return this;
   }

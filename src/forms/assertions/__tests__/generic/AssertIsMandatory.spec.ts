@@ -1,5 +1,5 @@
-import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
 import AssertIsMandatory from "../../generic/AssertIsMandatory";
+import DummyFormSetup from "../../../__tests__/testSupport/DummyFormSetup";
 
 describe("Assert Is Mandatory", () => {
   test("empty string", () => {

@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - ", () => {
   test("Assertion - shouldBePopulated", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldBePopulated().build();
+    var field = FieldBuilder.string().populated().build();
 
     //
     // ASSERT

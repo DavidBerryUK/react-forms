@@ -129,8 +129,8 @@ describe("Form Instances - Cross Validation", () => {
 
 class PersonSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    home: FieldBuilder.string("Home Phone No").shouldHaveLengthMax(20).build(),
-    mobile: FieldBuilder.string("Mobile Number").shouldHaveLengthMax(20).build(),
+    home: FieldBuilder.string("Home Phone No").maxLength(20).build(),
+    mobile: FieldBuilder.string("Mobile Number").maxLength(20).build(),
   };
 
   constructor() {
@@ -140,7 +140,7 @@ class PersonSchema extends FormSchemaBase implements IFormSchema {
     // Cross Validation
     //
     const { home: home, mobile: mobile } = this.fields;
-    home.when(mobile.state().ifIsPopulated()).shouldBeEmpty("must be blank when Mobile Number is entered");
-    mobile.when(home.state().ifIsPopulated()).shouldBeEmpty("must be blank when Home Phone No is entered");
+    home.when(mobile.state().ifIsPopulated()).empty("must be blank when Mobile Number is entered");
+    mobile.when(home.state().ifIsPopulated()).empty("must be blank when Home Phone No is entered");
   }
 }

@@ -21,27 +21,27 @@ export default class ConditionalValidationBuilderBoolean extends ConditionalVali
   /* Assertions               */
   /****************************/
 
-  shouldBeEmpty(customMessage?: string): ConditionalValidationBuilderBoolean {
+  empty(customMessage?: string): ConditionalValidationBuilderBoolean {
     this.add(new AssertIsEmpty(customMessage));
     return this;
   }
 
-  shouldBePopulated(customMessage?: string): ConditionalValidationBuilderBoolean {
+  populated(customMessage?: string): ConditionalValidationBuilderBoolean {
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
 
-  shouldBeTrue(customMessage?: string): ConditionalValidationBuilderBoolean {
+  true(customMessage?: string): ConditionalValidationBuilderBoolean {
     this.add(new AssertValueIsTrue(customMessage));
     return this;
   }
 
-  shouldBeFalse(customMessage?: string): ConditionalValidationBuilderBoolean {
+  false(customMessage?: string): ConditionalValidationBuilderBoolean {
     this.add(new AssertValueIsFalse(customMessage));
     return this;
   }
 
-  shouldEqual(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderBoolean {
+  equal(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderBoolean {
     this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
     return this;
   }

@@ -24,42 +24,42 @@ export default class ConditionalValidationBuilderDate extends ConditionalValidat
   /* Assertions               */
   /****************************/
 
-  shouldBeDateLocal(customMessage?: string): ConditionalValidationBuilderDate {
+  dateLocal(customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertValueIsDateLocal(customMessage));
     return this;
   }
 
-  shouldBeDateTimeLocal(customMessage?: string): ConditionalValidationBuilderDate {
+  dateTimeLocal(customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertValueIsDateTimeLocal(customMessage));
     return this;
   }
 
-  shouldBeEmpty(customMessage?: string): ConditionalValidationBuilderDate {
+  empty(customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertIsEmpty(customMessage));
     return this;
   }
 
-  shouldBePopulated(customMessage?: string): ConditionalValidationBuilderDate {
+  populated(customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
 
-  shouldBeTimeLocal(customMessage?: string): ConditionalValidationBuilderDate {
+  timeLocal(customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertValueIsTime(customMessage));
     return this;
   }
 
-  shouldEqual(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderDate {
+  equal(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
     return this;
   }
 
-  shouldHaveDateMax(maxDate: string, customMessage?: string): ConditionalValidationBuilderDate {
+  max(maxDate: string, customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertDateMax(maxDate, customMessage));
     return this;
   }
 
-  shouldHaveDateMin(minDate: string, customMessage?: string): ConditionalValidationBuilderDate {
+  min(minDate: string, customMessage?: string): ConditionalValidationBuilderDate {
     this.add(new AssertDateMin(minDate, customMessage));
     return this;
   }

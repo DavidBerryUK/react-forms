@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldBePositive", () => {
   test("Assertion - shouldBePositive", () => {
     // ACT
     //
-    var field = FieldBuilder.number().shouldBePositive(false).build();
+    var field = FieldBuilder.number().positive(false).build();
 
     //
     // ASSERT

@@ -27,57 +27,57 @@ export default class ConditionalValidationBuilderNumber extends ConditionalValid
   /* Assertions               */
   /****************************/
 
-  shouldBeDecimal(customMessage?: string): ConditionalValidationBuilderNumber {
+  decimal(customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueIsDecimal(customMessage));
     return this;
   }
 
-  shouldBeEmpty(customMessage?: string): ConditionalValidationBuilderNumber {
+  empty(customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertIsEmpty(customMessage));
     return this;
   }
 
-  shouldBeInteger(customMessage?: string): ConditionalValidationBuilderNumber {
+  integer(customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueIsInteger(customMessage));
     return this;
   }
 
-  shouldBeNoneZero(customMessage?: string): ConditionalValidationBuilderNumber {
+  noneZero(customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueIsNonZero(customMessage));
     return this;
   }
 
-  shouldBePopulated(customMessage?: string): ConditionalValidationBuilderNumber {
+  populated(customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
 
-  shouldBePositive(allowZero: boolean, customMessage?: string): ConditionalValidationBuilderNumber {
+  positive(allowZero: boolean, customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueIsPositive(allowZero, customMessage));
     return this;
   }
 
-  shouldBeZero(customMessage?: string): ConditionalValidationBuilderNumber {
+  beZero(customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueIsZero(customMessage));
     return this;
   }
 
-  shouldEqual(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderNumber {
+  equal(constant: string, caseInsensitive: boolean, customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
     return this;
   }
 
-  shouldHaveValueBetween(minValue: number, maxValue: number, customMessage?: string): ConditionalValidationBuilderNumber {
+  between(minValue: number, maxValue: number, customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueIsBetween(minValue, maxValue, customMessage));
     return this;
   }
 
-  shouldHaveValueMax(maxValue: number, customMessage?: string): ConditionalValidationBuilderNumber {
+  max(maxValue: number, customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueMax(maxValue, customMessage));
     return this;
   }
 
-  shouldHaveValueMin(minValue: number, customMessage?: string): ConditionalValidationBuilderNumber {
+  min(minValue: number, customMessage?: string): ConditionalValidationBuilderNumber {
     this.add(new AssertValueMin(minValue, customMessage));
     return this;
   }

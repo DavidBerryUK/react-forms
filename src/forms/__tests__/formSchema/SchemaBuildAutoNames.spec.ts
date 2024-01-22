@@ -29,8 +29,8 @@ describe("Built Schema - test that field id names are auto created by the schema
 //
 class PersonSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    forename: FieldBuilder.string("Forename").mandatory().shouldHaveLengthMax(200).build(),
-    surname: FieldBuilder.string("Surname").mandatory().shouldHaveLengthMax(200).build(),
+    forename: FieldBuilder.string("Forename").mandatory().maxLength(200).build(),
+    surname: FieldBuilder.string("Surname").mandatory().maxLength(200).build(),
   };
 
   constructor() {

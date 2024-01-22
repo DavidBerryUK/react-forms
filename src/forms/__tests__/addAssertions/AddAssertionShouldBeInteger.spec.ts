@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - ", () => {
   test("Assertion - shouldBeInteger", () => {
     // ACT
     //
-    var field = FieldBuilder.number().shouldBeInteger().build();
+    var field = FieldBuilder.number().integer().build();
 
     //
     // ASSERT

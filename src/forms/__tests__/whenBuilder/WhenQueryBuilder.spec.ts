@@ -23,7 +23,7 @@ describe("When Query Builder", () => {
     //
     //
     //
-    var queryBuilder = new QueryBuilderBoolean(fieldProvideName).ifIsTrue();
+    var queryBuilder = new QueryBuilderBoolean(fieldProvideName).true();
     //
     // ASSERT
     //
@@ -46,7 +46,7 @@ describe("When Query Builder", () => {
     //
     // test condition, if populated, or greater > 100 chars, or ifContains between 1 and 99 upper case chars
     //
-    var queryBuilder = new QueryBuilderString(fieldName).ifIsPopulated().ifLengthGreaterOrEqual(100).ifContainsUpperCase(1, 99);
+    var queryBuilder = new QueryBuilderString(fieldName).ifIsPopulated().ifGreaterOrEqual(100).ifContainsUpperCase(1, 99);
     //
     // ASSERT
     //

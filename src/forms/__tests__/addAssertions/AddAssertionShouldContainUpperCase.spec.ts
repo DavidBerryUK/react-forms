@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldContainUpperCase", () => {
   test("Assertion - shouldContainUpperCase", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldContainUpperCase(1, 2).build();
+    var field = FieldBuilder.string().containUpperCase(1, 2).build();
 
     //
     // ASSERT

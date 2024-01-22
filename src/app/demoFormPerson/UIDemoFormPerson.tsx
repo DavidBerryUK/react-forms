@@ -36,10 +36,10 @@ export default UIDemoFormPerson;
 //
 class PersonSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    forename: FieldBuilder.string("Forename").mandatory().shouldHaveLengthMax(50).build(),
-    surname: FieldBuilder.string("Surname").mandatory().shouldHaveLengthMax(50).build(),
-    homePhoneNo: FieldBuilder.string("Home Phone No").shouldHaveLengthMax(20).build(),
-    mobileNo: FieldBuilder.string("Mobile Number").shouldHaveLengthMax(20).build(),
+    forename: FieldBuilder.string("Forename").mandatory().maxLength(50).build(),
+    surname: FieldBuilder.string("Surname").mandatory().maxLength(50).build(),
+    homePhoneNo: FieldBuilder.string("Home Phone No").maxLength(20).build(),
+    mobileNo: FieldBuilder.string("Mobile Number").maxLength(20).build(),
   };
 
   constructor() {
@@ -49,7 +49,7 @@ class PersonSchema extends FormSchemaBase implements IFormSchema {
     // Cross Validation
     //
     const { homePhoneNo, mobileNo } = this.fields;
-    homePhoneNo.when(mobileNo.state().ifIsPopulated()).shouldBeEmpty("must be blank when Mobile Number is entered");
-    mobileNo.when(homePhoneNo.state().ifIsPopulated()).shouldBeEmpty("must be blank when Home Phone No is entered");
+    homePhoneNo.when(mobileNo.state().ifIsPopulated()).empty("must be blank when Mobile Number is entered");
+    mobileNo.when(homePhoneNo.state().ifIsPopulated()).empty("must be blank when Home Phone No is entered");
   }
 }

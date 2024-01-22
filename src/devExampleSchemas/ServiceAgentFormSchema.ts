@@ -14,7 +14,7 @@ export default class ServiceAgentFormSchema extends FormSchemaBase implements IF
     telphone: FieldBuilder.string("Telephone").build(),
     faxNo: FieldBuilder.string("Fax No").build(),
     emailAddress: FieldBuilder.string("Email Address").build(),
-    sageRefNo: FieldBuilder.string("Sage Ref No").mandatory().shouldHaveNoWhiteSpaces().shouldHaveLengthMax(15).build(),
+    sageRefNo: FieldBuilder.string("Sage Ref No").mandatory().noWhiteSpaces().maxLength(15).build(),
   };
 
   constructor() {

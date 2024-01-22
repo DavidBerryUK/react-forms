@@ -37,11 +37,11 @@ export default UIDemoFormScoring;
 //
 class PersonSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    score: FieldBuilder.number("Score").mandatory().shouldHaveValueBetween(1, 4).build(),
-    notes1: FieldBuilder.string("Notes 1").shouldHaveLengthMax(20).build(),
-    notes2: FieldBuilder.string("Notes 2").shouldHaveLengthMax(20).build(),
-    notes3: FieldBuilder.string("Notes 3").shouldHaveLengthMax(20).build(),
-    notes4: FieldBuilder.string("Notes 4").shouldHaveLengthMax(20).build(),
+    score: FieldBuilder.number("Score").mandatory().valueBetween(1, 4).build(),
+    notes1: FieldBuilder.string("Notes 1").maxLength(20).build(),
+    notes2: FieldBuilder.string("Notes 2").maxLength(20).build(),
+    notes3: FieldBuilder.string("Notes 3").maxLength(20).build(),
+    notes4: FieldBuilder.string("Notes 4").maxLength(20).build(),
   };
 
   constructor() {
@@ -51,9 +51,9 @@ class PersonSchema extends FormSchemaBase implements IFormSchema {
     // Cross Validation
     //
     const { score, notes1, notes2, notes3, notes4 } = this.fields;
-    notes1.when(score.state().ifIsEqual(1)).mandatory("Notes must be entered when score is 1").shouldHaveLengthMin(10);
-    notes2.when(score.state().ifIsEqual(2)).mandatory("Notes must be entered when score is 2").shouldHaveLengthMin(20);
-    notes3.when(score.state().ifIsEqual(3)).mandatory("Notes must be entered when score is 3").shouldHaveLengthMin(30);
-    notes4.when(score.state().ifIsEqual(4)).mandatory("Notes must be entered when score is 4").shouldHaveLengthMin(40);
+    notes1.when(score.state().equals(1)).mandatory("Notes must be entered when score is 1").minLength(10);
+    notes2.when(score.state().equals(2)).mandatory("Notes must be entered when score is 2").minLength(20);
+    notes3.when(score.state().equals(3)).mandatory("Notes must be entered when score is 3").minLength(30);
+    notes4.when(score.state().equals(4)).mandatory("Notes must be entered when score is 4").minLength(40);
   }
 }

@@ -16,7 +16,7 @@ export default class VehicleBulkActionsFormSchema extends FormSchemaBase impleme
     this.parseFields(this.fields);
 
     // this.addCustomerConditionalFields();
-    this.fields.customerId.when(this.fields.actionChangeCustomer.state().ifIsTrue()).mandatory();
-    this.fields.depotId.when(this.fields.actionChangeCustomer.state().ifIsTrue()).mandatory();
+    this.fields.customerId.when(this.fields.actionChangeCustomer.state().true()).mandatory();
+    this.fields.depotId.when(this.fields.actionChangeCustomer.state().true()).mandatory();
   }
 }

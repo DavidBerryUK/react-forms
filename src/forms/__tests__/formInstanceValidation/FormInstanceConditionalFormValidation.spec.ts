@@ -83,6 +83,6 @@ export default class PersonSchema extends FormSchemaBase implements IFormSchema 
     this.parseFields(this.fields);
 
     const { nameRequiredFlag, name } = this.fields;
-    name.when(nameRequiredFlag.state().ifIsTrue()).mandatory();
+    name.when(nameRequiredFlag.state().true()).mandatory();
   }
 }

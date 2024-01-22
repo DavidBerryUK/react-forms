@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldContainLowerCase", () => {
   test("Assertion - shouldContainLowerCase", () => {
     // ACT
     //
-    var field = FieldBuilder.string().shouldContainLowerCase(1, 2).build();
+    var field = FieldBuilder.string().containLowerCase(1, 2).build();
 
     //
     // ASSERT
