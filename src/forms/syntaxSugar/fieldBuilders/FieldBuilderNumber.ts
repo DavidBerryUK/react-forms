@@ -1,5 +1,6 @@
 import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
 import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertIsEqualToNumber from "../../assertions/string/AssertIsEqualToNumber";
 import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
 import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 import AssertValueIsBetween from "../../assertions/number/AssertValueIsBetween";
@@ -11,8 +12,8 @@ import AssertValueIsZero from "../../assertions/number/AssertValueIsZero";
 import AssertValueMax from "../../assertions/number/AssertValueMax";
 import AssertValueMin from "../../assertions/number/AssertValueMin";
 import EnumFieldType from "../../enums/EnumFieldType";
-import SchemaFieldNumber from "../../schemaField/SchemaFieldNumber";
 import FieldBuilderBase from "./FieldBuilderBase";
+import SchemaFieldNumber from "../../schemaField/SchemaFieldNumber";
 
 export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNumber> {
   constructor() {
@@ -57,8 +58,8 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     return this;
   }
 
-  equal(constant: string, caseInsensitive: boolean, customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
+  equal(constant: number, tolerance?: number, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertIsEqualToNumber(constant, tolerance, customMessage));
     return this;
   }
 
