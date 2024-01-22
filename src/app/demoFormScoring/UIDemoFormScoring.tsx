@@ -37,7 +37,7 @@ export default UIDemoFormScoring;
 //
 class PersonSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    score: FieldBuilder.number("Score").mandatory().valueBetween(1, 4).build(),
+    score: FieldBuilder.number("Score").mandatory().between(1, 4).build(),
     notes1: FieldBuilder.string("Notes 1").maxLength(20).build(),
     notes2: FieldBuilder.string("Notes 2").maxLength(20).build(),
     notes3: FieldBuilder.string("Notes 3").maxLength(20).build(),

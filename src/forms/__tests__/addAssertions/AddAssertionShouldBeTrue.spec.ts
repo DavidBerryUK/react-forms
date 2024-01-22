@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - shouldBeTrue", () => {
   test("Assertion - shouldBeTrue", () => {
     // ACT
     //
-    var field = FieldBuilder.boolean().shouldBeTrue().build();
+    var field = FieldBuilder.boolean().true().build();
 
     //
     // ASSERT

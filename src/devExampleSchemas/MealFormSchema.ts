@@ -8,7 +8,7 @@ export default class MealFormSchema extends FormSchemaBase implements IFormSchem
     surname: FieldBuilder.string("Surname").mandatory().maxLength(200).build(),
     dietryRequirementsFlag: FieldBuilder.boolean("Any special dietary requirements?").build(),
     dietryRequirementsNotes: FieldBuilder.string("Dietry Notes").build(),
-    option: FieldBuilder.number().valueBetween(1, 4).build(),
+    option: FieldBuilder.number().between(1, 4).build(),
     option1Text: FieldBuilder.string().build(),
     option2Text: FieldBuilder.string().build(),
     option3Text: FieldBuilder.string().build(),

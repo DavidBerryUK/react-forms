@@ -62,7 +62,7 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     return this;
   }
 
-  valueBetween(minValue: number, maxValue: number, customMessage?: string): FieldBuilderNumber {
+  between(minValue: number, maxValue: number, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsBetween(minValue, maxValue, customMessage));
     return this;
   }

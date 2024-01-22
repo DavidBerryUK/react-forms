@@ -29,7 +29,7 @@ export default class FormFieldValidationState implements IFormFieldValidationSta
       return "";
     }
 
-    return `${this.fieldTitle} ${this.validationMessages.asSummary}`;
+    return `${this.fieldTitle} ${this.validationMessages.asSummary}`.trim();
   }
 
   addMessage(messageType: EnumMessageType, message: string) {

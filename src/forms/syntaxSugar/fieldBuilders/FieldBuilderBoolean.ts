@@ -1,13 +1,12 @@
 import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
-import AssertIsEqualTo from "../../assertions/string/AssertIsEqualTo";
+import AssertIsEqualToBoolean from "../../assertions/string/AssertIsEqualToBoolean";
 import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
 import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 import AssertValueIsFalse from "../../assertions/boolean/AssertValueIsFalse";
 import AssertValueIsTrue from "../../assertions/boolean/AssertValueIsTrue";
 import EnumFieldType from "../../enums/EnumFieldType";
-import SchemaFieldBoolean from "../../schemaField/SchemaFieldBoolean";
-
 import FieldBuilderBase from "./FieldBuilderBase";
+import SchemaFieldBoolean from "../../schemaField/SchemaFieldBoolean";
 
 export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBoolean> {
   constructor() {
@@ -27,18 +26,18 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
     return this;
   }
 
-  shouldBeTrue(customMessage?: string): FieldBuilderBoolean {
+  true(customMessage?: string): FieldBuilderBoolean {
     this.add(new AssertValueIsTrue(customMessage));
     return this;
   }
 
-  shouldBeFalse(customMessage?: string): FieldBuilderBoolean {
+  false(customMessage?: string): FieldBuilderBoolean {
     this.add(new AssertValueIsFalse(customMessage));
     return this;
   }
 
-  shouldEqual(constant: string, caseInsensitive: boolean, customMessage?: string): FieldBuilderBoolean {
-    this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
+  equals(constant: boolean, customMessage?: string): FieldBuilderBoolean {
+    this.add(new AssertIsEqualToBoolean(constant, customMessage));
     return this;
   }
 
