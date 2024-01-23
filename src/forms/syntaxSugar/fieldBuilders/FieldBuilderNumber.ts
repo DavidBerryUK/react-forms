@@ -1,10 +1,12 @@
 import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
 import AssertIsEqualToNumber from "../../assertions/string/AssertIsEqualToNumber";
 import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
+import AssertIsNotEqualToNumber from "../../assertions/string/AssertIsNotEqualToNumber";
 import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 import AssertValueIsBetween from "../../assertions/number/AssertValueIsBetween";
 import AssertValueIsDecimal from "../../assertions/number/AssertValueIsDecimal";
 import AssertValueIsInteger from "../../assertions/number/AssertValueIsInteger";
+import AssertValueIsNegative from "../../assertions/number/AssertValueIsNegative";
 import AssertValueIsNonZero from "../../assertions/number/AssertValueIsNonZero";
 import AssertValueIsPositive from "../../assertions/number/AssertValueIsPositive";
 import AssertValueIsZero from "../../assertions/number/AssertValueIsZero";
@@ -13,7 +15,6 @@ import AssertValueMin from "../../assertions/number/AssertValueMin";
 import EnumFieldType from "../../enums/EnumFieldType";
 import FieldBuilderBase from "./FieldBuilderBase";
 import SchemaFieldNumber from "../../schemaField/SchemaFieldNumber";
-import AssertValueIsNegative from "../../assertions/number/AssertValueIsNegative";
 
 export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNumber> {
   constructor() {
@@ -54,6 +55,11 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
 
   equal(constant: number, tolerance?: number, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertIsEqualToNumber(constant, tolerance, customMessage));
+    return this;
+  }
+
+  notEqual(constant: number, tolerance?: number, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertIsNotEqualToNumber(constant, tolerance, customMessage));
     return this;
   }
 
