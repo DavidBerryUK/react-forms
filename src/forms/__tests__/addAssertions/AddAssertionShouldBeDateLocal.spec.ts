@@ -5,7 +5,7 @@ describe("Field Builder - Assertion - shouldBeDateLocal", () => {
   test("build - expact to pass", () => {
     // ACT
     //
-    var field = FieldBuilder.date().shouldBeDateLocal().build();
+    var field = FieldBuilder.date().dateLocal().build();
 
     //
     // ASSERT

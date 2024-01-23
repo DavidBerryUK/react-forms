@@ -24,12 +24,12 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
     return this;
   }
 
-  shouldBeEmpty(customMessage?: string): FieldBuilderDate {
+  empty(customMessage?: string): FieldBuilderDate {
     this.add(new AssertIsEmpty(customMessage));
     return this;
   }
 
-  shouldBePopulated(customMessage?: string): FieldBuilderDate {
+  populated(customMessage?: string): FieldBuilderDate {
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
@@ -37,28 +37,28 @@ export default class FieldBuilderDate extends FieldBuilderBase<FieldBuilderDate>
   /****************************/
   /* Assertions               */
   /****************************/
-  shouldBeDateLocal(customMessage?: string): FieldBuilderDate {
+  dateLocal(customMessage?: string): FieldBuilderDate {
     this.add(new AssertValueIsDateLocal(customMessage));
     return this;
   }
 
-  shouldBeDateTimeLocal(customMessage?: string): FieldBuilderDate {
+  dateTimeLocal(customMessage?: string): FieldBuilderDate {
     this.add(new AssertValueIsDateTimeLocal(customMessage));
     return this;
   }
 
-  shouldBeTimeLocal(customMessage?: string): FieldBuilderDate {
+  timeLocal(customMessage?: string): FieldBuilderDate {
     this.add(new AssertValueIsTime(customMessage));
-    return this;
-  }
-
-  max(maxDate: string, customMessage?: string): FieldBuilderDate {
-    this.add(new AssertDateMax(maxDate, customMessage));
     return this;
   }
 
   min(minDate: string, customMessage?: string): FieldBuilderDate {
     this.add(new AssertDateMin(minDate, customMessage));
+    return this;
+  }
+
+  max(maxDate: string, customMessage?: string): FieldBuilderDate {
+    this.add(new AssertDateMax(maxDate, customMessage));
     return this;
   }
 

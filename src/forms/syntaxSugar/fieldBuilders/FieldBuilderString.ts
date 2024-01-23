@@ -14,6 +14,7 @@ import AssertPostCodeUK from "../../assertions/string/AssertPostCodeUk";
 import EnumFieldType from "../../enums/EnumFieldType";
 import FieldBuilderBase from "./FieldBuilderBase";
 import SchemaFieldString from "../../schemaField/SchemaFieldString";
+import AssertIsNotEqualToString from "../../assertions/string/AssertIsNotEqualToString";
 
 export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderString> {
   constructor() {
@@ -45,6 +46,11 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
     return this;
   }
 
+  notEqual(constant: string, caseInsensitive?: boolean, customMessage?: string): FieldBuilderString {
+    this.add(new AssertIsNotEqualToString(constant, caseInsensitive, customMessage));
+    return this;
+  }
+
   lengthBetween(minLength: number, maxLength: number, customMessage?: string): FieldBuilderString {
     this.add(new AssertLengthIsBetween(minLength, maxLength, customMessage));
     return this;
@@ -70,13 +76,13 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
     return this;
   }
 
-  containSymbols(minCount: number, maxCount: number, customMessage?: string): FieldBuilderString {
-    this.add(new AssertContainsSymbols(minCount, maxCount, customMessage));
+  containUpperCase(minCount: number, maxCount: number, customMessage?: string): FieldBuilderString {
+    this.add(new AssertContainsUpperCase(minCount, maxCount, customMessage));
     return this;
   }
 
-  containUpperCase(minCount: number, maxCount: number, customMessage?: string): FieldBuilderString {
-    this.add(new AssertContainsUpperCase(minCount, maxCount, customMessage));
+  containSymbols(minCount: number, maxCount: number, customMessage?: string): FieldBuilderString {
+    this.add(new AssertContainsSymbols(minCount, maxCount, customMessage));
     return this;
   }
 

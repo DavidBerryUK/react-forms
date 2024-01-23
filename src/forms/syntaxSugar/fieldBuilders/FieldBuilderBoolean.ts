@@ -1,5 +1,5 @@
 import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
-import AssertIsEqualToBoolean from "../../assertions/string/AssertIsEqualToBoolean";
+import AssertIsEqualToBoolean from "../../assertions/boolean/AssertIsEqualToBoolean";
 import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
 import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 import AssertValueIsFalse from "../../assertions/boolean/AssertValueIsFalse";
@@ -34,16 +34,6 @@ export default class FieldBuilderBoolean extends FieldBuilderBase<FieldBuilderBo
   /****************************/
   /* Assertions               */
   /****************************/
-  shouldBeEmpty(customMessage?: string): FieldBuilderBoolean {
-    this.add(new AssertIsEmpty(customMessage));
-    return this;
-  }
-
-  shouldBePopulated(customMessage?: string): FieldBuilderBoolean {
-    this.add(new AssertIsPopulated(customMessage));
-    return this;
-  }
-
   true(customMessage?: string): FieldBuilderBoolean {
     this.add(new AssertValueIsTrue(customMessage));
     return this;

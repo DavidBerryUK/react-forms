@@ -5,7 +5,7 @@ describe("Field Builder - Add Assertion - ", () => {
   test("Assertion - shouldBeTimeLocal", () => {
     // ACT
     //
-    var field = FieldBuilder.date().shouldBeTimeLocal().build();
+    var field = FieldBuilder.date().timeLocal().build();
 
     //
     // ASSERT

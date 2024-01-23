@@ -5,8 +5,8 @@ import IFormSchema from "../../interfaces/form/IFormSchema";
 
 class TestSchema extends FormSchemaBase implements IFormSchema {
   fields = {
-    caseInsensitiveValue: FieldBuilder.string().equal("orange", true).build(),
-    caseSensitiveValue: FieldBuilder.string().equal("orange").build(),
+    caseInsensitiveValue: FieldBuilder.string().notEqual("orange", true).build(),
+    caseSensitiveValue: FieldBuilder.string().notEqual("orange").build(),
   };
 
   constructor() {
@@ -67,7 +67,7 @@ describe("Schema string (Equals)", () => {
     expect(form.isValid).toBeTruthy();
   });
 
-  test("Assertion=Equals orange === orange, - expect to pass validation", () => {
+  test("Assertion=Equals orange === orange, - expect to pass fail", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -81,10 +81,15 @@ describe("Schema string (Equals)", () => {
 
     // Assert
     //
-    expect(form.isValid).toBeTruthy();
+    expect(form.isValid).toBeFalsy();
+    expect(form.getField(caseSensitiveValue)?.validation.isValid).toBeFalsy();
+    expect(form.getField(caseSensitiveValue)?.validation.validationMessage).toBe("must not be equal to 'orange'");
+
+    expect(form.getField(caseInsensitiveValue)?.validation.isValid).toBeFalsy();
+    expect(form.getField(caseInsensitiveValue)?.validation.validationMessage).toBe("must not be equal to 'orange'");
   });
 
-  test("Assertion=Equals orange === ORANGE (case insensitive), - expect to pass validation", () => {
+  test("Assertion=Equals orange === ORANGE (case insensitive), - expect to fail validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -97,7 +102,9 @@ describe("Schema string (Equals)", () => {
 
     // Assert
     //
-    expect(form.isValid).toBeTruthy();
+    expect(form.isValid).toBeFalsy();
+    expect(form.getField(caseInsensitiveValue)?.validation.isValid).toBeFalsy();
+    expect(form.getField(caseInsensitiveValue)?.validation.validationMessage).toBe("must not be equal to 'orange'");
   });
 
   test("Assertion=Equals orange === ORANGE (case sensitive), - expect to pass validation", () => {
@@ -113,12 +120,11 @@ describe("Schema string (Equals)", () => {
 
     // Assert
     //
-    expect(form.isValid).toBeFalsy();
-    expect(form.getField(caseSensitiveValue)?.validation.isValid).toBeFalsy();
-    expect(form.getField(caseSensitiveValue)?.validation.validationMessage).toBe("must be equal to 'orange'");
+    expect(form.isValid).toBeTruthy();
+    expect(form.getField(caseSensitiveValue)?.validation.isValid).toBeTruthy();
   });
 
-  test("Assertion=Equals orange === apple, - expect to fail validation", () => {
+  test("Assertion=Equals orange === apple, - expect to pass validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -132,11 +138,8 @@ describe("Schema string (Equals)", () => {
 
     // Assert
     //
-    expect(form.isValid).toBeFalsy();
-    expect(form.getField(caseInsensitiveValue)?.validation.isValid).toBeFalsy();
-    expect(form.getField(caseInsensitiveValue)?.validation.validationMessage).toBe("must be equal to 'orange'");
-
-    expect(form.getField(caseSensitiveValue)?.validation.isValid).toBeFalsy();
-    expect(form.getField(caseSensitiveValue)?.validation.validationMessage).toBe("must be equal to 'orange'");
+    expect(form.isValid).toBeTruthy();
+    expect(form.getField(caseInsensitiveValue)?.validation.isValid).toBeTruthy();
+    expect(form.getField(caseSensitiveValue)?.validation.isValid).toBeTruthy();
   });
 });

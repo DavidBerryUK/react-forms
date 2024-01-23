@@ -1,46 +1,174 @@
-# Getting Started with Create React App
+# Form Validation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Provide an acessable way of tracking the state of web forms via data schemas that include validation.
 
-## Available Scripts
+## Example
 
-In the project directory, you can run:
+The Form Schema component is designed to facilitate the creation of structured schemas for various data types. To ensure the correct formation of the schema during development, each field is constructed using chainable methods. This guide provides an example for an order line, outlining the usage of these chainable methods and emphasizing the importance of starting each line with the appropriate data type.
 
-### `npm start`
+```typescript
+export default class OrderLineSchema extends FormSchemaBase implements IFormSchema {
+  fields = {
+    name: FieldBuilder.string("Name").mandatory().maxLength(100).build(),
+    itemCost: FieldBuilder.number("Cost").decimal().positive().build(),
+    quantity: FieldBuilder.number("Quantity").integer().positive().build(),
+    labourCost: FieldBuilder.number("Total Labour").decimal().build(),
+    total: FieldBuilder.number("Total ").build(),
+  };
+  constructor() {
+    super();
+    this.parseFields(this.fields);
+  }
+}
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Cross Validation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Once the fields have been defined with their own assertions, cross validation can also be easily specified.
 
-### `npm test`
+Again this uses all typesafe chainable commands.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```typescript
+class PersonSchema extends FormSchemaBase implements IFormSchema {
+  fields = {
+    score: FieldBuilder.number("Score").mandatory().between(1, 4).build(),
+    notes1: FieldBuilder.string("Notes 1").maxLength(20).build(),
+    notes2: FieldBuilder.string("Notes 2").maxLength(20).build(),
+    notes3: FieldBuilder.string("Notes 3").maxLength(20).build(),
+    notes4: FieldBuilder.string("Notes 4").maxLength(20).build(),
+  };
 
-### `npm run build`
+  constructor() {
+    super();
+    this.parseFields(this.fields);
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    // Cross Validation
+    const { score, notes1, notes2, notes3, notes4 } = this.fields;
+    notes1.when(score.state().equals(1)).mandatory("Notes must be entered when score is 1").minLength(10);
+    notes2.when(score.state().equals(2)).mandatory("Notes must be entered when score is 2").minLength(20);
+    notes3.when(score.state().equals(3)).mandatory("Notes must be entered when score is 3").minLength(30);
+    notes4.when(score.state().equals(4)).mandatory("Notes must be entered when score is 4").minLength(40);
+  }
+}
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Data Types and Assertions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Each data type has its own set of validation assertions that are available to it. The assertions can be chained together in any order.
+The assertions will be tested in the order they are specified, so if a field is mandatory, it would be most common for this to be placed as the first assertion in the sequence.
 
-### `npm run eject`
+## String
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| assertion         | developed | tested | notes           |
+| ----------------- | --------- | ------ | --------------- |
+| mandatory         | yes       | yes    |                 |
+| empty             | yes       | yes    |                 |
+| populated         | yes       | yes    |                 |
+| equal             | yes       | yes    |                 |
+| notEqual          | yes       | yes    |                 |
+| lengthBetween     | yes       |        |                 |
+| lengthMin         | yes       |        |                 |
+| lengthMax         | yes       |        |                 |
+| noWhiteSpaces     | yes       |        |                 |
+| containsDigits    | yes       |        |                 |
+| containsLowerCase | yes       |        |                 |
+| containsUpperCase | yes       |        |                 |
+| containsSymbols   | yes       |        |                 |
+| postCodeUk        | yes       |        |                 |
+| uuid              |           |        | to be developed |
+| email             |           |        | to be developed |
+| url               |           |        | to be developed |
+| regex             |           |        | to be developed |
+| inList            |           |        | to be developed |
+| notInList         |           |        | to be developed |
+| contains          |           |        | to be developed |
+| startsWith        |           |        | to be developed |
+| endsWith          |           |        | to be developed |
+| idAddress         |           |        |                 |
+| addAssertion      | yes       |        |                 |
+| addAssertions     | yes       |        |                 |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Number
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| assertion     | developed | tested | notes           |
+| ------------- | --------- | ------ | --------------- |
+| mandatory     | yes       | yes    |                 |
+| empty         | yes       | yes    |                 |
+| populated     | yes       | yes    |                 |
+| equal         | yes       | yes    |                 |
+| notEqual      | yes       | yes    |                 |
+| zero          | yes       | yes    |                 |
+| notZero       | yes       | yes    |                 |
+| positive      | yes       | yes    |                 |
+| negative      | yes       | yes    |                 |
+| between       | yes       | yes    |                 |
+| min           | yes       | yes    |                 |
+| max           | yes       | yes    |                 |
+| decimal       | yes       | yes    |                 |
+| integer       | yes       | yes    |                 |
+| inList        |           |        | to be developed |
+| notInList     |           |        | to be developed |
+| multipleOf    |           |        | to be developed |
+| addAssertion  | yes       |        |                 |
+| addAssertions | yes       |        |                 |
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Boolean
 
-## Learn More
+| assertion     | developed | tested | notes           |
+| ------------- | --------- | ------ | --------------- |
+| mandatory     | yes       | yes    |                 |
+| empty         | yes       | yes    |                 |
+| populated     | yes       | yes    |                 |
+| equal         | yes       | yes    |                 |
+| true          | yes       | yes    |                 |
+| false         | yes       | yes    |                 |
+| notEqual      |           |        | to be developed |
+| addAssertion  | yes       |        |                 |
+| addAssertions | yes       |        |                 |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Date
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+| assertion     | developed | tested | notes           |
+| ------------- | --------- | ------ | --------------- |
+| mandatory     | yes       |        |                 |
+| empty         | yes       |        |                 |
+| populated     | yes       |        |                 |
+| dateLocal     | yes       |        |                 |
+| timeLocal     | yes       |        |                 |
+| utc           | yes       |        |                 |
+| datetimeLocal | yes       |        |                 |
+| min           | yes       |        |                 |
+| max           | yes       |        |                 |
+| between       |           |        | to be developed |
+| addAssertion  | yes       |        |                 |
+| addAssertions | yes       |        |                 |
+
+# Cross Validation When Conditions
+
+## String
+
+| assertion | developed | tested | notes |
+| --------- | --------- | ------ | ----- |
+| empty     |           |        |       |
+| populated |           |        |       |
+
+## Integer
+
+| assertion | developed | tested | notes |
+| --------- | --------- | ------ | ----- |
+| empty     |           |        |       |
+| populated |           |        |       |
+
+## Number
+
+| assertion | developed | tested | notes |
+| --------- | --------- | ------ | ----- |
+| empty     |           |        |       |
+| populated |           |        |       |
+
+## Date
+
+| assertion | developed | tested | notes |
+| --------- | --------- | ------ | ----- |
+| empty     |           |        |       |
+| populated |           |        |       |

@@ -9,9 +9,9 @@ import IFormSchema from "../../interfaces/form/IFormSchema";
 export default class AssertValueIsPositive extends AssertBase implements IAssert {
   private readonly allowZero: boolean;
 
-  constructor(allowZero: boolean, customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
+  constructor(allowZero?: boolean, customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
     super(customMessage, defaultValidationStatus);
-    this.allowZero = allowZero;
+    this.allowZero = allowZero ?? false;
   }
 
   isValid(form: IFormInstance<IFormSchema>, field: IFormField, value: string): IAssertResponse {

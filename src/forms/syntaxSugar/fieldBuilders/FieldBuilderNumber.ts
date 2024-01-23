@@ -1,7 +1,7 @@
 import AssertIsEmpty from "../../assertions/generic/AssertIsEmpty";
-import AssertIsEqualToNumber from "../../assertions/string/AssertIsEqualToNumber";
+import AssertIsEqualToNumber from "../../assertions/number/AssertIsEqualToNumber";
 import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
-import AssertIsNotEqualToNumber from "../../assertions/string/AssertIsNotEqualToNumber";
+import AssertIsNotEqualToNumber from "../../assertions/number/AssertIsNotEqualToNumber";
 import AssertIsPopulated from "../../assertions/generic/AssertIsPopulated";
 import AssertValueIsBetween from "../../assertions/number/AssertValueIsBetween";
 import AssertValueIsDecimal from "../../assertions/number/AssertValueIsDecimal";
@@ -77,7 +77,7 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     return this;
   }
 
-  positive(allowZero: boolean, customMessage?: string): FieldBuilderNumber {
+  positive(allowZero?: boolean, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertValueIsPositive(allowZero, customMessage));
     return this;
   }
@@ -92,13 +92,13 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     return this;
   }
 
-  max(constant: number, customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueMax(constant, customMessage));
+  min(constant: number, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueMin(constant, customMessage));
     return this;
   }
 
-  min(constant: number, customMessage?: string): FieldBuilderNumber {
-    this.add(new AssertValueMin(constant, customMessage));
+  max(constant: number, customMessage?: string): FieldBuilderNumber {
+    this.add(new AssertValueMax(constant, customMessage));
     return this;
   }
 
