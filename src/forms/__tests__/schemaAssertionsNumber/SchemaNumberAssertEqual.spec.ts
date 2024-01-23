@@ -16,7 +16,7 @@ class TestSchema extends FormSchemaBase implements IFormSchema {
 }
 
 describe("Schema number (Equals)", () => {
-  test("Assertion=Equals 10 === 10, expect pass", () => {
+  test("Assertion=Equals 10 === 10, - expect to pass validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -32,7 +32,7 @@ describe("Schema number (Equals)", () => {
     expect(form.isValid).toBeTruthy();
   });
 
-  test("Assertion=Equals 10 === 30, expect failure", () => {
+  test("Assertion=Equals 10 === 30, - expect to fail validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -50,7 +50,7 @@ describe("Schema number (Equals)", () => {
     expect(form.getField(sampleValue)?.validation.validationMessage).toBe("must be equal to 10");
   });
 
-  test("Assertion=Equals 10 === 10.2 with tolerance of (0.25), expect pass", () => {
+  test("Assertion=Equals 10 === 10.2 with tolerance of (0.25), - expect to pass validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -66,7 +66,7 @@ describe("Schema number (Equals)", () => {
     expect(form.isValid).toBeTruthy();
   });
 
-  test("Assertion=Equals 10 === 10.5 with tolerance of (0.25), expect failure", () => {
+  test("Assertion=Equals 10 === 10.5 with tolerance of (0.25), - expect fail validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());

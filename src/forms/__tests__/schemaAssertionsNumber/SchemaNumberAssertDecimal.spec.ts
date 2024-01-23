@@ -15,7 +15,7 @@ class TestSchema extends FormSchemaBase implements IFormSchema {
 }
 
 describe("Schema number (Decimal)", () => {
-  test("Assertion=Integer, with value 10 expect pass", () => {
+  test("Assertion=Integer, with value 10 - expect pass validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -31,7 +31,7 @@ describe("Schema number (Decimal)", () => {
     expect(form.isValid).toBeTruthy();
   });
 
-  test("Assertion=Integer, with value -10.25 expect pass", () => {
+  test("Assertion=Integer, with value -10.25 - expect pass validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());
@@ -47,7 +47,7 @@ describe("Schema number (Decimal)", () => {
     expect(form.isValid).toBeTruthy();
   });
 
-  test("Assertion=Integer, with value ABC expect fail", () => {
+  test("Assertion=Integer, with value ABC - expect to fail validation", () => {
     // Assign
     //
     let form = new FormInstance(new TestSchema());

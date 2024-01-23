@@ -43,18 +43,22 @@ export default class AssertGroups implements IAssertGroups {
     // reset validation
     field.validation = new FormFieldValidationState(field.schemaField.caption);
 
-    // perform validation
-    this.items.forEach((group) => {
-      group.evaluate(form, field, transactionId!);
+    //
+    // perform validation on each assertion group
+    //
+    this.items.forEach((assertGroup) => {
+      assertGroup.evaluate(form, field, transactionId!);
     });
 
+    //
     // mark that this field have been validated in the forms current state
+    //
     field.validation.transactionId = transactionId;
 
-    // check related fields
     //
-    // console.log(`      related field count:${field.schemaField.relatedFields.count}`);
-
+    // check related fields
+    // for cross validation
+    //
     if (field.schemaField.relatedFields.count > 0) {
       field.schemaField.relatedFields.items.forEach((relatedField) => {
         const relatedFormField = form.getField(relatedField, field.rowId);

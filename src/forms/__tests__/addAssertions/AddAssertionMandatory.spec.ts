@@ -2,7 +2,7 @@ import AssertIsMandatory from "../../assertions/generic/AssertIsMandatory";
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - Mandatory", () => {
-  test("Assertion - mandatory", () => {
+  test("Assertion - mandatory - expect to be correct instance", () => {
     // ACT
     //
     var field = FieldBuilder.string().mandatory().build();

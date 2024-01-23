@@ -40,7 +40,7 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
   }
 
   /****************************/
-  /* Assertions               */
+  /* Assertions - types       */
   /****************************/
 
   decimal(customMessage?: string): FieldBuilderNumber {
@@ -52,6 +52,10 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     this.add(new AssertValueIsInteger(customMessage));
     return this;
   }
+
+  /****************************/
+  /* Assertions - equality    */
+  /****************************/
 
   equal(constant: number, tolerance?: number, customMessage?: string): FieldBuilderNumber {
     this.add(new AssertIsEqualToNumber(constant, tolerance, customMessage));
@@ -97,6 +101,10 @@ export default class FieldBuilderNumber extends FieldBuilderBase<FieldBuilderNum
     this.add(new AssertValueMin(constant, customMessage));
     return this;
   }
+
+  /****************************/
+  /* Assertions - build       */
+  /****************************/
 
   build(): SchemaFieldNumber {
     return SchemaFieldNumber.createWithAssertions(this._id, this._caption, this._assertions);

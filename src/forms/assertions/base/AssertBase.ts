@@ -1,6 +1,6 @@
+import AssertResponse from "../../assert/AssertResponse";
 import EnumValidationStatus from "../../enums/EnumValidationStatus";
 import IAssertResponse from "../../interfaces/assertions/IAssertResponse";
-import AssertResponse from "../../assert/AssertResponse";
 
 export default class AssertBase {
   public readonly customMessage?: string;
@@ -18,6 +18,7 @@ export default class AssertBase {
     if (typeof value === "string" && value.trim().length === 0) {
       return true;
     }
+
     return false;
   }
 

@@ -9,6 +9,7 @@ import IFormSchema from "../interfaces/form/IFormSchema";
 import IAssert from "../interfaces/assertions/IAssert";
 import IAssertGroup from "../interfaces/assertions/IAssertGroup";
 import ISchemaField from "../interfaces/schemaField/ISchemaField";
+import { tr } from "date-fns/locale";
 
 export default class AssertGroup implements IAssertGroup {
   //
@@ -69,12 +70,19 @@ export default class AssertGroup implements IAssertGroup {
   //                         but results are not stored against a filed
   //
   evaluate(form: FormInstance<IFormSchema>, field: FormField, transactionId: string, updateValidationState = true): boolean {
-    if (field.validation.transactionId && updateValidationState === true) {
+    //
+    // if this field has already been validated for this transaction, return
+    //  the validation state directly
+    //
+    if (field.validation.transactionId === transactionId && updateValidationState === true) {
       return field.validation.isValid;
     }
 
     var isValid = true;
 
+    //
+    // if conditional validation, check the conditions before evaluating
+    //
     if (this.conditions.items.length > 0) {
       if (this.conditions.doConditionsPass(form, field.rowId, transactionId) === false) {
         // if conditions do not evaluate, this assertion group
@@ -83,12 +91,16 @@ export default class AssertGroup implements IAssertGroup {
       }
     }
 
+    //
     // trim text before evaluating
+    //
     var text = field.value;
     if (field.schemaField.fieldType === EnumFieldType.string) {
       text = (text as string).trim();
     }
-    // loop though all assertions
+
+    //
+    // loop though all assertions checks
     //
     this.items.forEach((assertion) => {
       var result = assertion.isValid(form, field, text);

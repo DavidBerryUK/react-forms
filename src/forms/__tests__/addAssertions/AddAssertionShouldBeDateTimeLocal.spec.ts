@@ -2,7 +2,7 @@ import AssertValueIsDateTimeLocal from "../../assertions/date/AssertValueIsDateT
 import FieldBuilder from "../../syntaxSugar/fieldBuilders/FieldBuilder";
 
 describe("Field Builder - Add Assertion - shouldBeDateTimeLocal", () => {
-  test("Assertion - shouldBeDateTimeLocal", () => {
+  test("Assertion - shouldBeDateTimeLocal - expect to be correct instance", () => {
     // ACT
     //
     var field = FieldBuilder.date().shouldBeDateTimeLocal().build();
