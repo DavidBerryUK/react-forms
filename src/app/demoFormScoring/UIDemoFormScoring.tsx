@@ -51,9 +51,16 @@ class PersonSchema extends FormSchemaBase implements IFormSchema {
     // Cross Validation
     //
     const { score, notes1, notes2, notes3, notes4 } = this.fields;
-    notes1.when(score.state().equals(1)).mandatory("Notes must be entered when score is 1").minLength(10);
-    notes2.when(score.state().equals(2)).mandatory("Notes must be entered when score is 2").minLength(20);
-    notes3.when(score.state().equals(3)).mandatory("Notes must be entered when score is 3").minLength(30);
-    notes4.when(score.state().equals(4)).mandatory("Notes must be entered when score is 4").minLength(40);
+    notes1.when(score.state().equals(1)).mandatory("Notes mandatory when score is 1");
+    notes1.when(score.state().notEqual(1)).empty("Notes only allowed when score is 1");
+
+    notes2.when(score.state().equals(2)).mandatory("Notes mandatory when score is 2");
+    notes2.when(score.state().notEqual(2)).empty("Notes only allowed when score is 2");
+
+    notes3.when(score.state().equals(3)).mandatory("Notes mandatory when score is 3");
+    notes3.when(score.state().notEqual(3)).empty("Notes only allowed when score is 3");
+
+    notes4.when(score.state().equals(4)).mandatory("Notes mandatory when score is 4");
+    notes4.when(score.state().notEqual(4)).empty("Notes only allowed when score is 4");
   }
 }
