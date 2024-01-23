@@ -10,10 +10,10 @@ export default class AssertIsEqualTo extends AssertBase implements IAssert {
   private readonly constant: string;
   private readonly caseInsensitive: boolean;
 
-  constructor(constant: string, caseInsensitive: boolean, customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
+  constructor(constant: string, caseInsensitive?: boolean, customMessage?: string, defaultValidationStatus?: EnumValidationStatus) {
     super(customMessage, defaultValidationStatus);
     this.constant = constant;
-    this.caseInsensitive = caseInsensitive;
+    this.caseInsensitive = caseInsensitive ?? false;
 
     if (caseInsensitive) {
       this.constant = this.constant.toLocaleLowerCase();

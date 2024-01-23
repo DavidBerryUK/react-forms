@@ -36,12 +36,27 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
     this.add(new AssertIsPopulated(customMessage));
     return this;
   }
+
   /****************************/
   /* Assertions               */
   /****************************/
+  equal(constant: string, caseInsensitive?: boolean, customMessage?: string): FieldBuilderString {
+    this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
+    return this;
+  }
 
-  postCodeUK(customMessage?: string): FieldBuilderString {
-    this.add(new AssertPostCodeUK(customMessage));
+  lengthBetween(minLength: number, maxLength: number, customMessage?: string): FieldBuilderString {
+    this.add(new AssertLengthIsBetween(minLength, maxLength, customMessage));
+    return this;
+  }
+
+  maxLength(maxLength: number, customMessage?: string): FieldBuilderString {
+    this.add(new AssertLengthMax(maxLength, customMessage));
+    return this;
+  }
+
+  minLength(minLength: number, customMessage?: string): FieldBuilderString {
+    this.add(new AssertLengthMin(minLength, customMessage));
     return this;
   }
 
@@ -65,28 +80,13 @@ export default class FieldBuilderString extends FieldBuilderBase<FieldBuilderStr
     return this;
   }
 
-  equal(constant: string, caseInsensitive: boolean, customMessage?: string): FieldBuilderString {
-    this.add(new AssertIsEqualTo(constant, caseInsensitive, customMessage));
-    return this;
-  }
-
-  lengthBetween(minLength: number, maxLength: number, customMessage?: string): FieldBuilderString {
-    this.add(new AssertLengthIsBetween(minLength, maxLength, customMessage));
-    return this;
-  }
-
-  maxLength(maxLength: number, customMessage?: string): FieldBuilderString {
-    this.add(new AssertLengthMax(maxLength, customMessage));
-    return this;
-  }
-
-  minLength(minLength: number, customMessage?: string): FieldBuilderString {
-    this.add(new AssertLengthMin(minLength, customMessage));
-    return this;
-  }
-
   noWhiteSpaces(customMessage?: string): FieldBuilderString {
     this.add(new AssertContainsNoWhiteSpaces(customMessage));
+    return this;
+  }
+
+  postCodeUK(customMessage?: string): FieldBuilderString {
+    this.add(new AssertPostCodeUK(customMessage));
     return this;
   }
 
